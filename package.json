@@ -1,22 +1,27 @@
 {
-  "name": "frost-tabs",
-  "version": "3.0.0",
+  "name": "ember-frost-tabs",
+  "version": "0.0.0",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
   "scripts": {
+    "lint": "eslint *.js addon app config tests",
     "start": "ember server",
     "build": "ember build",
-    "lint": "eslint *.js addon app config tests",
-    "test": "npm run lint && ember test"
+    "test": "npm run-script lint && ember test"
   },
-  "repository": "https://stash.ciena.com/scm/nms_frost/frost-tabs.git",
+  "repository": "git@github.com:ciena-frost/ember-frost-tabs.git",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 5.0.0"
   },
-  "author": "",
+  "author": "Steven Glanzer (https://github.com/sglanzer)",
+  "contributors": [
+  "Roxanne Panthaky (https://github.com/rox163)",
+  "Matthew Dahl (https://github.com/sandersky)",
+  "Gosia Hyndman (https://github.com/vesper2000)"
+  ],
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
@@ -44,7 +49,8 @@
     "loader.js": "^4.0.1"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "frost"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.5",
@@ -56,8 +62,5 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
-  },
-  "publishConfig": {
-    "registry": "https://artifactory.ciena.com/api/npm/icebreaker-npm"
   }
 }

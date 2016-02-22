@@ -8,10 +8,6 @@ export default Ember.Controller.extend({
   actions: {
     tabSelected (tab) {
       this.set('selectedTab', tab)
-    },
-
-    outerTabSelected (tab) {
-      this.set('selectedOuterTab', tab)
     }
   }
 })

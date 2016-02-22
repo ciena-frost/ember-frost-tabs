@@ -25,7 +25,7 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = '/pages/NMS_FROST/frost-tabs/gh-pages/browse'
+    ENV.baseURL = '/ember-frost-tabs'
   }
 
   return ENV
