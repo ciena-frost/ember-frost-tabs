@@ -1,0 +1,10 @@
+<div class="tab-nav">
+  {{#each tabs as |tab|}}
+    {{#frost-button class=(concat 'tab medium tertiary' (if (eq tab.id selection) ' active')) disabled=tab.disabled on-click=(action on-change tab.id)}}
+            <div class="text">
+        {{tab.alias}}
+            </div>
+    {{/frost-button}}
+  {{/each}}
+</div>
+{{yield}}
