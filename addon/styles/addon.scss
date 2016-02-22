@@ -1,0 +1,34 @@
+@import 'node_modules/ember-frost-css-core/scss/frost-core';
+@import 'node_modules/ember-frost-theme/scss/frost-theme';
+
+.frost-tabs {
+  .tab-nav {
+  border-bottom: 1px solid $frost-color-lgrey-1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  .tab {
+    color: $frost-color-grey-5;
+    padding-bottom: 5px;
+  }
+
+  .tab.tertiary:hover {
+    text-shadow: none; // TODO frost-button update
+  }
+
+  .tab:hover:disabled {
+    background-color: inherit; // TODO frost-button update
+  }
+
+  .tab.active {
+    padding-bottom: 0;
+    color: $frost-color-grey-2;
+    border-bottom: 5px solid $frost-color-blue-1;
+  }
+  }
+
+  > .content.hidden {
+  display: none !important;
+  }
+}

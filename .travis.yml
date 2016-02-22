@@ -1,0 +1,48 @@
+language: node_js
+sudo: false
+node_js:
+- '5.3'
+branches:
+  except:
+  - /^v[0-9\.]+/
+before_install:
+- npm install -g coveralls pr-bumper
+- pr-bumper check
+before_script:
+- "export DISPLAY=:99.0"
+- "sh -e /etc/init.d/xvfb start"
+- sleep 3 # give xvfb some time to start
+install:
+- npm install
+- bower install
+after_success:
+- sed -i -- 's/SF:ember-frost-tabs\/\(.*\)/SF:addon\/\1.js/' coverage/lcov.info &&
+  rm -f coverage/lcov.info--
+- cat coverage/lcov.info | coveralls
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+env:
+  matrix:
+  - CXX=g++-4.8
+  global:
+    secure: TdEyWHOImZtiltHiRu1zWSNT65iMNCNqOAvg+Zj08tBNGIfITs0wMtLcmVAYUkKilKEOg8xFWrevBVqLEYZdhgAquEXtkdXnkRKHQz3NpxDIdRxlCvdF/Nrrn+fqrCMhRnKRkj59IrlOsVHR6QmnvwB06l57K/kiRujR+dfHbnwlKRtSrvnFxeri6Q7v3sp1PwxXjwfpBoHzg9dfCyfVq7Ey/MC6AmEphcQzmjV2RPB2rc3IAY5ErRBpPSKC+t7V9ZRjNo6c+Cum0xnmMyY+jiuUS4WrtHddE0MQMxsP+ZE5tHbzvPJoVCrJsDRoPwEae1arsu06SC3cLl3GQllrLNFJFC/K32SZmmL9N2YumDDMJ26jx+xD9aK+JODAL0XNqT4wQLRRjBBzheGEGK+Krjlr9qwg18v5HXbXCFqbIapMJLaGqv24hHYwQQF7CHm8tgsiODgVtK/6a8niWBwIdAdXO2R5nIC3+JiHWn0WC/JlAQUs0lhqVNUyZvvnCjY+7CKvo4lIAks9qF+RSBbZh2nshoenvoX68k/PLE5bsuKWN1vai6a3YVhQCqo4M/JV325RNXuG4AgechUCcDJZD5xTZdiE9gT1Ns9d5BpdNgMb/aNM1AkRKBeXcMBeLK7pwSpB7AVJPs5G4K+IDZ+Sd51JPLWgI7gtLkBiu3ur/fg=
+before_deploy:
+- pr-bumper bump
+deploy:
+  provider: npm
+  email: npm.ciena@gmail.com
+  skip_cleanup: true
+  api_key:
+    secure: plgVeul/iZ3Jvi6x6u2zpZfTEMkFuuRE0eDfg+PXE2BqRuRF6e08R3SJJ6cYZ8xIwBpxTqDlPLMWVquqyItyl16MOhZ/PdBdGXZ2OnbbjKkVCAf9ZTH0hOJl74OkbuDypiOQqEFDxFjeMDnbg2LEUFBrhfOfjMH4dab1so3FVCYXjj8E8r0A3CRkJWGdMq2S8bZYyRFyVz22T+yro4TINacMO/70Fn800YTE7RjD2iuOxGpoIJbNFSx2kfplrnr8qld3u05nPor6AThYFNTjDPlD4IOyQFemnEnZgJoP3zrDlJ001cRH7En13STx6R0ogDkbkAjWxs++9VacM8vltazi833a4USjSGQyvagFrX/TPWxbgDG62zWHgiLpnDhNhywCPnL4d23bVgtJhVlmyMWganROA1N/EItFVPyZhXnCEfj9RffuNXbew56TJ3OjFwkquPUkOIaRCCd28N5IYa+dVi3R6lWAzTvVRPPg3simdrTWbAlhZHws65DLNfSRavPOX3rdziV3NxRFVhVmaCvdhMFDACFdiawkzxFhJkN4HnBhh4EDta+nMG3NJt5pAF6iTvGFKnwc/u0eTwbNseKuBNMM91xBnJC9shOLfRe1Oz9qTf+1sCajOkrpUjCFKX0HPDJfEvLp6P0M6JD3x6F8+vv00Fl5PbsZ7QLMaRI=
+  on:
+    branch: master
+    tags: false
+after_deploy:
+- .travis/publish-gh-pages.sh
+notifications:
+  slack:
+    secure: UrJ8E/jFGnmlO5i49FVI67T/NZlZ62h6PCM4lkJ63aonHjBwmGYRN5NY87RdJXWi3tzDoLIjzfpa5F6iY5WcgP8fjX9MjkzH0IzWCbRlBemMdjwcpkMy2JI6l4f0JRogQMsdI5on9AfaS3lhjLUTad0TyyrWno2qLy9BqmIB//PCLGBeAhgTaX3y2AVINoXOUS0fmKgyZ92AqLbFEMZ06YQ49h7bqkb2I/AcYgwe9zcIyO7Jz3Xl29IfzCzFubUc17YSzDoRq7TTUH9dilALFYS48pLz4Gr1DnmU6LI7wRb3pnhnBhXtrBWMfLpK8sDlGK/KJcZn+3cCGKmBDpnGQNM2JozFfWcij8f0aN2ja1YI8TMA7sMlDoJn7Y02bFfSebNHJ5HaYbaty41Od3EYN6JOFl/M7pOmdRZvABwo7CkFVwmfHx/0HTvZ/7NzCmV9XHCamQ1m7ehUnuFffYbyq7qKbVlrvXPCaGFuDZ+sP+TLjzcY9rMFDQGgtdSUjBBNYbp4Xpzl9iI7bZuGOhC6U0cBnGZwyKH25GbcooKhTGHp8ZIjR6iEFKsZi7MoeckfOQ0/z4VfXxkTV+808rDZSef3Q20mO6m1OZMfVaEWwGM5mr9YE5dmPd9ncCjvZ/yy5CBcqoSW1hYfs3pUL5L0zw8mjr46PupasJYSqzyhOFM=
