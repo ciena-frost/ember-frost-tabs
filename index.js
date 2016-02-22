@@ -3,7 +3,7 @@
 'use strict'
 
 module.exports = {
-  name: 'frost-tabs',
+  name: 'ember-frost-tabs',
 
   included: function (app) {
     this._super.included(app)

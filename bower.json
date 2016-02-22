@@ -1,5 +1,5 @@
 {
-  "name": "frost-tabs",
+  "name": "ember-frost-tabs",
   "dependencies": {
     "ember": "2.3.1",
     "ember-cli-shims": "^0.1.0",

@@ -1,6 +1,6 @@
 import Ember from 'ember'
 import layout from './template'
-import FrostTabs from 'frost-tabs/pods/components/frost-tabs/component'
+import FrostTabs from 'ember-frost-tabs/pods/components/frost-tabs/component'
 
 export default Ember.Component.extend({
   layout: layout,
