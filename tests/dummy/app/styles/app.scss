@@ -1,4 +1,5 @@
-.dummy-notification-container {
+.ember-frost-demo {
+  .dummy-notification-container {
     position: fixed;
     top: 60px;
     right: 10px;
@@ -6,9 +7,8 @@
     width: 80%;
     max-width: 400px;
     margin: auto;
-}
-
-pre {
+  }
+  pre {
     font-family: "Courier 10 Pitch", Courier, monospace;
     font-size: 80%;
     line-height: 140%;
@@ -16,9 +16,8 @@ pre {
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
     white-space: -o-pre-wrap;
-}
-
-code {
+  }
+  code {
     font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
     font-size: 80%;
     line-height: 140%;
@@ -27,16 +26,15 @@ code {
     white-space: -moz-pre-wrap;
     white-space: -o-pre-wrap;
     background: #faf8f0;
-}
-
-#content code {
+  }
+  #content code {
     display: block;
     padding: 0.5em 1em;
     border: 1px solid #bebab0;
-}
-
-.frost-tabs.iframe {
-  .navigation {
-    display: none;
+  }
+  .frost-tabs.iframe {
+    .navigation {
+      display: none;
+    }
   }
 }
