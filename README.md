@@ -82,4 +82,4 @@ visit the app at http://localhost:4200.
 
 ### Testing
 Run `npm test` from the root of the project to run linting checks as well as execute the test suite
-and output code coverage.
+and output code coverage. 
