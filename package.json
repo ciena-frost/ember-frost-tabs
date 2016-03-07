@@ -1,4 +1,4 @@
-{
+v{
   "name": "ember-frost-tabs",
   "version": "0.2.3",
   "description": "The default blueprint for ember-cli addons.",
@@ -46,7 +46,7 @@
     "ember-resolver": "^2.0.3",
     "ember-truth-helpers": "^1.2.0",
     "ember-try": "^0.2.0",
-    "eslint": "^2.1.0",
+    "eslint": "2.2.0",
     "eslint-config-frost-standard": "^1.0.0",
     "loader.js": "^4.0.1"
   },
