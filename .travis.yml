@@ -32,7 +32,7 @@ matrix:
   - env: EMBER_TRY_SCENARIO=ember-canary
 before_install:
 - npm config set spin false
-- npm install -g coveralls pr-bumper
+- npm install -g bower coveralls pr-bumper
 - pr-bumper check
 before_script:
 - "export DISPLAY=:99.0"
