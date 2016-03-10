@@ -1,6 +1,6 @@
 {
   "name": "ember-frost-tabs",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "The default blueprint for ember-cli addons.",
   "frostGuideDirectory": "ui-components/content-views/tabs",
   "directories": {
@@ -8,7 +8,7 @@
     "test": "tests"
   },
   "scripts": {
-    "lint": "eslint *.js addon app config tests",
+    "lint": "eslint *.js addon app blueprints config tests",
     "start": "ember server",
     "build": "ember build",
     "test": "npm run-script lint && ember test"
@@ -42,6 +42,9 @@
     "ember-data": "^2.3.3",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.5",
+    "ember-frost-button": "^1.4.0",
+    "ember-frost-css-core": "^1.1.2",
+    "ember-frost-theme": "^1.3.0",
     "ember-load-initializers": "^0.5.1",
     "ember-lodash": "^0.0.6",
     "ember-resolver": "^2.0.3",
@@ -58,10 +61,7 @@
   "dependencies": {
     "ember-cli-babel": "^5.1.5",
     "ember-cli-htmlbars": "^1.0.1",
-    "ember-cli-sass": "^5.1.0",
-    "ember-frost-button": "^1.0.0",
-    "ember-frost-css-core": "^1.0.0",
-    "ember-frost-theme": "^1.0.0"
+    "ember-cli-sass": "^5.1.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
