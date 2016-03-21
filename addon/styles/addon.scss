@@ -26,6 +26,16 @@
     color: $frost-color-grey-2;
     border-bottom: 5px solid $frost-color-blue-1;
   }
+  
+  .tab.frost-button.tertiary:focus {
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+  }
+
+  .tab.frost-button:focus {
+    box-shadow: none;
+  }
   }
 
   > .content.hidden {
