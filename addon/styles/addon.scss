@@ -1,34 +1,27 @@
 @import 'node_modules/ember-frost-theme/scss/frost-theme';
-
 .frost-tabs {
+
   .tab-nav {
-  border-bottom: 1px solid $frost-color-lgrey-1;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 
-  .tab {
-    color: $frost-color-grey-5;
-    padding-bottom: 5px;
-    background-color: transparent;
-  }
+    .tab {
+      padding-bottom: 2px;
+      border-bottom: 5px solid transparent;
+      cursor: default;
+    }
 
-  .tab.tertiary:hover {
-    text-shadow: none; // TODO frost-button update
-  }
+    .tab.active {
+      border-bottom: 5px solid $frost-color-blue-1;
 
-  .tab:hover:disabled {
-    background-color: inherit; // TODO frost-button update
-  }
-
-  .tab.active {
-    padding-bottom: 0;
-    color: $frost-color-grey-2;
-    border-bottom: 5px solid $frost-color-blue-1;
-  }
+      > .text {
+        color: $frost-color-grey-2;
+      }
+    }
   }
 
   > .content.hidden {
-  display: none !important;
+    display: none !important;
   }
 }

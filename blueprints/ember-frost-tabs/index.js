@@ -12,7 +12,7 @@ module.exports = {
     return this.addAddonsToProject({
       packages: [
         {name: 'ember-frost-theme', target: '^1.3.0'},
-        {name: 'ember-frost-button', target: '^1.4.0'}
+        {name: 'ember-frost-button', target: '^2.0.0'}
       ]
     })
   }
