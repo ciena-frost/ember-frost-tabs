@@ -19,7 +19,7 @@ describeComponent(
         this.set('selectedTab', tab)
       })
       this.render(hbs`
-        {{#frost-tabs on-change=(action 'tabSelected') selection=selectedTab}}
+        {{#frost-tabs onChange=(action 'tabSelected') selection=selectedTab}}
           {{#frost-tab alias='Template' id='template'}}
             <div id='content'>
               Template
@@ -46,7 +46,7 @@ describeComponent(
         this.set('selectedTab', tab)
       })
       this.render(hbs`
-        {{#frost-tabs on-change=(action 'tabSelected') selection=selectedTab}}
+        {{#frost-tabs onChange=(action 'tabSelected') selection=selectedTab}}
           {{#frost-tab alias='Template' id='template'}}
             <div id='content'>
               Template
@@ -73,7 +73,7 @@ describeComponent(
         this.set('selectedTab', tab)
       })
       this.render(hbs`
-        {{#frost-tabs on-change=(action 'tabSelected') selection=selectedTab}}
+        {{#frost-tabs onChange=(action 'tabSelected') selection=selectedTab}}
           {{#frost-tab alias='Template' id='template'}}
             <div id='content'>
               Template
