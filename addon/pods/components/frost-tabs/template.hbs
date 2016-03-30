@@ -1,6 +1,6 @@
 <div class="tab-nav">
   {{#each tabs as |tab|}}
-    {{frost-button class=(concat 'tab' (if (eq tab.id selection) ' active')) design='tab' disabled=tab.disabled onClick=(action on-change tab.id) text=tab.alias}}
+    {{frost-button class=(concat 'tab' (if (eq tab.id selection) ' active')) design='tab' disabled=tab.disabled onClick=(action onChange tab.id) text=tab.alias}}
   {{/each}}
 </div>
 {{yield}}
