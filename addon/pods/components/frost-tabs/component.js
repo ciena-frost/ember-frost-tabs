@@ -7,7 +7,8 @@ export default Ember.Component.extend({
 
   tabs: [],
 
-  didInitAttrs () {
+  init () {
+    this._super(...arguments)
     this.set('tabs', [])
   },
 
