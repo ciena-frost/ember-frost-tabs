@@ -9,7 +9,8 @@
     "Faker": "^3.0.1",
     "jquery": "2.1.4",
     "lodash": "^3.10.1",
-    "pretender": "^0.10.1"
+    "pretender": "^0.10.1",
+    "perfect-scrollbar": ">=0.6.7 <2.0.0"
   },
   "resolutions": {
     "ember": "2.4.1"
