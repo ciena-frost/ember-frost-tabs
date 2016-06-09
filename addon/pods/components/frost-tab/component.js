@@ -9,7 +9,8 @@ export default Ember.Component.extend({
 
   frostTabs: null,
 
-  didInitAttrs () {
+  init () {
+    this._super(...arguments)
     this.set('frostTabs', this.nearestOfType(FrostTabs))
     this.get('frostTabs').register(this)
   },
