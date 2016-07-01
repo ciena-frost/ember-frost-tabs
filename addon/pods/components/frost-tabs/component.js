@@ -9,7 +9,7 @@ export default Ember.Component.extend({
 
   init () {
     this._super(...arguments)
-    this.set('tabs', [])
+    this.set('tabs', Ember.A([]))
   },
 
   register (frostTab) {
