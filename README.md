@@ -24,6 +24,21 @@ See the demo application for usage information.
 
 * `ember install ember-frost-tabs`
 
+## Component APIs
+
+### Frost-tabs
+| Attribute   | Type       | Required | Description                    |
+| ----------- | ---------- | -------- | ----------------------------------------------------- |
+| `onChange`  | `Function` | Yes      | Function called when tab is changed with the tab's ID |
+| `selection` | `String`   | No       | The selected tab                                      |
+
+### Frost-tab
+| Attribute       | Type     | Required | Description                                         |
+| --------------- | -------- | -------- | --------------------------------------------------- |
+| `id`            | `String` | Yes      | The tab's ID (should be unique from other tabs)     |
+| `alias`         | `String` | Yes      | Label for the tab                                   |
+| `tabClassNames` | `String` | No       | CSS class string to apply to the tab's content area |
+
 ## Example
 ### Template
 ```handlebars
@@ -82,4 +97,4 @@ visit the app at http://localhost:4200.
 
 ### Testing
 Run `npm test` from the root of the project to run linting checks as well as execute the test suite
-and output code coverage. 
+and output code coverage.
