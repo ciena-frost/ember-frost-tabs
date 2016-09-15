@@ -1,10 +1,10 @@
 <div class='ember-frost-demo'>
 {{#frost-tabs onChange=(action 'demoTabSelected') selection=demoTabSelected}}
-  {{#frost-tab alias='Template' id='template'}}
+  {{#frost-tab alias='Template' id='template' tabClassNames='some-tab-class'}}
       <div id='content'>
   <pre><code>
     \{{#frost-tabs frostTabs=tabs}}
-    \{{#frost-tab alias='Template' id='template'}}
+    \{{#frost-tab alias='Template' id='template' tabClassNames='some-tab-class'}}
       ...
     \{{/frost-tab}}
     \{{#frost-tab alias='Controller' id='controller'}}

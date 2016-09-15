@@ -5,7 +5,7 @@ import FrostTabs from 'ember-frost-tabs/pods/components/frost-tabs/component'
 export default Ember.Component.extend({
   layout: layout,
   classNames: ['content'],
-  classNameBindings: ['isSelected::hidden'],
+  classNameBindings: ['isSelected::hidden', 'tabClassNames'],
 
   frostTabs: null,
 
