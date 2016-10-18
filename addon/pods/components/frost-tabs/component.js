@@ -1,24 +1,26 @@
 import Ember from 'ember'
 import layout from './template'
+import { PropTypes } from 'ember-prop-types'
 
 export default Ember.Component.extend({
+  // == Component properties ==================================================
+
   layout: layout,
   classNames: ['frost-tabs'],
 
-  tabs: [],
+  // == State properties ======================================================
 
-  init () {
-    this._super(...arguments)
-    this.set('tabs', Ember.A([]))
+  propTypes: {
+    tabs: PropTypes.array.isRequired,
+    selectedTab: PropTypes.string,
+    targetOutlet: PropTypes.string,
+    onChange: PropTypes.func,
+    hook: PropTypes.string
   },
 
-  register (frostTab) {
-    Ember.run.schedule('render', () => {
-      this.get('tabs').addObject({
-        alias: frostTab.get('alias'),
-        disabled: frostTab.get('disabled'),
-        id: frostTab.get('id')
-      })
-    })
+  getDefaultProps () {
+    return {
+      targetOutlet: 'tab-content'
+    }
   }
 })

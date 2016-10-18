@@ -1,21 +1,55 @@
 import Ember from 'ember'
 import layout from './template'
-import FrostTabs from 'ember-frost-tabs/pods/components/frost-tabs/component'
+// import FrostTabs from 'ember-frost-tabs/pods/components/frost-tabs/component'
+import { PropTypes } from 'ember-prop-types'
 
-export default Ember.Component.extend({
+const {
+  Component
+} = Ember
+
+export default Component.extend({
+  // == Component properties ==================================================
+
   layout: layout,
-  classNames: ['content'],
-  classNameBindings: ['isSelected::hidden', 'tabClassNames'],
+  classNames: ['frost-tab'],
+  classNameBindings: ['tabClassNames'],
 
-  frostTabs: null,
+  // == State properties ======================================================
 
-  init () {
-    this._super(...arguments)
-    this.set('frostTabs', this.nearestOfType(FrostTabs))
-    this.get('frostTabs').register(this)
+  propTypes: {
+    id: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    content: PropTypes.oneOfType([
+      PropTypes.EmberObject,
+      PropTypes.object
+    ]).isRequired,
+    disabled: PropTypes.bool,
+    // Set by the parent component
+    hook: PropTypes.string,
+    targetOutlet: PropTypes.string.isRequired,
+    selectedTab: PropTypes.string,
+    onChange: PropTypes.func
   },
 
-  isSelected: Ember.computed('frostTabs.selection', function () {
-    return this.get('id') === this.get('frostTabs.selection')
-  })
+  getDefaultProps () {
+    return {
+      disabled: false
+    }
+  },
+
+  // == Computed properties ===================================================
+
+  isSelected: Ember.computed('id', 'selectedTab', function () {
+    return this.id === this.selectedTab
+  }),
+
+  // == Actions ===============================================================
+
+  actions: {
+    change () {
+      if (this.onChange) {
+        this.onChange(this.id)
+      }
+    }
+  }
 })

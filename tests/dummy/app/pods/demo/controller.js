@@ -1,13 +1,10 @@
 import Ember from 'ember'
 
 export default Ember.Controller.extend({
-  queryParams: ['selectedTab'],
-
-  selectedTab: 'controller',
-
+  selectedTab: 'route',
   actions: {
-    demoTabSelected (tab) {
-      this.set('demoTabSelected', tab)
+    onChange (tabId) {
+      this.set('selectedTab', tabId)
     }
   }
 })

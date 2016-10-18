@@ -1,105 +1,25 @@
 <div class='ember-frost-demo'>
-  {{#frost-tabs onChange=(action 'demoTabSelected') selection=demoTabSelected}}
-    {{#frost-tab alias='Template' id='template' tabClassNames='some-tab-class'}}
-      <div class='content'>
-        <pre>
-          <code>
-            \{{#frost-tabs frostTabs=tabs}}
-            \{{#frost-tab alias='Template' id='template' tabClassNames='some-tab-class'}}
-              ...
-            \{{/frost-tab}}
-            \{{#frost-tab alias='Controller' id='controller'}}
-              ...
-            \{{/frost-tab}}
-            \{{#frost-tab id='css' alias='CSS' disabled=true}}
-              ...
-            \{{/frost-tab}}
-            \{{/frost-tab}}
-          </code>
-        </pre>
-      </div>
-    {{/frost-tab}}
-    {{#frost-tab alias='Controller' id='controller'}}
-      <div class='content'>
-        <pre>
-          <code>
-            import Ember from 'ember'
-
-            export default Ember.Controller.extend({
-              queryParams: ['selectedTab'],
-
-              selectedTab: 'controller',
-
-              actions: {
-                tabSelected (tab) {
-                  this.set('selectedTab', tab)
-                }
-              }
-            })
-          </code>
-        </pre>
-      </div>
-    {{/frost-tab}}
-    {{#frost-tab alias='Route' id='route'}}
-      <div class='content'>
-        <pre>
-          <code>
-            import Ember from 'ember'
-
-            export default Ember.Route.extend({
-              queryParams: {
-                selectedTab: {
-                  as: 'tab'
-                }
-              }
-            })
-          </code>
-        </pre>
-      </div>
-    {{/frost-tab}}
-    {{#frost-tab alias='CSS' disabled=true id='css'}}
-      <div class='content'>
-        <pre>
-          <code>
-            .dummy-notification-container {
-              position: fixed;
-              top: 60px;
-              right: 10px;
-              z-index: 999;
-              width: 80%;
-              max-width: 400px;
-              margin: auto;
-            }
-
-            pre {
-              font-family: "Courier 10 Pitch", Courier, monospace;
-              font-size: 80%;
-              line-height: 140%;
-              white-space: pre;
-              white-space: pre-wrap;
-              white-space: -moz-pre-wrap;
-              white-space: -o-pre-wrap;
-            }
-
-            code {
-              font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-              font-size: 80%;
-              line-height: 140%;
-              white-space: pre;
-              white-space: pre-wrap;
-              white-space: -moz-pre-wrap;
-              white-space: -o-pre-wrap;
-              background: #faf8f0;
-            }
-
-            #content code {
-              display: block;
-              padding: 0.5em 1em;
-              border: 1px solid #bebab0;
-            }
-          </code>
-        </pre>
-      </div>
-    {{/frost-tab}}
-  {{/frost-tabs}}
+  {{frost-tabs
+    selectedTab=selectedTab
+    onChange=(action 'onChange')
+    tabs=(array
+      (component 'frost-tab'
+        id='template'
+        text='Template'
+        content=(component 'tab-content' text='template'))
+      (component 'frost-tab'
+        id='controller'
+        text='Controller'
+        content=(component 'tab-content' text='controller'))
+      (component 'frost-tab'
+        id='route'
+        text='Route'
+        content=(component 'tab-content' text='route'))
+      (component 'frost-tab'
+        id='css'
+        text='CSS'
+        disabled=true
+        content=(component 'tab-content' text='CSS'))
+    )
+  }}
 </div>
