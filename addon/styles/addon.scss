@@ -1,6 +1,6 @@
 @import 'node_modules/ember-frost-core/addon/styles/frost-theme';
-.frost-tabs {
 
+.frost-tabs {
   .tab-nav {
     display: flex;
     flex-direction: row;
@@ -10,18 +10,20 @@
       padding-bottom: 2px;
       border-bottom: 5px solid transparent;
       cursor: default;
-    }
 
-    .tab.active {
-      border-bottom: 5px solid $frost-color-blue-1;
+      &.active {
+        border-bottom: 5px solid $frost-color-blue-1;
 
-      > .text {
-        color: $frost-color-grey-2;
+        .text {
+          color: $frost-color-grey-2;
+        }
       }
     }
   }
 
-  > .content.hidden {
-    display: none !important;
+  > .content {
+    &.hidden {
+      display: none;
+    }
   }
 }

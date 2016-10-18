@@ -1,97 +1,105 @@
 <div class='ember-frost-demo'>
-{{#frost-tabs onChange=(action 'demoTabSelected') selection=demoTabSelected}}
-  {{#frost-tab alias='Template' id='template' tabClassNames='some-tab-class'}}
-      <div id='content'>
-  <pre><code>
-    \{{#frost-tabs frostTabs=tabs}}
-    \{{#frost-tab alias='Template' id='template' tabClassNames='some-tab-class'}}
-      ...
-    \{{/frost-tab}}
-    \{{#frost-tab alias='Controller' id='controller'}}
-      ...
-    \{{/frost-tab}}
-    \{{#frost-tab id='css' alias='CSS' disabled=true}}
-      ...
-    \{{/frost-tab}}
-    \{{/frost-tabs}}
-  </code></pre>
+  {{#frost-tabs onChange=(action 'demoTabSelected') selection=demoTabSelected}}
+    {{#frost-tab alias='Template' id='template' tabClassNames='some-tab-class'}}
+      <div class='content'>
+        <pre>
+          <code>
+            \{{#frost-tabs frostTabs=tabs}}
+            \{{#frost-tab alias='Template' id='template' tabClassNames='some-tab-class'}}
+              ...
+            \{{/frost-tab}}
+            \{{#frost-tab alias='Controller' id='controller'}}
+              ...
+            \{{/frost-tab}}
+            \{{#frost-tab id='css' alias='CSS' disabled=true}}
+              ...
+            \{{/frost-tab}}
+            \{{/frost-tab}}
+          </code>
+        </pre>
       </div>
-  {{/frost-tab}}
-  {{#frost-tab alias='Controller' id='controller'}}
-      <div id='content'>
-<pre><code>
-import Ember from 'ember'
+    {{/frost-tab}}
+    {{#frost-tab alias='Controller' id='controller'}}
+      <div class='content'>
+        <pre>
+          <code>
+            import Ember from 'ember'
 
-export default Ember.Controller.extend({
-  queryParams: ['selectedTab'],
+            export default Ember.Controller.extend({
+              queryParams: ['selectedTab'],
 
-  selectedTab: 'controller',
+              selectedTab: 'controller',
 
-  actions: {
-    tabSelected (tab) {
-      this.set('selectedTab', tab)
-    }
-  }
-})
-</code></pre>
+              actions: {
+                tabSelected (tab) {
+                  this.set('selectedTab', tab)
+                }
+              }
+            })
+          </code>
+        </pre>
       </div>
-  {{/frost-tab}}
-  {{#frost-tab alias='Route' id='route'}}
-          <div id='content'>
-<pre><code>
-import Ember from 'ember'
+    {{/frost-tab}}
+    {{#frost-tab alias='Route' id='route'}}
+      <div class='content'>
+        <pre>
+          <code>
+            import Ember from 'ember'
 
-export default Ember.Route.extend({
-  queryParams: {
-    selectedTab: {
-      as: 'tab'
-    }
-  }
-})
-</code></pre>
+            export default Ember.Route.extend({
+              queryParams: {
+                selectedTab: {
+                  as: 'tab'
+                }
+              }
+            })
+          </code>
+        </pre>
       </div>
-  {{/frost-tab}}
-  {{#frost-tab alias='CSS' disabled=true id='css'}}
-      <div id='content'>
-<pre><code>
-    .dummy-notification-container {
-      position: fixed;
-      top: 60px;
-      right: 10px;
-      z-index: 999;
-      width: 80%;
-      max-width: 400px;
-      margin: auto;
-    }
+    {{/frost-tab}}
+    {{#frost-tab alias='CSS' disabled=true id='css'}}
+      <div class='content'>
+        <pre>
+          <code>
+            .dummy-notification-container {
+              position: fixed;
+              top: 60px;
+              right: 10px;
+              z-index: 999;
+              width: 80%;
+              max-width: 400px;
+              margin: auto;
+            }
 
-    pre {
-      font-family: "Courier 10 Pitch", Courier, monospace;
-      font-size: 80%;
-      line-height: 140%;
-      white-space: pre;
-      white-space: pre-wrap;
-      white-space: -moz-pre-wrap;
-      white-space: -o-pre-wrap;
-    }
+            pre {
+              font-family: "Courier 10 Pitch", Courier, monospace;
+              font-size: 80%;
+              line-height: 140%;
+              white-space: pre;
+              white-space: pre-wrap;
+              white-space: -moz-pre-wrap;
+              white-space: -o-pre-wrap;
+            }
 
-    code {
-      font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-      font-size: 80%;
-      line-height: 140%;
-      white-space: pre;
-      white-space: pre-wrap;
-      white-space: -moz-pre-wrap;
-      white-space: -o-pre-wrap;
-      background: #faf8f0;
-    }
+            code {
+              font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+              font-size: 80%;
+              line-height: 140%;
+              white-space: pre;
+              white-space: pre-wrap;
+              white-space: -moz-pre-wrap;
+              white-space: -o-pre-wrap;
+              background: #faf8f0;
+            }
 
-    #content code {
-      display: block;
-      padding: 0.5em 1em;
-      border: 1px solid #bebab0;
-    }
-</code></pre>
+            #content code {
+              display: block;
+              padding: 0.5em 1em;
+              border: 1px solid #bebab0;
+            }
+          </code>
+        </pre>
       </div>
-  {{/frost-tab}}
-{{/frost-tabs}}
+    {{/frost-tab}}
+  {{/frost-tabs}}
 </div>

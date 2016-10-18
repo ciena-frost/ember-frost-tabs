@@ -14,3 +14,4 @@ ember-cli-build.js
 Brocfile.js
 testem.json
 .idea
+/visual-acceptance
