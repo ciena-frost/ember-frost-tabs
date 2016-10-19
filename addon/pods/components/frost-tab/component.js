@@ -53,6 +53,3 @@ export default Component.extend({
     }
   }
 })
-
-// try to see how I can use this addon in object details
-// improve demo
