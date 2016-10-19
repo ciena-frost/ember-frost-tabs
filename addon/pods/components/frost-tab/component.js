@@ -53,3 +53,7 @@ export default Component.extend({
     }
   }
 })
+
+// add visual acceptance tests
+// try to see how I can use this addon in object details
+// improve demo
