@@ -1,5 +1,6 @@
 import Ember from 'ember'
 
+// BEGIN-SNIPPET selected-tab-controller
 export default Ember.Controller.extend({
   selectedTab: 'route',
   actions: {
@@ -8,3 +9,4 @@ export default Ember.Controller.extend({
     }
   }
 })
+// END-SNIPPET

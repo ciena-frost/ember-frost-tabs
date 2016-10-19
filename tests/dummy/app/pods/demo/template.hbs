@@ -1,25 +1,27 @@
-<div class='ember-frost-demo'>
-  {{frost-tabs
-    selectedTab=selectedTab
-    onChange=(action 'onChange')
-    tabs=(array
-      (component 'frost-tab'
-        id='template'
-        text='Template'
-        content=(component 'tab-content' text='template'))
-      (component 'frost-tab'
-        id='controller'
-        text='Controller'
-        content=(component 'tab-content' text='controller'))
-      (component 'frost-tab'
-        id='route'
-        text='Route'
-        content=(component 'tab-content' text='route'))
-      (component 'frost-tab'
-        id='css'
-        text='CSS'
-        disabled=true
-        content=(component 'tab-content' text='CSS'))
-    )
-  }}
+<div class='addon-demo'>
+  <div class='addon-demos'>
+    <div class='addon-demo-title'>
+      Demos
+    </div>
+    {{#frost-scroll class='addon-demo-selectors'}}
+      {{#link-to 'demo.overview'}}Overview{{/link-to}}
+      <div class='addon-demo-selector-title'>
+        Building blocks
+        {{#link-to 'demo.content'}}Content{{/link-to}}
+        {{#link-to 'demo.selected-tab'}}Selected tab{{/link-to}}
+        {{#link-to 'demo.disable-tab'}}Disable tab{{/link-to}}
+      </div>
+      <div class='addon-demo-selector-title'>
+        Tabs components
+        {{#link-to 'demo.tab'}}Tab{{/link-to}}
+      </div>
+      <div class='addon-demo-selector-title'>
+        Tests
+        {{#link-to 'demo.hook'}}Hook{{/link-to}}
+      </div>
+    {{/frost-scroll}}
+  </div>
+  {{#frost-scroll class='addon-demo-example'}}
+    {{outlet}}
+  {{/frost-scroll}}
 </div>

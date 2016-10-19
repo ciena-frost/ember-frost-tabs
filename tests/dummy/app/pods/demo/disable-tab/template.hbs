@@ -1,0 +1,54 @@
+{{!-- BEGIN-SNIPPET disable-tab-api }}
+{{frost-tabs
+  ...
+  tabs=(array
+    (component 'frost-tab'
+      id='<tab id>'
+      text='<tab text>'
+      disable='<true/false>'
+      content=(component '<name of the content component>' ...))
+  )
+}}
+{{ END-SNIPPET --}}
+
+<div class='addon-demo-api'>
+  <div class='addon-demo-title'>
+    Notes
+  </div>
+  <div class='addon-demo-notes'>
+    <p>
+      <p>
+        It's possible to disable a tab by setting the <i>disable</i> attribute to <i>true</i> on the <i>frost-tab</i>
+      </p>
+    </p>
+  </div>
+  <div class='addon-demo-title'>
+    API
+  </div>
+  <div class='addon-demo-snippet'>
+    {{code-snippet name='disable-tab-api.hbs'}}
+  </div>
+</div>
+<div class='addon-demo-live'>
+  <div class='addon-demo-title'>
+    Live demo
+  </div>
+  <div class='addon-demo-snippet'>
+    {{code-snippet name='content-disable-tab.hbs'}}
+  </div>
+  <div class='addon-demo-component'>
+    {{! BEGIN-SNIPPET content-disable-tab }}
+    {{frost-tabs
+      selectedTab=selectedTab
+      onChange=(action 'onChange')
+      tabs=(array
+        (component 'frost-tab'
+          id='css'
+          text='CSS'
+          disabled=true
+          content=(component 'tab-content' text='CSS'))
+      )
+    }}
+    {{! END-SNIPPET }}
+  </div>
+</div>

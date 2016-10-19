@@ -1,0 +1,144 @@
+$addon-demos-shadow-color: rgba(0, 0, 0, .13);
+$addon-demos-component-bg-color: #f8f8f8;
+
+.addon-demo {
+  display: flex;
+  flex-direction: row;
+}
+
+.addon-demos {
+  height: 100vh;
+  padding: 0 20px;
+  box-shadow: 0 0 5px 3px $addon-demos-shadow-color;
+}
+
+.addon-demo-selectors {
+  min-width: 100px;
+  height: calc(100vh - 61px);
+  margin: 10px 0 10px 10px;
+  padding-right: 20px;
+  font-size: $frost-font-s;
+
+  a {
+    display: block;
+    transition: color .3s;
+    color: $frost-color-grey-2;
+    font-style: normal;
+    text-decoration: initial;
+    cursor: pointer;
+
+    &:hover {
+      color: $frost-color-blue-3;
+    }
+
+    &.active {
+      color: $frost-color-blue-1;
+    }
+
+    + a {
+      padding-top: 10px;
+    }
+  }
+}
+
+.addon-demo-selector-title {
+  padding-top: 10px;
+  font-style: italic;
+
+  + a {
+    padding-top: 10px;
+  }
+
+  > a,
+  > .addon-demo-selector-title {
+    padding: 10px 0 0 10px;
+  }
+}
+
+.addon-demo-example {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  height: 100vh;
+  margin-left: 20px;
+}
+
+.addon-demo-title {
+  margin-top: 20px;
+  color: $frost-color-grey-2;
+  font-size: $frost-font-m;
+  font-weight: bold;
+}
+
+.addon-demo-api,
+.addon-demo-live {
+  flex: 1;
+  margin-right: 20px;
+
+  .frost-tabs {
+    margin-top: 15px;
+  }
+}
+
+.addon-demo-snippet {
+  margin: 0 20px;
+  font-size: $frost-font-s;
+
+  > pre {
+    padding: 20px;
+  }
+}
+
+.addon-demo-notes {
+  margin: 0 20px 0 10px;
+  font-size: $frost-font-s;
+}
+
+.addon-demo-overview-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 40px;
+  padding-top: 60px;
+  border-top: 1px solid $frost-color-lgrey-2;
+}
+
+.addon-demo-component {
+  display: block;
+  height: 250px;
+  margin: 20px;
+  padding: 10px;
+  background: $addon-demos-component-bg-color;
+  overflow-x: auto;
+}
+
+.addon-demo-hooks {
+  .table {
+    display: flex;
+    flex-direction: row;
+
+    .row {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      font-weight: bold;
+    }
+
+    > div {
+      width: 50%;
+    }
+  }
+
+  > .title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.sep {
+  border-top: 1px solid $frost-color-lgrey-2;
+  border-bottom: 0;
+}
+

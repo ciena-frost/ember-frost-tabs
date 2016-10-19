@@ -40,7 +40,7 @@ export default Component.extend({
   // == Computed properties ===================================================
 
   isSelected: Ember.computed('id', 'selectedTab', function () {
-    return this.id === this.selectedTab
+    return this.id === this.selectedTab && !this.disabled
   }),
 
   // == Actions ===============================================================
@@ -54,6 +54,5 @@ export default Component.extend({
   }
 })
 
-// add visual acceptance tests
 // try to see how I can use this addon in object details
 // improve demo

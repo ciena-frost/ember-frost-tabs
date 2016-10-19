@@ -1,0 +1,66 @@
+{{!-- BEGIN-SNIPPET frost-tab-api }}
+{{frost-tab
+  id=<tab id>
+  text=<tab text>
+  selectedTab='<selected tab id>'
+  content= (component '<name of the content component>' ...)
+  targetOutlet=<target outlet name>
+  hook=<hook name>
+  disabled=<true/false>
+}}
+{{ END-SNIPPET --}}
+
+<div class='addon-demo-api'>
+  <div class='addon-demo-title'>
+    Notes
+  </div>
+  <div class='addon-demo-notes'>
+    <p>
+      A tab component.
+    </p>
+    <p>
+      The <i>content</i> attribute represent the content of the tab once it's selected. We are using
+      <i>ember-elsewhere</i> to insert the content of the tab at a specific location in the page.
+      You can specify the location of the insertion of the content by setting the <i>targetOutlet</i>
+      with the name of your <i>from-elsewhere</i> selection.
+    </p>
+  </div>
+  <div class='addon-demo-title'>
+    API
+  </div>
+  <div class='addon-demo-snippet'>
+    {{code-snippet name='frost-tab-api.hbs'}}
+  </div>
+</div>
+<div class='addon-demo-live'>
+  <div class='addon-demo-title'>
+    Live demo
+  </div>
+  <div class='addon-demo-snippet'>
+    <i>Demo controller</i>
+    {{code-snippet name='frost-tab-controller.js'}}
+  </div>
+  <div class='addon-demo-snippet'>
+    <i>Demo template</i>
+    {{code-snippet name='content-frost-tab.hbs'}}
+  </div>
+  <div class='addon-demo-component'>
+    {{! BEGIN-SNIPPET content-frost-tab }}
+    <p>
+      {{frost-tab
+        id='my-tab'
+        text='Click on this tab !!!'
+        selectedTab=selectedTab
+        content= (component 'tab-content' text='Ahhh you clicked on the tab. Great!')
+        targetOutlet='my-outlet'
+        onChange=(action 'onChange')
+      }}
+    </p>
+    <p>
+      {{#from-elsewhere name='my-outlet' as |tab|}}
+        {{component tab.content}}
+      {{/from-elsewhere}}
+    </p>
+    {{! END-SNIPPET }}
+  </div>
+</div>

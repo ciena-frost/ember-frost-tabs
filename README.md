@@ -1,17 +1,41 @@
-[ci-img]: https://travis-ci.org/ciena-frost/ember-frost-tabs.svg "Build Status"
+[ci-img]: https://img.shields.io/travis/ciena-frost/ember-frost-tabs.svg "Travis CI Build Status"
 [ci-url]: https://travis-ci.org/ciena-frost/ember-frost-tabs
 
-[cov-img]: https://coveralls.io/repos/github/ciena-frost/ember-frost-tabs/badge.svg?branch=master "Code Coverage"
+[cov-img]: https://img.shields.io/coveralls/ciena-frost/ember-frost-tabs.svg "Coveralls Code Coverage"
 [cov-url]: https://coveralls.io/github/ciena-frost/ember-frost-tabs
 
 [npm-img]: https://img.shields.io/npm/v/ember-frost-tabs.svg "NPM Version"
 [npm-url]: https://www.npmjs.com/package/ember-frost-tabs
 
-# ember-frost-tabs <br /> [![Travis][ci-img]][ci-url] [![Coveralls][cov-img]][cov-url] [![NPM][npm-img]][npm-url]
+[ember-observer-badge]: http://emberobserver.com/badges/ember-frost-tabs.svg "Ember Observer score"
+[ember-observer-badge-url]: http://emberobserver.com/addons/ember-frost-tabs
 
+[ember-img]: https://img.shields.io/badge/ember-2.3+-orange.svg "Ember 2.3+"
 
+[![Travis][ci-img]][ci-url] [![Coveralls][cov-img]][cov-url] [![NPM][npm-img]][npm-url]
 
-Tabs based off of <a href='https://www.muicss.com/docs/v1/css-js/tabs'>MUI-CSS</a>. Usage is dead simple. `id`'s of frost-tab must match `id` in supplied argument to `frostTabs`. The `id` of the current element is used to toggle `display: none | block`.
+[bithound-img]: https://www.bithound.io/github/ciena-frost/ember-frost-tabs/badges/score.svg "bitHound"
+[bithound-url]: https://www.bithound.io/github/ciena-frost/ember-frost-tabs
+
+# ember-frost-tabs
+###### Dependencies
+
+![Ember][ember-img]
+[![NPM][npm-img]][npm-url]
+
+###### Health
+
+[![Travis][ci-img]][ci-url]
+[![Coveralls][cov-img]][cov-url]
+
+###### Security
+
+[![bitHound][bithound-img]][bithound-url]
+
+###### Ember Observer score
+[![EmberObserver][ember-observer-badge]][ember-observer-badge-url]
+
+ <b>ember-frost-tabs</b> is a tab addon for Ember.
 
 ## Usage
 
@@ -24,64 +48,17 @@ See the demo application for usage information.
 
 * `ember install ember-frost-tabs`
 
-## Component APIs
+## API
+Detailed API and example usage can be found in the sample application in `tests/dummy`, which is also running at http://ciena-frost.github.io/ember-frost-tabs
 
-### Frost-tabs
-| Attribute   | Type       | Required | Description                    |
-| ----------- | ---------- | -------- | ----------------------------------------------------- |
-| `onChange`  | `Function` | Yes      | Function called when tab is changed with the tab's ID |
-| `selection` | `String`   | No       | The selected tab                                      |
+### Ember-elsewhere
 
-### Frost-tab
-| Attribute       | Type     | Required | Description                                         |
-| --------------- | -------- | -------- | --------------------------------------------------- |
-| `id`            | `String` | Yes      | The tab's ID (should be unique from other tabs)     |
-| `alias`         | `String` | Yes      | Label for the tab                                   |
-| `tabClassNames` | `String` | No       | CSS class string to apply to the tab's content area |
+This addon uses the [ember-elsewhere](https://github.com/ef4/ember-elsewhere) to manage the tabs, to put the tab in the right location
 
-## Example
-### Template
-```handlebars
-{{#frost-tabs frostTabs=tabs}}
-{{#frost-tab alias='Template' id='template'}}
-  ...
-{{/frost-tab}}
-{{#frost-tab alias='Controller' id='controller'}}
-  ...
-{{/frost-tab}}
-{{#frost-tab id='css' alias='CSS' disabled=true}}
-  ...
-{{/frost-tab}}
-{{/frost-tabs}}
-```
-### Controller
-```javascript
-import Ember from 'ember'
+### Testing with ember-hook
+This addon has been optimized for use with [ember-hook](https://github.com/Ticketfly/ember-hook). You can set a `hook` name on your sidebar template. 
+This will allow you to access the internal sidebar content for testing.
 
-export default Ember.Controller.extend({
-  queryParams: ['selectedTab'],
-
-  selectedTab: 'controller',
-
-  actions: {
-    tabSelected (tab) {
-      this.set('selectedTab', tab)
-    }
-  }
-})
-```
-### Route
-```javascript
-import Ember from 'ember'
-
-export default Ember.Route.extend({
-  queryParams: {
-    selectedTab: {
-      as: 'tab'
-    }
-  }
-})
-```
 ## Development
 ### Setup
 ```

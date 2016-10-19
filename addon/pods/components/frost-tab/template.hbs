@@ -1,4 +1,4 @@
-<div class='tab' data-test={{hook (concat hook 'frost-tab' (if isSelected '-selected' '')) }}>
+<div class='tab' data-test={{hook (concat hook '-tab' (if isSelected '-selected' '')) }}>
   {{frost-button
     class=(concat 'tab' (if isSelected ' active'))
     disabled=disabled

@@ -11,7 +11,7 @@ import {
 } from 'ember-hook'
 import wait from 'ember-test-helpers/wait'
 
-const frostTabsHook = 'frost-tabs-'
+const frostTabsHook = '-tabs-'
 const hookName = 'my-hook'
 
 const templateTabId = 'template'
