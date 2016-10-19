@@ -57,7 +57,7 @@ This addon uses the [ember-elsewhere](https://github.com/ef4/ember-elsewhere) to
 
 ### Testing with ember-hook
 This addon has been optimized for use with [ember-hook](https://github.com/Ticketfly/ember-hook). You can set a `hook` name on your sidebar template. 
-This will allow you to access the internal sidebar content for testing.
+This will allow you to access the internal tabs content for testing.
 
 ## Development
 ### Setup
