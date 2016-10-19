@@ -53,7 +53,7 @@ describeComponent(
       })
     })
 
-    it('Renders', function () {
+    it('Renders', function (done) {
       this.setProperties({
         selectedTab: tabId
       })
@@ -63,6 +63,10 @@ describeComponent(
           expect($hook(`${frostTabSelectedHook}`)).to.have.length(1)
           expect($hook(`${frostTabSelectedHook}`).find('button.active')).to.have.length(1)
           expect($hook('content').text().trim()).to.be.equal(tabText)
+
+          return capture('frost-tab', done, {
+            experimentalSvgs: true
+          })
         })
     })
 

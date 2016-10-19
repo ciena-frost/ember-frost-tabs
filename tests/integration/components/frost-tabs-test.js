@@ -9,6 +9,7 @@ import {
   $hook,
   initialize
 } from 'ember-hook'
+import wait from 'ember-test-helpers/wait'
 
 const frostTabsHook = 'frost-tabs-'
 const hookName = 'my-hook'
@@ -65,21 +66,33 @@ describeComponent(
       })
     })
 
-    it('Renders', function () {
+    it('Renders', function (done) {
       this.setProperties({
         selectedTab: templateTabId
       })
       this.render(template)
-      expect($hook(`${frostTabsHook}0`)).to.have.length(1)
-      expect($hook(`${frostTabsHook}0`).find('button.active')).to.have.length(1)
+
+      return wait()
+        .then(() => {
+          expect($hook(`${frostTabsHook}0`)).to.have.length(1)
+          expect($hook(`${frostTabsHook}0`).find('button.active')).to.have.length(1)
+
+          return capture('frost-tabs', done, {
+            experimentalSvgs: true
+          })
+        })
     })
 
     it('Default selected tab', function () {
       this.render(template)
-      expect($hook(`${frostTabsHook}0`).find('button.active')).to.have.length(0)
-      expect($hook(`${frostTabsHook}1`).find('button.active')).to.have.length(0)
-      expect($hook(`${frostTabsHook}2`).find('button.active')).to.have.length(0)
-      expect($hook(`${frostTabsHook}content`).text().trim()).to.be.empty
+
+      return wait()
+        .then(() => {
+          expect($hook(`${frostTabsHook}0`).find('button.active')).to.have.length(0)
+          expect($hook(`${frostTabsHook}1`).find('button.active')).to.have.length(0)
+          expect($hook(`${frostTabsHook}2`).find('button.active')).to.have.length(0)
+          expect($hook(`${frostTabsHook}content`).text().trim()).to.be.empty
+        })
     })
 
     it('Selected tab', function () {
@@ -87,7 +100,11 @@ describeComponent(
         selectedTab: controllerTabId
       })
       this.render(template)
-      expect($hook(`${frostTabsHook}content`).text().trim()).to.be.equal(controllerTabText)
+
+      return wait()
+        .then(() => {
+          expect($hook(`${frostTabsHook}content`).text().trim()).to.be.equal(controllerTabText)
+        })
     })
 
     it('Set hook', function () {
@@ -96,8 +113,12 @@ describeComponent(
         hookName: hookName
       })
       this.render(template)
-      expect($hook(`${hookName}${frostTabsHook}0`)).to.have.length(1)
-      expect($hook(`${hookName}${frostTabsHook}0`).find('button.active')).to.have.length(1)
+
+      return wait()
+        .then(() => {
+          expect($hook(`${hookName}${frostTabsHook}0`)).to.have.length(1)
+          expect($hook(`${hookName}${frostTabsHook}0`).find('button.active')).to.have.length(1)
+        })
     })
 
     it('Set classes', function () {
@@ -106,7 +127,11 @@ describeComponent(
         classNames: 'my-class'
       })
       this.render(template)
-      expect($('.my-class')).to.have.length(1)
+
+      return wait()
+        .then(() => {
+          expect($('.my-class')).to.have.length(1)
+        })
     })
   }
 )
