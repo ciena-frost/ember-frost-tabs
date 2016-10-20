@@ -1,8 +1,9 @@
 import Ember from 'ember'
 import layout from './template'
-import { PropTypes } from 'ember-prop-types'
+import PropTypesMixin, { PropTypes } from 'ember-prop-types'
+import uuid from 'ember-simple-uuid'
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(PropTypesMixin, {
   // == Component properties ==================================================
 
   layout: layout,
@@ -20,7 +21,7 @@ export default Ember.Component.extend({
 
   getDefaultProps () {
     return {
-      targetOutlet: 'tab-content'
+      targetOutlet: `frost-tab-content-${uuid()}`
     }
   }
 })

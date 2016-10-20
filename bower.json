@@ -9,7 +9,8 @@
     "jquery": "2.1.4",
     "lodash": "^4.5.1",
     "pretender": "^0.10.1",
-    "perfect-scrollbar": ">=0.6.7 <2.0.0"
+    "perfect-scrollbar": ">=0.6.7 <2.0.0",
+    "node-uuid": "1.4.7"
   },
   "resolutions": {
     "ember": "~2.8.0"

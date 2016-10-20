@@ -1,18 +1,16 @@
 import Ember from 'ember'
 import layout from './template'
-// import FrostTabs from 'ember-frost-tabs/pods/components/frost-tabs/component'
-import { PropTypes } from 'ember-prop-types'
+import PropTypesMixin, { PropTypes } from 'ember-prop-types'
 
 const {
   Component
 } = Ember
 
-export default Component.extend({
+export default Component.extend(PropTypesMixin, {
   // == Component properties ==================================================
 
   layout: layout,
   classNames: ['frost-tab'],
-  classNameBindings: ['tabClassNames'],
 
   // == State properties ======================================================
 
@@ -27,8 +25,8 @@ export default Component.extend({
     // Set by the parent component
     hook: PropTypes.string,
     targetOutlet: PropTypes.string.isRequired,
-    selectedTab: PropTypes.string,
-    onChange: PropTypes.func
+    selectedTab: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
   },
 
   getDefaultProps () {

@@ -12,7 +12,6 @@ import {
 import wait from 'ember-test-helpers/wait'
 
 const frostTabHook = '-tab'
-const frostTabSelectedHook = '-tab-selected'
 const hookName = 'my-hook'
 
 const tabId = 'template'
@@ -60,8 +59,8 @@ describeComponent(
       this.render(template)
       return wait()
         .then(() => {
-          expect($hook(`${frostTabSelectedHook}`)).to.have.length(1)
-          expect($hook(`${frostTabSelectedHook}`).find('button.active')).to.have.length(1)
+          expect($hook(`${frostTabHook}`, {selected: true})).to.have.length(1)
+          expect($hook(`${frostTabHook}`, {selected: true}).find('button.active')).to.have.length(1)
           expect($hook('content').text().trim()).to.be.equal(tabText)
 
           return capture('frost-tab', done, {
@@ -75,9 +74,9 @@ describeComponent(
 
       return wait()
         .then(() => {
-          expect($hook(`${frostTabHook}`)).to.have.length(1)
-          expect($hook(`${frostTabSelectedHook}`)).to.have.length(0)
-          expect($hook(`${frostTabSelectedHook}`).find('button.active')).to.have.length(0)
+          expect($hook(`${frostTabHook}`, {selected: false})).to.have.length(1)
+          expect($hook(`${frostTabHook}`, {selected: true})).to.have.length(0)
+          expect($hook(`${frostTabHook}`, {selected: true}).find('button.active')).to.have.length(0)
         })
     })
 
@@ -115,8 +114,8 @@ describeComponent(
 
       return wait()
         .then(() => {
-          expect($hook(`${hookName}${frostTabSelectedHook}`)).to.have.length(1)
-          expect($hook(`${hookName}${frostTabSelectedHook}`).find('button.active')).to.have.length(1)
+          expect($hook(`${hookName}${frostTabHook}`, {selected: true})).to.have.length(1)
+          expect($hook(`${hookName}${frostTabHook}`, {selected: true}).find('button.active')).to.have.length(1)
         })
     })
 

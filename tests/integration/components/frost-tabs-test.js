@@ -11,7 +11,7 @@ import {
 } from 'ember-hook'
 import wait from 'ember-test-helpers/wait'
 
-const frostTabsHook = '-tabs-'
+const frostTabsTabHook = '-tabs-tab'
 const hookName = 'my-hook'
 
 const templateTabId = 'template'
@@ -74,8 +74,8 @@ describeComponent(
 
       return wait()
         .then(() => {
-          expect($hook(`${frostTabsHook}0`)).to.have.length(1)
-          expect($hook(`${frostTabsHook}0`).find('button.active')).to.have.length(1)
+          expect($hook(`${frostTabsTabHook}`, { index: 0 })).to.have.length(1)
+          expect($hook(`${frostTabsTabHook}`, { index: 0 }).find('button.active')).to.have.length(1)
 
           return capture('frost-tabs', done, {
             experimentalSvgs: true
@@ -88,10 +88,10 @@ describeComponent(
 
       return wait()
         .then(() => {
-          expect($hook(`${frostTabsHook}0`).find('button.active')).to.have.length(0)
-          expect($hook(`${frostTabsHook}1`).find('button.active')).to.have.length(0)
-          expect($hook(`${frostTabsHook}2`).find('button.active')).to.have.length(0)
-          expect($hook(`${frostTabsHook}content`).text().trim()).to.be.empty
+          expect($hook(`${frostTabsTabHook}`, { index: 0 }).find('button.active')).to.have.length(0)
+          expect($hook(`${frostTabsTabHook}`, { index: 1 }).find('button.active')).to.have.length(0)
+          expect($hook(`${frostTabsTabHook}`, { index: 2 }).find('button.active')).to.have.length(0)
+          expect($hook('-tab-content').text().trim()).to.be.empty
         })
     })
 
@@ -103,7 +103,7 @@ describeComponent(
 
       return wait()
         .then(() => {
-          expect($hook(`${frostTabsHook}content`).text().trim()).to.be.equal(controllerTabText)
+          expect($hook('-tab-content').text().trim()).to.be.equal(controllerTabText)
         })
     })
 
@@ -116,8 +116,8 @@ describeComponent(
 
       return wait()
         .then(() => {
-          expect($hook(`${hookName}${frostTabsHook}0`)).to.have.length(1)
-          expect($hook(`${hookName}${frostTabsHook}0`).find('button.active')).to.have.length(1)
+          expect($hook(`${hookName}${frostTabsTabHook}`, { index: 0 })).to.have.length(1)
+          expect($hook(`${hookName}${frostTabsTabHook}`, { index: 0 }).find('button.active')).to.have.length(1)
         })
     })
 
