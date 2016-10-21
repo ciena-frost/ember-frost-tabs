@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
   selectedTab: 'template',
   actions: {
     onChange (tabId) {
-      this.set('selectedTab', tabId)
+      console.log(`Selected tab: ${tabId}`)
     }
   }
 })
