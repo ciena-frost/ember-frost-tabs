@@ -3,7 +3,8 @@ import layout from './template'
 import PropTypesMixin, { PropTypes } from 'ember-prop-types'
 
 const {
-  Component
+  Component,
+  computed
 } = Ember
 
 export default Component.extend(PropTypesMixin, {
@@ -38,11 +39,11 @@ export default Component.extend(PropTypesMixin, {
 
   // == Computed properties ===================================================
 
-  isSelected: Ember.computed('id', 'selectedTab', function () {
+  isSelected: computed('id', 'selectedTab', function () {
     return this.id === this.selectedTab && !this.disabled
   }),
 
-  hook: Ember.computed('parentHook', 'id', function () {
+  hook: computed('parentHook', 'id', function () {
     return `${this.parentHook}-${this.id}`
   }),
 
