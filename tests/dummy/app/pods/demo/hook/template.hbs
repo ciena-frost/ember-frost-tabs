@@ -4,6 +4,9 @@
     This addon has been optimized for use with <i>ember-hook</i>. You can set a hook name on each component. This will
     allow you to access the internal components content for testing.
   </p>
+  <p>
+    The attribute <i>hook</i> can be set on the <i>frost-tabs</i>. It's represented below by <i>[hook name]</i>.
+  </p>
   <div class='addon-demo-hooks'>
     <div class='table'>
       <div class='header'>Description</div>
@@ -21,9 +24,9 @@
         <div>Outlet where the content of the tab will be inserted</div>
       </div>
       <div class='row'>
-        <div>-tabs</div>
-        <div>-tabs-tab [Qualifiers=index]</div>
-        <div>-tab-content</div>
+        <div>[hook name]-tabs</div>
+        <div>[hook name]-tab [Qualifiers=index]</div>
+        <div>[hook name]-tab-content</div>
       </div>
     </div>
   </div>
@@ -33,10 +36,12 @@
     <hr class='sep'>
     <div class='table'>
       <div class='row'>
+        <div>The tab</div>
         <div>A tab unselected/selected</div>
       </div>
       <div class='row'>
-        <div>-tab [Qualifiers=selected]</div>
+        <div>[hook name]-[tab id]</div>
+        <div>[hook name]-[tab id]-tab [Qualifiers=selected]</div>
       </div>
     </div>
   </div>

@@ -24,6 +24,7 @@ export default Component.extend(PropTypesMixin, {
     disabled: PropTypes.bool,
     // Set by the parent component
     hook: PropTypes.string,
+    parentHook: PropTypes.string,
     targetOutlet: PropTypes.string.isRequired,
     selectedTab: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired
@@ -39,6 +40,10 @@ export default Component.extend(PropTypesMixin, {
 
   isSelected: Ember.computed('id', 'selectedTab', function () {
     return this.id === this.selectedTab && !this.disabled
+  }),
+
+  hook: Ember.computed('parentHook', 'id', function () {
+    return `${this.parentHook}-${this.id}`
   }),
 
   // == Actions ===============================================================

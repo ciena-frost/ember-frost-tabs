@@ -11,7 +11,7 @@ import {
 } from 'ember-hook'
 import wait from 'ember-test-helpers/wait'
 
-const frostTabsTabHook = '-tabs-tab'
+const frostTabsTabHook = '-tab'
 const hookName = 'my-hook'
 
 const templateTabId = 'template'
@@ -117,6 +117,8 @@ describeComponent(
       return wait()
         .then(() => {
           expect($hook(`${hookName}${frostTabsTabHook}`, { index: 0 })).to.have.length(1)
+          expect($hook(`${hookName}-${templateTabId}`)).to.have.length(1)
+          expect($hook(`${hookName}-${templateTabId}-tab`, { selected: true })).to.have.length(1)
           expect($hook(`${hookName}${frostTabsTabHook}`, { index: 0 }).find('button.active')).to.have.length(1)
         })
     })

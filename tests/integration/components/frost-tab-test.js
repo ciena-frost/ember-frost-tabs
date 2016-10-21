@@ -26,6 +26,7 @@ const template = hbs`
     content= (component 'tab-content' text='Template')
     targetOutlet=targetOutlet
     hook=hookName
+    parentHook=parentHookName
     classNames=classNames
     disabled=disabled
   }}
@@ -105,7 +106,7 @@ describeComponent(
         })
     })
 
-    it('Set hook', function () {
+    it('Set parent hook', function () {
       this.setProperties({
         selectedTab: tabId,
         hookName: hookName
@@ -116,6 +117,29 @@ describeComponent(
         .then(() => {
           expect($hook(`${hookName}${frostTabHook}`, {selected: true})).to.have.length(1)
           expect($hook(`${hookName}${frostTabHook}`, {selected: true}).find('button.active')).to.have.length(1)
+        })
+    })
+
+    it('Set parent hook', function () {
+      this.setProperties({
+        selectedTab: tabId,
+        parentHookName: hookName
+      })
+      this.render(hbs`
+        {{frost-tab
+          id=tabId
+          text=tabText
+          selectedTab=selectedTab
+          content= (component 'tab-content' text='Template')
+          targetOutlet=targetOutlet
+          parentHook=parentHookName
+        }}`)
+
+      return wait()
+        .then(() => {
+          expect($hook(`${hookName}-${tabId}`)).to.have.length(1)
+          expect($hook(`${hookName}-${tabId}${frostTabHook}`, {selected: true})).to.have.length(1)
+          expect($hook(`${hookName}-${tabId}${frostTabHook}`, {selected: true}).find('button.active')).to.have.length(1)
         })
     })
 

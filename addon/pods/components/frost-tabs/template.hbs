@@ -1,7 +1,7 @@
 <div class="tab-nav" data-test={{hook (concat hook '-tabs') }}>
   {{#each tabs as |tab index|}}
-    <div data-test={{hook (concat hook '-tabs-tab') index=index}}>
-      {{component tab hook=hook targetOutlet=targetOutlet selectedTab=selectedTab onChange=onChange}}
+    <div data-test={{hook (concat hook '-tab') index=index}}>
+      {{component tab parentHook=hook targetOutlet=targetOutlet selectedTab=selectedTab onChange=onChange}}
     </div>
   {{/each}}
 </div>
