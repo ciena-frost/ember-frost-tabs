@@ -1,1 +1,17 @@
-{{yield}}
+<div class='tab'
+data-test={{hook (concat hook '-tab') selected=isSelected}}>
+  {{frost-button
+    class=(concat 'tab' (if isSelected ' active'))
+    disabled=disabled
+    text=text
+    onClick=(action 'change')}}
+</div>
+
+{{#if isSelected}}
+  {{to-elsewhere
+    named=targetOutlet
+    send=(hash
+      content=content
+    )
+  }}
+{{/if}}

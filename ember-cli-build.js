@@ -8,7 +8,11 @@ module.exports = function (defaults) {
     },
     sassOptions: {
       includePaths: []
-    }
+    },
+    snippetSearchPaths: [
+      'addon',
+      'tests/dummy'
+    ]
   })
 
   return app.toTree()

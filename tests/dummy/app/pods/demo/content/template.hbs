@@ -1,0 +1,73 @@
+{{!-- BEGIN-SNIPPET content-api }}
+{{frost-tabs
+  ...
+  tabs=(array
+    (component 'frost-tab'
+      id='<tab id>'
+      text='<tab text>'
+      disable='<true/false>'
+      content=(component '<name of the content component>' ...))
+  )
+}}
+{{ END-SNIPPET --}}
+
+<div class='addon-demo-api'>
+  <div class='addon-demo-title'>
+    Notes
+  </div>
+  <div class='addon-demo-notes'>
+    <p>
+      You probably want to put some content in your tabs. You can set the content by passing a component to a tab in the <i>content</i> attribute.
+    </p>
+  </div>
+  <div class='addon-demo-title'>
+    API
+  </div>
+  <div class='addon-demo-snippet'>
+    {{code-snippet name='content-api.hbs'}}
+  </div>
+</div>
+<div class='addon-demo-live'>
+  <div class='addon-demo-title'>
+    Live demo
+  </div>
+  <div class='addon-demo-snippet'>
+    <i>Component tab-content</i>
+    {{code-snippet name='tab-content.hbs'}}
+  </div>
+  <div class='addon-demo-snippet'>
+    <i>Demo controller</i>
+    {{code-snippet name='frost-tabs-controller.js'}}
+  </div>
+  <div class='addon-demo-snippet'>
+    <i>Demo template</i>
+    {{code-snippet name='content-frost-tabs.hbs'}}
+  </div>
+  <div class='addon-demo-component'>
+    {{! BEGIN-SNIPPET content-frost-tabs }}
+    {{frost-tabs
+      selectedTab=selectedTab
+      onChange=(action 'onChange')
+      tabs=(array
+        (component 'frost-tab'
+          id='template'
+          text='Template'
+          content=(component 'tab-content' text='template'))
+        (component 'frost-tab'
+          id='controller'
+          text='Controller'
+          content=(component 'tab-content' text='controller'))
+        (component 'frost-tab'
+          id='route'
+          text='Route'
+          content=(component 'tab-content' text='route'))
+        (component 'frost-tab'
+          id='css'
+          text='CSS'
+          disabled=true
+          content=(component 'tab-content' text='CSS'))
+      )
+    }}
+    {{! END-SNIPPET }}
+  </div>
+</div>

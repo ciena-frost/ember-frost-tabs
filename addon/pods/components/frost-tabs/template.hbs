@@ -1,6 +1,12 @@
-<div class="tab-nav">
-  {{#each tabs as |tab|}}
-    {{frost-button class=(concat 'tab' (if (eq tab.id selection) ' active')) design='tab' disabled=tab.disabled onClick=(action onChange tab.id) text=tab.alias}}
+<div class="tab-nav" data-test={{hook (concat hook '-tabs') }}>
+  {{#each tabs as |tab index|}}
+    <div data-test={{hook (concat hook '-tab') index=index}}>
+      {{component tab parentHook=hook targetOutlet=targetOutlet selectedTab=selectedTab onChange=onChange}}
+    </div>
   {{/each}}
 </div>
-{{yield}}
+<div class='content' data-test={{hook (concat hook '-tab-content')}}>
+  {{#from-elsewhere name=targetOutlet as |tab|}}
+    {{component tab.content}}
+  {{/from-elsewhere}}
+</div>

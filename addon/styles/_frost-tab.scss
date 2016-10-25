@@ -1,0 +1,18 @@
+$frost-tab-active-border: $frost-color-blue-1;
+$frost-tab-active-text: $frost-color-grey-2;
+
+.frost-tab {
+  padding-bottom: 2px;
+  border-bottom: 5px solid transparent;
+  cursor: default;
+
+  .tab {
+    &.active {
+      border-bottom: 5px solid $frost-tab-active-border;
+
+      .text {
+        color: $frost-tab-active-text;
+      }
+    }
+  }
+}

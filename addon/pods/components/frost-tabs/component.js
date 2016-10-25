@@ -1,24 +1,27 @@
 import Ember from 'ember'
 import layout from './template'
+import PropTypesMixin, { PropTypes } from 'ember-prop-types'
+import uuid from 'ember-simple-uuid'
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(PropTypesMixin, {
+  // == Component properties ==================================================
+
   layout: layout,
   classNames: ['frost-tabs'],
 
-  tabs: [],
+  // == State properties ======================================================
 
-  init () {
-    this._super(...arguments)
-    this.set('tabs', Ember.A([]))
+  propTypes: {
+    tabs: PropTypes.array.isRequired,
+    selectedTab: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    hook: PropTypes.string.isRequired,
+    targetOutlet: PropTypes.string
   },
 
-  register (frostTab) {
-    Ember.run.schedule('render', () => {
-      this.get('tabs').addObject({
-        alias: frostTab.get('alias'),
-        disabled: frostTab.get('disabled'),
-        id: frostTab.get('id')
-      })
-    })
+  getDefaultProps () {
+    return {
+      targetOutlet: `frost-tab-content-${uuid()}`
+    }
   }
 })

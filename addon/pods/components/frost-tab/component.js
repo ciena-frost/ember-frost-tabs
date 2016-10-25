@@ -1,21 +1,59 @@
 import Ember from 'ember'
 import layout from './template'
-import FrostTabs from 'ember-frost-tabs/pods/components/frost-tabs/component'
+import PropTypesMixin, { PropTypes } from 'ember-prop-types'
 
-export default Ember.Component.extend({
+const {
+  Component,
+  computed
+} = Ember
+
+export default Component.extend(PropTypesMixin, {
+  // == Component properties ==================================================
+
   layout: layout,
-  classNames: ['content'],
-  classNameBindings: ['isSelected::hidden', 'tabClassNames'],
+  classNames: ['frost-tab'],
 
-  frostTabs: null,
+  // == State properties ======================================================
 
-  init () {
-    this._super(...arguments)
-    this.set('frostTabs', this.nearestOfType(FrostTabs))
-    this.get('frostTabs').register(this)
+  propTypes: {
+    id: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    content: PropTypes.oneOfType([
+      PropTypes.EmberObject,
+      PropTypes.object
+    ]).isRequired,
+    disabled: PropTypes.bool,
+    // Set by the parent component
+    hook: PropTypes.string,
+    parentHook: PropTypes.string,
+    targetOutlet: PropTypes.string.isRequired,
+    selectedTab: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
   },
 
-  isSelected: Ember.computed('frostTabs.selection', function () {
-    return this.get('id') === this.get('frostTabs.selection')
-  })
+  getDefaultProps () {
+    return {
+      disabled: false
+    }
+  },
+
+  // == Computed properties ===================================================
+
+  isSelected: computed('id', 'selectedTab', function () {
+    return this.id === this.selectedTab && !this.disabled
+  }),
+
+  hook: computed('parentHook', 'id', function () {
+    return `${this.parentHook}-${this.id}`
+  }),
+
+  // == Actions ===============================================================
+
+  actions: {
+    change () {
+      if (this.onChange) {
+        this.onChange(this.id)
+      }
+    }
+  }
 })

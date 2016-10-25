@@ -1,0 +1,70 @@
+{{!-- BEGIN-SNIPPET overview-content-api }}
+{{frost-tabs
+  selectedTab='<selected tab id>'
+  onChange=(action '<action name>')
+  tabs=(array
+    (component 'frost-tab'
+      id='<tab id>'
+      text='<tab text>'
+      disable='<true/false>'
+      content=(component '<name of the content component>' ...))
+  )
+}}
+{{ END-SNIPPET --}}
+
+<div class='addon-demo-api'>
+  <div class='addon-demo-title'>
+    Notes
+  </div>
+  <div class='addon-demo-notes'>
+    <p>
+      <p>
+        <b>ember-frost-tabs</b> is a tab addon for Ember.
+      </p>
+    </p>
+  </div>
+  <div class='addon-demo-title'>
+    API
+  </div>
+  <div class='addon-demo-snippet'>
+    {{code-snippet name='overview-content-api.hbs'}}
+  </div>
+  {{#link-to 'demo.content' class='frost-link secondary medium'}}
+    <div class='content text'>Show me more details!</div>
+  {{/link-to}}
+</div>
+<div class='addon-demo-live'>
+  <div class='addon-demo-title'>
+    Live demo
+  </div>
+  <div class='addon-demo-snippet'>
+    {{code-snippet name='content-overview-frost-tabs.hbs'}}
+  </div>
+  <div class='addon-demo-component'>
+    {{! BEGIN-SNIPPET content-overview-frost-tabs }}
+    {{frost-tabs
+      selectedTab=selectedTab
+      onChange=(action 'onChange')
+      tabs=(array
+        (component 'frost-tab'
+          id='template'
+          text='Template'
+          content=(component 'tab-content' text='template'))
+        (component 'frost-tab'
+          id='controller'
+          text='Controller'
+          content=(component 'tab-content' text='controller'))
+        (component 'frost-tab'
+          id='route'
+          text='Route'
+          content=(component 'tab-content' text='route'))
+        (component 'frost-tab'
+          id='css'
+          text='CSS'
+          disabled=true
+          content=(component 'tab-content' text='CSS'))
+      )
+    }}
+    {{! END-SNIPPET}}
+  </div>
+</div>
