@@ -52,7 +52,6 @@ export default Component.extend(PropTypesMixin, {
   actions: {
     change () {
       if (this.onChange) {
-        this.set('selectedTab', this.get('id'))
         this.onChange(this.id)
       }
     }
