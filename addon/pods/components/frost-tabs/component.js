@@ -13,10 +13,10 @@ export default Ember.Component.extend(PropTypesMixin, {
 
   propTypes: {
     tabs: PropTypes.array.isRequired,
-    selectedTab: PropTypes.string,
-    targetOutlet: PropTypes.string,
-    onChange: PropTypes.func,
-    hook: PropTypes.string
+    selectedTab: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    hook: PropTypes.string.isRequired,
+    targetOutlet: PropTypes.string
   },
 
   getDefaultProps () {
