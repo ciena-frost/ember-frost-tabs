@@ -1,0 +1,47 @@
+{{!-- BEGIN-SNIPPET overview-content-api }}
+{{frost-tabs
+  selectedTab='<selected tab id>'
+  onChange=(action '<action name>')
+  tabs=(array
+    (component 'frost-tab'
+      id='<tab id>'
+      text='<tab text>'
+      disable='<true/false>'
+      content=(component '<name of the content component>' ...))
+  )
+}}
+{{ END-SNIPPET --}}
+
+<div class='addon-demo-api'>
+  <div class='addon-demo-title'>
+    How did it get so late so soon? - Dr. Seuss
+  </div>
+</div>
+<div class='addon-demo-live'>
+  <div class='addon-demo-title'>
+    Live demo
+  </div>
+  <div class='addon-demo-snippet'>
+    {{code-snippet name='block-format.hbs'}}
+  </div>
+  <div class='addon-demo-component'>
+    {{! BEGIN-SNIPPET block-format }}
+    {{#frost-tabs
+      selectedTab=selectedTab
+      onChange=(action 'onChange')
+      as |controls|
+    }}
+      {{#each options as |option|}}
+        {{controls.tab
+          class='shiny'
+          id=option.id
+          text=option.title
+          content=(component 'tab-content'
+            text=option.text
+          )
+        }}
+      {{/each}}
+    {{/frost-tabs}}
+    {{! END-SNIPPET}}
+  </div>
+</div>

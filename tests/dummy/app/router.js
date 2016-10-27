@@ -17,6 +17,7 @@ Router.map(function () {
     this.route('tab')
     // Tests
     this.route('hook')
+    this.route('block-format')
   })
 })
 
