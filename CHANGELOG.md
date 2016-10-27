@@ -1,3 +1,9 @@
+# 3.0.1
+
+* **Added** missing dependencies from blueprints.
+
+
+
 # 3.0.0
 * **Update** to the lastest depencies (ember@2.8.1, core, etc.)
 * **Add** CI tools (code coverage, linting, hook, etc.)
