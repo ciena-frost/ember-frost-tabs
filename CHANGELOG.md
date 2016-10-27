@@ -1,3 +1,7 @@
+# 3.1.0
+* Added block format usage
+
+
 # 3.0.1
 
 * **Added** missing dependencies from blueprints.
