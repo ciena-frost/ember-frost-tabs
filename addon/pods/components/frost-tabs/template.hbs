@@ -11,14 +11,19 @@
   {{else}}
     {{#each tabs as |tab index|}}
       <div data-test={{hook (concat hook '-tab') index=index}}>
-        {{component tab parentHook=hook targetOutlet=targetOutlet selectedTab=selectedTab onChange=onChange}}
+        {{component tab
+          parentHook=hook
+          selectedTab=selectedTab
+          targetOutlet=targetOutlet
+          onChange=onChange
+        }}
       </div>
     {{/each}}
   {{/if}}
 </div>
 
-<div class='content' data-test={{hook (concat hook '-tab-content')}}>
-  {{#from-elsewhere name=targetOutlet as |tab|}}
+{{#from-elsewhere name=targetOutlet as |tab|}}
+  <div class='content {{tab.contentClass}}' data-test={{hook (concat hook '-tab-content')}}>
     {{component tab.content}}
-  {{/from-elsewhere}}
-</div>
+  </div>
+{{/from-elsewhere}}
