@@ -1,3 +1,7 @@
+# 3.2.0
+- Added a contentClass property to `frost-tab` that appends to the `content` div when that tab is selected
+
+
 # 3.1.0
 * Added block format usage
 
