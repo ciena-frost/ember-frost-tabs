@@ -29,6 +29,7 @@ const template = hbs`
       (component 'frost-tab'
         id=templateTabId
         text=templateTabText
+        contentClass='template-tab'
         content= (component 'tab-content' text='Template')
       )
       (component 'frost-tab'
@@ -133,6 +134,18 @@ describeComponent(
       return wait()
         .then(() => {
           expect($('.my-class')).to.have.length(1)
+        })
+    })
+
+    it('Set content element classes', function () {
+      this.setProperties({
+        selectedTab: templateTabId
+      })
+      this.render(template)
+
+      return wait()
+        .then(() => {
+          expect($('.content.template-tab')).to.have.length(1)
         })
     })
   }
