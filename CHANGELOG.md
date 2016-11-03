@@ -1,3 +1,8 @@
+# 4.0.0
+**upgrade** to node 6.x
+
+
+
 # 3.2.0
 - Added a contentClass property to `frost-tab` that appends to the `content` div when that tab is selected
 
