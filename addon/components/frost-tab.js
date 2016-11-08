@@ -22,6 +22,7 @@ export default Component.extend(PropTypesMixin, {
       PropTypes.EmberObject,
       PropTypes.object
     ]).isRequired,
+    contentClass: PropTypes.string,
     disabled: PropTypes.bool,
     // Set by the parent component
     hook: PropTypes.string,
