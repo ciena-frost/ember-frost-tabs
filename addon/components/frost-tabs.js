@@ -1,5 +1,5 @@
 import Ember from 'ember'
-import layout from './template'
+import layout from '../templates/components/frost-tabs'
 import PropTypesMixin, { PropTypes } from 'ember-prop-types'
 import uuid from 'ember-simple-uuid'
 
