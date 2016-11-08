@@ -10,7 +10,6 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "deploy": "deploy.sh",
     "test": "npm run lint && COVERAGE=true ember test",
     "lint": "npm run eslint && npm run sass-lint && npm run md-lint",
     "md-lint": "remark *.md",
