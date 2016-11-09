@@ -1,3 +1,7 @@
+# 4.1.0
+* Move to ember classic structure
+
+
 # 4.0.0
 **upgrade** to node 6.x
 
