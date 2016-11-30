@@ -1,3 +1,8 @@
+# 5.0.0
+* **Updated** `ember-frost-core` to `^1.0.0`
+
+
+
 # 4.1.0
 * Move to ember classic structure
 
