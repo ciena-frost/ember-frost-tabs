@@ -28,7 +28,7 @@ export default Component.extend(PropTypesMixin, {
     hook: PropTypes.string,
     parentHook: PropTypes.string,
     targetOutlet: PropTypes.string.isRequired,
-    selectedTab: PropTypes.string.isRequired,
+    selectedTab: PropTypes.string,
     onChange: PropTypes.func.isRequired
   },
 

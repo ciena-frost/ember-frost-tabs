@@ -39,6 +39,7 @@
   <div class='addon-demo-component'>
     {{! BEGIN-SNIPPET content-disable-tab }}
     {{frost-tabs
+      hook='myTabs'
       selectedTab=selectedTab
       onChange=(action 'onChange')
       tabs=(array

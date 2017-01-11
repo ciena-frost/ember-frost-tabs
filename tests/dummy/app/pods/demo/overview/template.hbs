@@ -1,5 +1,6 @@
 {{!-- BEGIN-SNIPPET overview-content-api }}
 {{frost-tabs
+  hook='myTabs'
   selectedTab='<selected tab id>'
   onChange=(action '<action name>')
   tabs=(array
@@ -43,6 +44,7 @@
   <div class='addon-demo-component'>
     {{! BEGIN-SNIPPET content-overview-frost-tabs }}
     {{frost-tabs
+      hook='myTabs'
       selectedTab=selectedTab
       onChange=(action 'onChange')
       tabs=(array
