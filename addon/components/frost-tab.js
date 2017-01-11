@@ -1,5 +1,5 @@
 import Ember from 'ember'
-import layout from './template'
+import layout from '../templates/components/frost-tab'
 import PropTypesMixin, { PropTypes } from 'ember-prop-types'
 
 const {
@@ -22,6 +22,7 @@ export default Component.extend(PropTypesMixin, {
       PropTypes.EmberObject,
       PropTypes.object
     ]).isRequired,
+    contentClass: PropTypes.string,
     disabled: PropTypes.bool,
     // Set by the parent component
     hook: PropTypes.string,

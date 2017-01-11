@@ -1,4 +1,4 @@
-<div class='tab'
+<div class="tab {{if disabled 'disabled'}}"
   data-test={{hook (concat hook '-tab') selected=isSelected}}
 >
   {{frost-button
@@ -14,6 +14,7 @@
   {{to-elsewhere
     named=targetOutlet
     send=(hash
+      contentClass=contentClass
       content=content
     )
   }}
