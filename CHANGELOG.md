@@ -1,3 +1,8 @@
+# 5.0.2
+
+* **Fixed** `ember-prop-type` errors by following component API's.
+
+
 # 5.0.1
 * **Updated** blueprint with latest core
 
