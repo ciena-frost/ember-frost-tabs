@@ -3,7 +3,10 @@
     <div class='addon-demo-title'>
       Demos
     </div>
-    {{#frost-scroll class='addon-demo-selectors'}}
+    {{#frost-scroll
+      class='addon-demo-selectors'
+      hook='addonDemoSelectors'
+    }}
       {{#link-to 'demo.overview'}}Overview{{/link-to}}
       <div class='addon-demo-selector-title'>
         Building blocks
@@ -21,7 +24,10 @@
       </div>
     {{/frost-scroll}}
   </div>
-  {{#frost-scroll class='addon-demo-example'}}
+  {{#frost-scroll
+    class='addon-demo-example'
+    hook='addonDemoExample'
+  }}
     {{outlet}}
   {{/frost-scroll}}
 </div>

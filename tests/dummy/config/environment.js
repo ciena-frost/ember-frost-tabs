@@ -9,7 +9,12 @@ module.exports = function (environment) {
       FEATURES: {}
     },
 
-    APP: {}
+    APP: {},
+    'ember-prop-types': {
+      spreadProperty: 'options',
+      throwErrors: true,
+      validateOnUpdate: true
+    }
   }
 
   if (environment === 'test') {

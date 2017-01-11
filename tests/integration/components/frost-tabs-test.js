@@ -56,10 +56,11 @@ describeComponent(
     beforeEach(function () {
       initialize()
       this.setProperties({
-        templateTabId: templateTabId,
-        controllerTabId: controllerTabId,
-        templateTabText: templateTabText,
-        controllerTabText: controllerTabText
+        hookName,
+        templateTabId,
+        controllerTabId,
+        templateTabText,
+        controllerTabText
       })
       this.on('tabSelected', function (tab) {
         this.set('selectedTab', tab)
@@ -74,8 +75,8 @@ describeComponent(
 
       return wait()
         .then(() => {
-          expect($hook(`${frostTabsTabHook}`, { index: 0 })).to.have.length(1)
-          expect($hook(`${frostTabsTabHook}`, { index: 0 }).find('button.active')).to.have.length(1)
+          expect($hook(`${hookName}${frostTabsTabHook}`, { index: 0 })).to.have.length(1)
+          expect($hook(`${hookName}${frostTabsTabHook}`, { index: 0 }).find('button.active')).to.have.length(1)
 
           return capture('frost-tabs', done, {
             experimentalSvgs: true
@@ -88,9 +89,9 @@ describeComponent(
 
       return wait()
         .then(() => {
-          expect($hook(`${frostTabsTabHook}`, { index: 0 }).find('button.active')).to.have.length(0)
-          expect($hook(`${frostTabsTabHook}`, { index: 1 }).find('button.active')).to.have.length(0)
-          expect($hook(`${frostTabsTabHook}`, { index: 2 }).find('button.active')).to.have.length(0)
+          expect($hook(`${hookName}${frostTabsTabHook}`, { index: 0 }).find('button.active')).to.have.length(0)
+          expect($hook(`${hookName}${frostTabsTabHook}`, { index: 1 }).find('button.active')).to.have.length(0)
+          expect($hook(`${hookName}${frostTabsTabHook}`, { index: 2 }).find('button.active')).to.have.length(0)
           expect($hook('-tab-content').text().trim()).to.be.empty
         })
     })
@@ -103,7 +104,7 @@ describeComponent(
 
       return wait()
         .then(() => {
-          expect($hook('-tab-content').text().trim()).to.be.equal(controllerTabText)
+          expect($hook(`${hookName}-tab-content`).text().trim()).to.be.equal(controllerTabText)
         })
     })
 

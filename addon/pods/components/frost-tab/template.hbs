@@ -1,10 +1,13 @@
 <div class='tab'
-data-test={{hook (concat hook '-tab') selected=isSelected}}>
+  data-test={{hook (concat hook '-tab') selected=isSelected}}
+>
   {{frost-button
     class=(concat 'tab' (if isSelected ' active'))
     disabled=disabled
+    hook=(concat hook '-tabBtn')
     text=text
-    onClick=(action 'change')}}
+    onClick=(action 'change')
+  }}
 </div>
 
 {{#if isSelected}}

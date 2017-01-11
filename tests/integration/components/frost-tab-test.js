@@ -13,7 +13,7 @@ import wait from 'ember-test-helpers/wait'
 
 const frostTabHook = '-tab'
 const hookName = 'my-hook'
-
+const onChange = () => {}
 const tabId = 'template'
 const tabText = 'Template'
 const targetOutlet = 'my-outlet'
@@ -29,6 +29,7 @@ const template = hbs`
     parentHook=parentHookName
     classNames=classNames
     disabled=disabled
+    onChange=onChange
   }}
   <div class='content' data-test={{hook (concat hook 'content')}}>
     {{#from-elsewhere name=targetOutlet as |tab|}}
@@ -47,9 +48,10 @@ describeComponent(
     beforeEach(function () {
       initialize()
       this.setProperties({
-        tabId: tabId,
-        tabText: tabText,
-        targetOutlet: targetOutlet
+        onChange,
+        tabId,
+        tabText,
+        targetOutlet
       })
     })
 
@@ -133,6 +135,7 @@ describeComponent(
           content= (component 'tab-content' text='Template')
           targetOutlet=targetOutlet
           parentHook=parentHookName
+          onChange=onChange
         }}`)
 
       return wait()
