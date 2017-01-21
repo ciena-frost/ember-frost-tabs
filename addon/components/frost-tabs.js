@@ -13,7 +13,7 @@ export default Component.extend(PropTypesMixin, {
   // == State properties ======================================================
 
   propTypes: {
-    tabs: PropTypes.array.isRequired,
+    tabs: PropTypes.array,
     selectedTab: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     hook: PropTypes.string.isRequired,
