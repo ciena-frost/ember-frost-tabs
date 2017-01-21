@@ -1,15 +1,9 @@
-import { expect } from 'chai'
-import {
-  describeComponent,
-  it
-} from 'ember-mocha'
-import { beforeEach } from 'mocha'
-import hbs from 'htmlbars-inline-precompile'
-import {
-  $hook,
-  initialize
-} from 'ember-hook'
+import {expect} from 'chai'
+import {$hook, initialize} from 'ember-hook'
+import {describeComponent} from 'ember-mocha'
 import wait from 'ember-test-helpers/wait'
+import hbs from 'htmlbars-inline-precompile'
+import {beforeEach, it} from 'mocha'
 
 const frostTabsTabHook = '-tab'
 const hookName = 'my-hook'
@@ -75,8 +69,8 @@ describeComponent(
 
       return wait()
         .then(() => {
-          expect($hook(`${hookName}${frostTabsTabHook}`, { index: 0 })).to.have.length(1)
-          expect($hook(`${hookName}${frostTabsTabHook}`, { index: 0 }).find('button.active')).to.have.length(1)
+          expect($hook(`${hookName}${frostTabsTabHook}`, {index: 0})).to.have.length(1)
+          expect($hook(`${hookName}${frostTabsTabHook}`, {index: 0}).find('button.active')).to.have.length(1)
 
           return capture('frost-tabs', done, {
             experimentalSvgs: true
@@ -89,10 +83,10 @@ describeComponent(
 
       return wait()
         .then(() => {
-          expect($hook(`${hookName}${frostTabsTabHook}`, { index: 0 }).find('button.active')).to.have.length(0)
-          expect($hook(`${hookName}${frostTabsTabHook}`, { index: 1 }).find('button.active')).to.have.length(0)
-          expect($hook(`${hookName}${frostTabsTabHook}`, { index: 2 }).find('button.active')).to.have.length(0)
-          expect($hook('-tab-content').text().trim()).to.be.empty
+          expect($hook(`${hookName}${frostTabsTabHook}`, {index: 0}).find('button.active')).to.have.length(0)
+          expect($hook(`${hookName}${frostTabsTabHook}`, {index: 1}).find('button.active')).to.have.length(0)
+          expect($hook(`${hookName}${frostTabsTabHook}`, {index: 2}).find('button.active')).to.have.length(0)
+          expect($hook('-tab-content').text().trim()).to.equal('')
         })
     })
 
@@ -117,10 +111,10 @@ describeComponent(
 
       return wait()
         .then(() => {
-          expect($hook(`${hookName}${frostTabsTabHook}`, { index: 0 })).to.have.length(1)
+          expect($hook(`${hookName}${frostTabsTabHook}`, {index: 0})).to.have.length(1)
           expect($hook(`${hookName}-${templateTabId}`)).to.have.length(1)
-          expect($hook(`${hookName}-${templateTabId}-tab`, { selected: true })).to.have.length(1)
-          expect($hook(`${hookName}${frostTabsTabHook}`, { index: 0 }).find('button.active')).to.have.length(1)
+          expect($hook(`${hookName}-${templateTabId}-tab`, {selected: true})).to.have.length(1)
+          expect($hook(`${hookName}${frostTabsTabHook}`, {index: 0}).find('button.active')).to.have.length(1)
         })
     })
 

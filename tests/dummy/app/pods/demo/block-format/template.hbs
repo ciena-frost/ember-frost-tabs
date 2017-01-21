@@ -27,6 +27,7 @@
   <div class='addon-demo-component'>
     {{! BEGIN-SNIPPET block-format }}
     {{#frost-tabs
+      hook='myTabs'
       selectedTab=selectedTab
       onChange=(action 'onChange')
       as |controls|

@@ -15,18 +15,17 @@ addons:
     - g++-4.8
 env:
   matrix:
+  - EMBER_TRY_SCENARIO=ember-2-3
+  - EMBER_TRY_SCENARIO=ember-2-8
   - EMBER_TRY_SCENARIO=default
   - EMBER_TRY_SCENARIO=ember-release
-  - EMBER_TRY_SCENARIO=ember-beta
-  - EMBER_TRY_SCENARIO=ember-canary
   global:
     - CXX=g++-4.8
     - secure: TdEyWHOImZtiltHiRu1zWSNT65iMNCNqOAvg+Zj08tBNGIfITs0wMtLcmVAYUkKilKEOg8xFWrevBVqLEYZdhgAquEXtkdXnkRKHQz3NpxDIdRxlCvdF/Nrrn+fqrCMhRnKRkj59IrlOsVHR6QmnvwB06l57K/kiRujR+dfHbnwlKRtSrvnFxeri6Q7v3sp1PwxXjwfpBoHzg9dfCyfVq7Ey/MC6AmEphcQzmjV2RPB2rc3IAY5ErRBpPSKC+t7V9ZRjNo6c+Cum0xnmMyY+jiuUS4WrtHddE0MQMxsP+ZE5tHbzvPJoVCrJsDRoPwEae1arsu06SC3cLl3GQllrLNFJFC/K32SZmmL9N2YumDDMJ26jx+xD9aK+JODAL0XNqT4wQLRRjBBzheGEGK+Krjlr9qwg18v5HXbXCFqbIapMJLaGqv24hHYwQQF7CHm8tgsiODgVtK/6a8niWBwIdAdXO2R5nIC3+JiHWn0WC/JlAQUs0lhqVNUyZvvnCjY+7CKvo4lIAks9qF+RSBbZh2nshoenvoX68k/PLE5bsuKWN1vai6a3YVhQCqo4M/JV325RNXuG4AgechUCcDJZD5xTZdiE9gT1Ns9d5BpdNgMb/aNM1AkRKBeXcMBeLK7pwSpB7AVJPs5G4K+IDZ+Sd51JPLWgI7gtLkBiu3ur/fg=
 matrix:
   fast_finish: true
   allow_failures:
-  - env: EMBER_TRY_SCENARIO=ember-beta
-  - env: EMBER_TRY_SCENARIO=ember-canary
+  - env: EMBER_TRY_SCENARIO=ember-release
 before_install:
 - npm config set spin false
 - npm install -g bower coveralls pr-bumper

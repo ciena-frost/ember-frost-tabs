@@ -1,7 +1,8 @@
 import Ember from 'ember'
+const {Controller} = Ember
 
 // BEGIN-SNIPPET selected-tab-controller
-export default Ember.Controller.extend({
+export default Controller.extend({
   selectedTab: 'route',
   actions: {
     onChange (tabId) {

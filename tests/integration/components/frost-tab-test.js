@@ -1,15 +1,9 @@
-import { expect } from 'chai'
-import {
-  describeComponent,
-  it
-} from 'ember-mocha'
-import { beforeEach } from 'mocha'
-import hbs from 'htmlbars-inline-precompile'
-import {
-  $hook,
-  initialize
-} from 'ember-hook'
+import {expect} from 'chai'
+import {$hook, initialize} from 'ember-hook'
+import {describeComponent} from 'ember-mocha'
 import wait from 'ember-test-helpers/wait'
+import hbs from 'htmlbars-inline-precompile'
+import {beforeEach, it} from 'mocha'
 
 const frostTabHook = '-tab'
 const hookName = 'my-hook'

@@ -1,9 +1,10 @@
 import Ember from 'ember'
+const {Component} = Ember
 import layout from '../templates/components/frost-tabs'
-import PropTypesMixin, { PropTypes } from 'ember-prop-types'
+import PropTypesMixin, {PropTypes} from 'ember-prop-types'
 import uuid from 'ember-simple-uuid'
 
-export default Ember.Component.extend(PropTypesMixin, {
+export default Component.extend(PropTypesMixin, {
   // == Component properties ==================================================
 
   layout: layout,
@@ -12,7 +13,7 @@ export default Ember.Component.extend(PropTypesMixin, {
   // == State properties ======================================================
 
   propTypes: {
-    tabs: PropTypes.array.isRequired,
+    tabs: PropTypes.array,
     selectedTab: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     hook: PropTypes.string.isRequired,

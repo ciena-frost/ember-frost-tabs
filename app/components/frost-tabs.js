@@ -1,1 +1,1 @@
-export { default } from 'ember-frost-tabs/components/frost-tabs'
+export {default} from 'ember-frost-tabs/components/frost-tabs'
