@@ -1,3 +1,8 @@
+# 5.1.2
+
+* **Removed** unused dependencies from the dev environment.
+
+
 # 5.1.1
 
 * **Upgraded** to test against Ember 2.11.
