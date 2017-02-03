@@ -1,6 +1,6 @@
 {
   "name": "ember-frost-tabs",
-  "version": "5.1.2",
+  "version": "5.2.0",
   "dependencies": {
     "abbrev": {
       "version": "1.0.9",
@@ -2876,9 +2876,9 @@
       "dev": true
     },
     "ember-frost-core": {
-      "version": "1.8.0",
+      "version": "1.8.1",
       "from": "ember-frost-core@>=1.7.5 <2.0.0",
-      "resolved": "https://registry.npmjs.org/ember-frost-core/-/ember-frost-core-1.8.0.tgz",
+      "resolved": "https://registry.npmjs.org/ember-frost-core/-/ember-frost-core-1.8.1.tgz",
       "dev": true,
       "dependencies": {
         "bluebird": {
@@ -3019,6 +3019,12 @@
       "version": "0.6.1",
       "from": "ember-test-helpers@>=0.6.0-beta.1 <0.7.0",
       "resolved": "https://registry.npmjs.org/ember-test-helpers/-/ember-test-helpers-0.6.1.tgz",
+      "dev": true
+    },
+    "ember-test-utils": {
+      "version": "1.7.0",
+      "from": "ember-test-utils@>=1.7.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/ember-test-utils/-/ember-test-utils-1.7.0.tgz",
       "dev": true
     },
     "ember-truth-helpers": {
@@ -9113,9 +9119,9 @@
       "dev": true,
       "dependencies": {
         "acorn": {
-          "version": "4.0.7",
+          "version": "4.0.8",
           "from": "acorn@>=4.0.1 <5.0.0",
-          "resolved": "https://registry.npmjs.org/acorn/-/acorn-4.0.7.tgz",
+          "resolved": "https://registry.npmjs.org/acorn/-/acorn-4.0.8.tgz",
           "dev": true
         }
       }

@@ -1,3 +1,9 @@
+# 5.2.0
+
+* **Updated** integration tests to remove the deprecated use of `describeComponent()`
+* **Added** `ember-test-utils` dependency for usage in testing
+
+
 # 5.1.2
 
 * **Removed** unused dependencies from the dev environment.
