@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 language: node_js
 node_js:
-- '6.9'
+- '5.0'
 - 'stable'
 branches:
   except:
@@ -11,7 +11,9 @@ addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
+    - google-chrome
     packages:
+    - google-chrome-stable
     - g++-4.8
 env:
   matrix:
