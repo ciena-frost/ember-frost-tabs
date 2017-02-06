@@ -1,3 +1,8 @@
+# 5.2.1
+
+* **Updated** CI to test in Chrome as well as Firefox.
+
+
 # 5.2.0
 
 * **Updated** integration tests to remove the deprecated use of `describeComponent()`
