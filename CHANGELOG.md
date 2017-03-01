@@ -1,3 +1,7 @@
+# 5.2.2
+* **Updated** to use latest pr-bumper which supports being able to set a PR to `none` when publishing a new version is not desired.
+
+
 # 5.2.1
 
 * **Updated** CI to test in Chrome as well as Firefox.
