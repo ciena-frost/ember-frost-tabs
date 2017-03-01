@@ -53,10 +53,12 @@ Detailed API and example usage can be found in the sample application in `tests/
 
 ### Ember-elsewhere
 
-This addon uses the [ember-elsewhere](https://github.com/ef4/ember-elsewhere) to manage the tabs, to put the tab in the right location
+This addon uses the [ember-elsewhere](https://github.com/ef4/ember-elsewhere) to manage the tabs, to put the tab
+in the right location
 
 ### Testing with ember-hook
-This addon has been optimized for use with [ember-hook](https://github.com/Ticketfly/ember-hook). You can set a `hook` name on your tabs template. 
+This addon has been optimized for use with [ember-hook](https://github.com/Ticketfly/ember-hook). You can set a `hook`
+name on your tabs template.
 This will allow you to access the internal tabs content for testing.
 
 ## Development

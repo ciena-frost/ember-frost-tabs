@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 language: node_js
 node_js:
-- '5.0'
+- '6.9'
 - 'stable'
 branches:
   except:
@@ -60,7 +60,7 @@ deploy:
     branch: master
     condition: "$EMBER_TRY_SCENARIO = 'default'"
     node: 'stable'
-    tags: false
+    tags: true
 after_deploy:
 - .travis/publish-gh-pages.sh
 notifications:
