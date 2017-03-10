@@ -1,3 +1,6 @@
+# 5.2.3
+* **Updated** the travis.yml and package.json to run code coverage
+
 # 5.2.2
 * **Updated** to use latest pr-bumper which supports being able to set a PR to `none` when publishing a new version is not desired.
 
