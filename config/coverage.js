@@ -2,7 +2,7 @@ module.exports = {
   coverageEnvVar: 'COVERAGE',
   coverageFolder: 'coverage',
   excludes: [
-    '**/dummy/**/*'
+    /dummy\/(.*)/
   ],
   useBabelInstrumenter: true,
   reporters: [
