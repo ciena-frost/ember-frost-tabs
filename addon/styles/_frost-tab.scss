@@ -1,9 +1,8 @@
-$frost-tab-active-border: $frost-color-blue-1;
+$frost-tab-active-border: $frost-color-grey-2;
 $frost-tab-active-text: $frost-color-grey-2;
 
 .frost-tab {
-  padding-bottom: 2px;
-  border-bottom: 5px solid transparent;
+  border-bottom: 1px solid $frost-color-lgrey-1;
 
   .frost-button {
     &.tab {
@@ -22,6 +21,7 @@ $frost-tab-active-text: $frost-color-grey-2;
         border-bottom: 2px solid $frost-tab-active-border;
 
         .text {
+          margin-bottom: -2px;
           color: $frost-tab-active-text;
         }
       }
