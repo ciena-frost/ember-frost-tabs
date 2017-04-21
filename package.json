@@ -53,7 +53,6 @@
     "ember-load-initializers": "0.6.3",
     "ember-prop-types": "^3.10.2",
     "ember-resolver": "^2.1.1",
-    "ember-simple-uuid": "0.1.4",
     "ember-sinon": "0.6.0",
     "ember-spread": "^1.1.1",
     "ember-test-utils": "^1.10.7",
@@ -68,7 +67,8 @@
     "ember-cli-babel": "^5.1.5",
     "ember-cli-htmlbars": "^1.0.1",
     "ember-cli-sass": "^5.1.0",
-    "ember-frost-core": "^1.14.3"
+    "ember-frost-core": "^1.14.3",
+    "ember-simple-uuid": "0.1.4"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
