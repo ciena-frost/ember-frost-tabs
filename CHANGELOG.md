@@ -1,3 +1,7 @@
+# 5.2.6 (2017-04-27)
+fix styling of tabs.
+
+
 # 5.2.5 (2017-04-21)
 * **Added** blueprint check
 
