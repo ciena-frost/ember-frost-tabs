@@ -1,23 +1,34 @@
-$frost-tab-active-border: $frost-color-blue-1;
+$frost-tab-active-border: $frost-color-grey-2;
 $frost-tab-active-text: $frost-color-grey-2;
 
 .frost-tab {
-  padding-bottom: 2px;
-  border-bottom: 5px solid transparent;
+  border-bottom: 1px solid $frost-color-lgrey-1;
 
-  .tab {
-    cursor: pointer;
-
-    &.active {
-      border-bottom: 5px solid $frost-tab-active-border;
+  .frost-button {
+    &.tab {
+      height: 35px;
+      padding: 0;
+      cursor: pointer;
 
       .text {
-        color: $frost-tab-active-text;
+        padding: 2px 20px;
+        border-right: 1px solid $frost-color-lgrey-1;
+        color: $frost-color-grey-5;
+        font-size: $frost-font-s;
       }
-    }
 
-    &.disabled {
-      cursor: default;
+      &.active {
+        border-bottom: 2px solid $frost-tab-active-border;
+
+        .text {
+          margin-bottom: -2px;
+          color: $frost-tab-active-text;
+        }
+      }
+
+      &.disabled {
+        cursor: default;
+      }
     }
   }
 }
