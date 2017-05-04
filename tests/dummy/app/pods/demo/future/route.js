@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember from 'ember'
 
 export default Ember.Route.extend({
   setupController (controller, model) {
@@ -8,4 +8,4 @@ export default Ember.Route.extend({
       controller.set('selectedTab', 'View')
     }
   }
-});
+})

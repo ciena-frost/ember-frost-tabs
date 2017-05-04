@@ -102,8 +102,6 @@ export default Component.extend({
   @readOnly
   @computed('tabs.[]')
   _tabs (tabs) {
-    // Let PropTypes handle checking the format of objects passed in as tabs,
-    // just assume they're in the right format here
     if (isEmpty(tabs) || typeOf(tabs[0]) === 'object' || typeOf(tabs[0]) === 'instance') {
       const isMissingProperties = tabs.some(({id, label}) => {
         return !id || !label

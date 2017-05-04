@@ -21,7 +21,15 @@
       hook='detail-tabs-more-outlet'
     }}
 
-    {{tabContent}}
+    {{!-- {{tabContent}} --}}
+
+    {{frost-detail-subtabs
+      hook='frost-detail-subtabs'
+      subtabs=subtabs
+      selectedSubtab=selectedSubtab
+      selectedTab=selectedTab
+      onSelect=(action 'onSubtabSelect')
+    }}
   </div>
 
 </div>
