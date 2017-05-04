@@ -1,5 +1,5 @@
 /**
- * Component definition for the qp-tabs component
+ * Component definition for the frost-detail-tabs component
  */
 
 import Ember from 'ember'
@@ -9,7 +9,7 @@ import {task, timeout} from 'ember-concurrency'
 import {Component} from 'ember-frost-core'
 import {PropTypes} from 'ember-prop-types'
 
-import layout from './template'
+import layout from '../templates/components/frost-detail-tabs'
 
 const SCROLL_ANIMATION_DURATION = 100
 
@@ -19,7 +19,6 @@ export default Component.extend({
 
   // == Keyword Properties ====================================================
 
-  css: 'qp-tabs',
   layout,
 
   // == PropTypes =============================================================

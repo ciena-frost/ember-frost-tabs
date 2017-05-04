@@ -1,6 +1,6 @@
 {{! Template for the qp-tabs component }}
 
-{{resize-detector '.qp-tabs-scroll' on-resize=(action '_resize')}}
+{{resize-detector (concat '.' css '-scroll') on-resize=(action '_resize')}}
 
 {{#if _isInOverflow}}
   <button
@@ -31,7 +31,7 @@
 }}
   <div class='{{css}}-tabs'>
     {{#each _tabs key='id' as |tab|}}
-      {{~ network-element-details-v2/-components/qp-tab
+      {{~ frost-detail-tab
         hook=(concat hookPrefix '-' tab.id)
         register=(action '_register')
         selectedTab=_selectedTab
@@ -60,7 +60,7 @@
 
 {{yield
   (hash
-    more=(component 'network-element-details-v2/-components/qp-tabs-more'
+    more=(component 'frost-detail-more'
       hook=(concat hookPrefix '-more')
       selectedTab=_selectedTab
       onSelect=onSelect
