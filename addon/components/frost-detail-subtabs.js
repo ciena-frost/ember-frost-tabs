@@ -1,31 +1,39 @@
 /**
- * Component definition for the frost-detail-tabs-more component
+ * Component definition for the frost-detail-subtabs component
  */
-
 import Ember from 'ember'
-const {A, Object: EmberObject, get, isEmpty, typeOf} = Ember
+const {isEmpty, typeOf} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
-import {task, timeout} from 'ember-concurrency'
 import {Component} from 'ember-frost-core'
 import {PropTypes} from 'ember-prop-types'
 
-import layout from '../templates/components/frost-detail-tabs-more'
-
-const SCROLL_ANIMATION_DURATION = 100
+import layout from '../templates/components/frost-detail-subtabs'
 
 export default Component.extend({
-
   // == Dependencies ==========================================================
 
   // == Keyword Properties ====================================================
 
   layout,
-  tagName: '',
 
   // == PropTypes =============================================================
 
+  /**
+   * Properties for this component. Options are expected to be (potentially)
+   * passed in to the component. State properties are *not* expected to be
+   * passed in/overwritten.
+   */
   propTypes: {
-    // Required
+    // options
+    tabs: PropTypes.arrayOf(PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        id: PropTypes.any.isRequired,
+        label: PropTypes.string.isRequired,
+        pack: PropTypes.string.isRequired,
+        icon: PropTypes.string.isRequired
+      })
+    ])).isRequired,
     selectedTab: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.shape({
@@ -33,45 +41,21 @@ export default Component.extend({
         label: PropTypes.string.isRequired
       })
     ]),
-    tabs: PropTypes.arrayOf(PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.shape({
-        id: PropTypes.any.isRequired,
-        label: PropTypes.string.isRequired
-      })
-    ])).isRequired,
-    onSelect: PropTypes.func.isRequired,
-
-    // Options
-    label: PropTypes.string,
-    targetOutlet: PropTypes.string
+    onSelect: PropTypes.func.isRequired
+    // state
   },
 
+  /** @returns {Object} the default property values when not provided by consumer */
   getDefaultProps () {
     return {
-      // Option defaults
-      label: 'More',
-      targetOutlet: 'frost-detail-tabs-more'
+      // options
+
+      // state
     }
   },
 
   // == Computed Properties ===================================================
 
-  // Wrap the label for the same reasons outlined in the comments for _tabs
-  @readOnly
-  @computed('label')
-  _tab (label) {
-    return {
-      id: 'more',
-      label
-    }
-  },
-
-  // If the tabs only provide the label string, map them into objects
-  // with an id for consistency across the rest of the component.
-  // The option to supply an id with a tab supports the use case where
-  // a consumer wants a shorter id for the tabs than the label
-  // (e.g. for binding to query params)
   @readOnly
   @computed('tabs.[]')
   _tabs (tabs) {
@@ -85,14 +69,14 @@ export default Component.extend({
     return tabs.map(label => {
       return {
         id: label,
-        label
+        label,
+        icon: 'view-medium',
+        pack: 'frost'
       }
     })
   },
 
   // == Functions =============================================================
-
-  // == Tasks =================================================================
 
   // == DOM Events ============================================================
 
@@ -101,9 +85,5 @@ export default Component.extend({
   // == Actions ===============================================================
 
   actions: {
-    _register () {
-      // No-op (special case - the More tab isn't part of the overflow)
-    }
   }
-
 })

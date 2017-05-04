@@ -37,6 +37,16 @@ export default Controller.extend({
     // 'Woooooooooooooah'
   ],
   selectedTab: null,
+  subTabs: [
+    {'View': [
+      'ViewSubTab1',
+      {icon: 'view-medium', pack: 'frost', label: 'ViewSubTab2'}
+    ]},
+    {'Footab': [
+      'Footab1',
+      {icon: 'view-medium', pack: 'frost', label: 'Footab2'}
+    ]}
+  ],
   queryParams: ['selectedTab'],
 
   _selectTab (tab) {

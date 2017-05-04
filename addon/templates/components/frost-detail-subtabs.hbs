@@ -1,0 +1,8 @@
+<div class='{{css}}-subtabs'>
+  {{#each _tabs key='id' as |tab|}}
+    {{frost-icon
+    icon=tab.icon
+    pack=tab.pack}}
+    {{tab.label}}
+  {{/each}}
+</div>
