@@ -2,7 +2,7 @@
 
 {{frost-text
   hook=(concat hookPrefix '-filter')
-  onChange=(action '_filterTabs')
+  onInput=(action '_filterTabs')
 }}
 
 {{#each _filteredTabs key='id' as |tab|}}

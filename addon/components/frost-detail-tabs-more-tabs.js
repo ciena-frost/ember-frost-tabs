@@ -3,9 +3,8 @@
  */
 
 import Ember from 'ember'
-const {get, isEmpty} = Ember
+const {get, isEmpty, typeOf} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
-import {task, timeout} from 'ember-concurrency'
 import {Component} from 'ember-frost-core'
 import {PropTypes} from 'ember-prop-types'
 
@@ -46,7 +45,13 @@ export default Component.extend({
   @readOnly
   @computed('_filter', '_tabs')
   _filteredTabs (filter, tabs) {
-    return tabs.filter()
+    if (isEmpty(filter)) {
+      return tabs
+    }
+
+    return tabs.filter(({label}) => {
+      return label.toLowerCase().includes(filter.toLowerCase())
+    })
   },
 
   // If the tabs only provide the label string, map them into objects
@@ -69,21 +74,12 @@ export default Component.extend({
         id: label,
         label
       }
-    }).filter(({id}) => {
-      // Strip the 'More' tab out of the set of scrollable tabs
-      return id !== 'more'
     })
   },
 
   // == Functions =============================================================
 
   // == Tasks =================================================================
-
-  // Basic task to debounce/throttle filtering
-  _updateViewportTask: task(function * (filter) {
-    this.set('_filter', filter)
-    yield timeout(1000 / 60)
-  }).keepLatest(),
 
   // == DOM Events ============================================================
 
@@ -93,7 +89,7 @@ export default Component.extend({
 
   actions: {
     _filterTabs (event) {
-      this.get('_setFilter').perform(event.target.value)
+      this.set('_filter', event.target.value)
     }
   }
 
