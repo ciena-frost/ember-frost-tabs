@@ -1,0 +1,20 @@
+.future {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.future-content {
+  position: relative;
+  flex: 1;
+}
+
+.future-tabs {
+  display: flex;
+  flex-direction: row;
+
+  .frost-detail-tabs {
+    flex: 1;
+    min-width: 0;
+  }
+}

@@ -1,0 +1,10 @@
+{{! Template for the qp-tabs-more-tabs component }}
+
+{{frost-text
+  hook=(concat hookPrefix '-filter')
+  onChange=(action '_filterTabs')
+}}
+
+{{#each _filteredTabs key='id' as |tab|}}
+  <button {{action onSelect tab.label}}>{{tab.label}}</button>
+{{/each}}

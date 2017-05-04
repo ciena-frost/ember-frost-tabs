@@ -1,0 +1,29 @@
+{{! Template for the qp-tabs-more component }}
+
+{{#network-element-details-v2/-components/qp-tab
+  class=(concat css '-tab')
+  hook=(concat hookPrefix '-tab')
+  register=(action '_register')
+  selectedTab=selectedTab
+  tab=_tab
+  viewport=(hash scrollLeft=0 width=10000)
+  onSelect=onSelect
+}}
+  {{frost-icon
+    class=(concat css '-tab-icon')
+    hook=(concat hookPrefix '-tabIcon')
+    icon='add'
+    pack='frost'
+  }}
+  {{_tab.label}}
+{{/network-element-details-v2/-components/qp-tab}}
+
+{{#if (eq selectedTab.id _tab.id)}}
+  {{to-elsewhere
+    named=targetOutlet
+    send=(component 'network-element-details-v2/-components/qp-tabs-more-tabs'
+      tabs=_tabs
+      onSelect=onSelect
+    )
+  }}
+{{/if}}
