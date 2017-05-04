@@ -1,5 +1,5 @@
 /**
- * Component definition for the qp-tabs component
+ * Component definition for the frost-detail-tab component
  */
 
 import Ember from 'ember'

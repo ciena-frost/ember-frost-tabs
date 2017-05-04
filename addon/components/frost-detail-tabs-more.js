@@ -35,23 +35,30 @@ export default Component.extend({
     ]),
     tabs: PropTypes.arrayOf(PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.shape({
-        id: PropTypes.any.isRequired,
-        label: PropTypes.string.isRequired
-      })
+      PropTypes.object,
+      PropTypes.EmberObject
     ])).isRequired,
     onSelect: PropTypes.func.isRequired,
 
     // Options
     label: PropTypes.string,
-    targetOutlet: PropTypes.string
+    targetOutlet: PropTypes.string,
+
+    // State
+    _viewport: PropTypes.EmberObject
   },
 
   getDefaultProps () {
     return {
       // Option defaults
       label: 'More',
-      targetOutlet: 'frost-detail-tabs-more'
+      targetOutlet: 'frost-detail-tabs-more',
+
+      // State defaults
+      _viewport: EmberObject.create({
+        scrollLeft: 0,
+        width: 10000
+      })
     }
   },
 

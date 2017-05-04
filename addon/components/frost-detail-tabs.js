@@ -3,7 +3,7 @@
  */
 
 import Ember from 'ember'
-const {A, Object: EmberObject, get, isEmpty, typeOf} = Ember
+const {A, Logger, Object: EmberObject, get, isEmpty, typeOf} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
 import {task, timeout} from 'ember-concurrency'
 import {Component} from 'ember-frost-core'
@@ -27,17 +27,13 @@ export default Component.extend({
     // Required
     tabs: PropTypes.arrayOf(PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.shape({
-        id: PropTypes.any.isRequired,
-        label: PropTypes.string.isRequired
-      })
+      PropTypes.object,
+      PropTypes.EmberObject
     ])).isRequired,
     selectedTab: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.shape({
-        id: PropTypes.any.isRequired,
-        label: PropTypes.string.isRequired
-      })
+      PropTypes.object,
+      PropTypes.EmberObject
     ]),
     onSelect: PropTypes.func.isRequired,
 
@@ -46,7 +42,7 @@ export default Component.extend({
     _registeredTabs: PropTypes.array,
     _scrollClass: PropTypes.string,
     _tabsWidth: PropTypes.number,
-    _viewport: PropTypes.array
+    _viewport: PropTypes.EmberObject
   },
 
   getDefaultProps () {
@@ -109,6 +105,14 @@ export default Component.extend({
     // Let PropTypes handle checking the format of objects passed in as tabs,
     // just assume they're in the right format here
     if (isEmpty(tabs) || typeOf(tabs[0]) === 'object' || typeOf(tabs[0]) === 'instance') {
+      const isMissingProperties = tabs.some(({id, label}) => {
+        return !id || !label
+      })
+
+      if (isMissingProperties) {
+        Logger.error(`frost-detail-tabs: Objects provided to the 'tabs' property must include an 'id' and 'label'`)
+      }
+
       return tabs
     }
 

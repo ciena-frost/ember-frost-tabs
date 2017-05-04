@@ -1,5 +1,5 @@
 /**
- * Component definition for the qp-tabs-more-outlet component
+ * Component definition for the frost-detail-tabs-more-outlet component
  */
 
 import {Component} from 'ember-frost-core'

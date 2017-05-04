@@ -1,5 +1,5 @@
 import Ember from 'ember'
-const {Controller, get} = Ember
+const {A, Controller, get} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
 
 export default Controller.extend({
@@ -18,13 +18,13 @@ export default Controller.extend({
   @readOnly
   @computed('selectedTab')
   tabContent (selectedTab) {
-    const tab = this.get('apiTabs').findBy('label', selectedTab)
+    const tab = A(this.get('apiTabs')).findBy('label', selectedTab)
     return tab ? get(tab, 'value') : selectedTab
   },
 
   // State management
 
-  tabs: [
+  tabs: A([
     'View',
     'Attributes',
     'Footab',
@@ -35,7 +35,7 @@ export default Controller.extend({
     // 'Looooooongertab',
     // 'Looooooongesttab',
     // 'Woooooooooooooah'
-  ],
+  ]),
   selectedTab: null,
   subTabs: [
     {'View': [

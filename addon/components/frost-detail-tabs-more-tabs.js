@@ -25,10 +25,8 @@ export default Component.extend({
     // Required
     tabs: PropTypes.arrayOf(PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.shape({
-        id: PropTypes.any.isRequired,
-        label: PropTypes.string.isRequired
-      })
+      PropTypes.object,
+      PropTypes.EmberObject
     ])).isRequired,
     onSelect: PropTypes.func.isRequired,
 

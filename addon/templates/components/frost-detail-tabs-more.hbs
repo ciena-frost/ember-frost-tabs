@@ -1,4 +1,4 @@
-{{! Template for the qp-tabs-more component }}
+{{! Template for the frost-detail-tabs-more component }}
 
 {{#frost-detail-tab
   class=(concat css '-tab')
@@ -6,7 +6,7 @@
   register=(action '_register')
   selectedTab=selectedTab
   tab=_tab
-  viewport=(hash scrollLeft=0 width=10000)
+  viewport=_viewport
   onSelect=onSelect
 }}
   {{frost-icon
@@ -22,6 +22,7 @@
   {{to-elsewhere
     named=targetOutlet
     send=(component 'frost-detail-tabs-more-tabs'
+      hook=(concat hookPrefix '-tabs')
       tabs=_tabs
       onSelect=onSelect
     )
