@@ -1,5 +1,5 @@
 /**
- * Component definition for the qp-tabs-more-tabs component
+ * Component definition for the frost-detail-tabs-more-tabs component
  */
 
 import Ember from 'ember'
@@ -9,7 +9,7 @@ import {task, timeout} from 'ember-concurrency'
 import {Component} from 'ember-frost-core'
 import {PropTypes} from 'ember-prop-types'
 
-import layout from './template'
+import layout from '../templates/components/frost-detail-tabs-more-tabs'
 
 export default Component.extend({
 
@@ -17,7 +17,6 @@ export default Component.extend({
 
   // == Keyword Properties ====================================================
 
-  css: 'qp-tabs-more-tabs',
   layout,
 
   // == PropTypes =============================================================
