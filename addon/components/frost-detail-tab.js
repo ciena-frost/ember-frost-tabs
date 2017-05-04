@@ -3,13 +3,12 @@
  */
 
 import Ember from 'ember'
-const {get, isEmpty} = Ember
+const {get, run} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
-import {task, timeout} from 'ember-concurrency'
 import {Component} from 'ember-frost-core'
 import {PropTypes} from 'ember-prop-types'
 
-import layout from './template'
+import layout from '../templates/components/frost-detail-tab'
 
 export default Component.extend({
 
@@ -18,7 +17,6 @@ export default Component.extend({
   // == Keyword Properties ====================================================
 
   classNameBindings: ['_isInViewport::overflow', '_isSelected:selected'],
-  css: 'qp-tab',
   layout,
 
   // == PropTypes =============================================================
@@ -94,7 +92,7 @@ export default Component.extend({
       tabWidth: Math.floor(this.$().outerWidth())
     })
 
-    Ember.run.schedule('sync', this, () => {
+    run.schedule('sync', this, () => {
       // Unblock CP chains reliant on DOM sizing
       this.set('_isInserted', true)
     })

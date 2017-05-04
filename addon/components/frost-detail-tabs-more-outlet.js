@@ -5,7 +5,7 @@
 import {Component} from 'ember-frost-core'
 import {PropTypes} from 'ember-prop-types'
 
-import layout from './template'
+import layout from '../templates/components/frost-detail-tabs-more-outlet'
 
 export default Component.extend({
 
@@ -26,7 +26,7 @@ export default Component.extend({
   getDefaultProps () {
     return {
       // Option defaults
-      name: 'qp-tabs-more'
+      name: 'frost-detail-tabs-more'
     }
   }
 
