@@ -32,7 +32,9 @@ export default Component.extend({
     tab: PropTypes.shape({
       id: PropTypes.any.isRequired,
       label: PropTypes.string.isRequired
-    })
+    }),
+    onSelect: PropTypes.func.isRequired
+
     // state
   },
 

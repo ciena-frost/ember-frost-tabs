@@ -3,6 +3,9 @@ $frost-detail-tab-active-text: $frost-color-grey-1;
 $frost-detail-tab-inactive: $frost-color-grey-5;
 
 .frost-detail-subtab {
+  display: flex;
+  flex-direction: row;
+
   &-selector {
     display: flex;
     flex-direction: column;

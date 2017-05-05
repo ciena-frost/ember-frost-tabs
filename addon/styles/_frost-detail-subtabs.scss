@@ -38,4 +38,9 @@ $frost-detail-tab-inactive: $frost-color-grey-5;
     font-size: $frost-font-s;
   }
 
+  .content {
+    width: 200px;
+    height: 300px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+  }
 }
