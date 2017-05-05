@@ -86,7 +86,7 @@ export default Controller.extend({
     this.get('tabs').addObject(tab)
     this.set('selectedTab', tab)
   },
-  _selectSubTab (tab) {
+  _selectSubtab (tab) {
     this.set('selectedSubtab', tab)
   },
 

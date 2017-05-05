@@ -50,6 +50,26 @@ export default Component.extend({
 
   // == Computed Properties ===================================================
 
+  // Wrap selectedTab for the same reasons outlined in the comments for _tabs
+  @readOnly
+  @computed('selectedSubtab')
+  _selectedSubtab (selectedSubtab) {
+    if (!selectedSubtab || typeOf(selectedSubtab) === 'object' || typeOf(selectedSubtab) === 'instance') {
+      return {
+        id: null,
+        label: null
+      }
+    }
+
+    const label = selectedSubtab
+    return {
+      id: label,
+      label,
+      icon: 'view-medium',
+      pack: 'frost'
+    }
+  },
+
   @readOnly
   @computed('subtabs.[]')
   _subtabs (subtabs) {

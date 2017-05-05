@@ -1,10 +1,9 @@
 {{!-- <div class='{{css}}-subtabs'> --}}
   {{#each _subtabs key='id' as |tab|}}
     {{~ frost-detail-subtab
-      hook=(concat hookPrefix '-subtab')
-      icon=tab.icon
-      label=tab.label
-      pack=tab.pack
+      hook=(concat hookPrefix '-subtab-' tab.id)
+      subtab=tab
+      selectedSubtab=_selectedSubtab
       onSelect=onSelect
     ~}}
   {{/each}}

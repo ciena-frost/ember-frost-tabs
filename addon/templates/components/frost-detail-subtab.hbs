@@ -2,9 +2,9 @@
 <div class='{{css}}-selector'>
   {{frost-icon
     hook=(concat hookPrefix '-icon')
-    icon=icon
-    pack=pack}}
-  <div class='{{css}}-label'>
-    {{label}}
+    icon=subtab.icon
+    pack=subtab.pack}}
+  <div class='{{css}}-label {{if _isSelected 'selected'}}'>
+    {{subtab.label}}
   </div>
 </div>

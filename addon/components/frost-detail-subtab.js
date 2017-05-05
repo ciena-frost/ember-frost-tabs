@@ -25,14 +25,16 @@ export default Component.extend({
    */
   propTypes: {
     // options
-    selectedSubtab: PropTypes.shape({
-      id: PropTypes.any.isRequired,
-      label: PropTypes.string.isRequired
-    }),
-    tab: PropTypes.shape({
-      id: PropTypes.any.isRequired,
-      label: PropTypes.string.isRequired
-    }),
+    selectedSubtab: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.EmberObject
+    ]),
+    subtab: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.EmberObject
+    ]),
     onSelect: PropTypes.func.isRequired
 
     // state
@@ -55,14 +57,14 @@ export default Component.extend({
       return false
     }
 
-    return this.get('tab.id') === get(selectedSubtab, 'id')
+    return this.get('subtab.id') === get(selectedSubtab, 'id')
   },
 
   // == Functions =============================================================
 
   // == DOM Events ============================================================
   click () {
-    console.log('clicked');
+    this.onSelect(this.get('subtab.id'))
   },
 
   // == Lifecycle Hooks =======================================================
