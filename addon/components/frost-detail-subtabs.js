@@ -2,7 +2,7 @@
  * Component definition for the frost-detail-subtabs component
  */
 import Ember from 'ember'
-const {isEmpty, typeOf} = Ember
+const {A, Logger, isEmpty, typeOf} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
 import {Component} from 'ember-frost-core'
 import {PropTypes} from 'ember-prop-types'
@@ -25,21 +25,20 @@ export default Component.extend({
    */
   propTypes: {
     // options
-    tabs: PropTypes.arrayOf(PropTypes.oneOfType([
+    subtabs: PropTypes.arrayOf(PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.shape({
-        id: PropTypes.any.isRequired,
-        label: PropTypes.string.isRequired,
-        pack: PropTypes.string.isRequired,
-        icon: PropTypes.string.isRequired
-      })
+      PropTypes.object,
+      PropTypes.EmberObject
     ])).isRequired,
+    selectedSubTab: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.EmberObject
+    ]),
     selectedTab: PropTypes.oneOfType([
       PropTypes.string,
-      PropTypes.shape({
-        id: PropTypes.any.isRequired,
-        label: PropTypes.string.isRequired
-      })
+      PropTypes.object,
+      PropTypes.EmberObject
     ]),
     onSelect: PropTypes.func.isRequired
     // state
@@ -57,16 +56,28 @@ export default Component.extend({
   // == Computed Properties ===================================================
 
   @readOnly
-  @computed('tabs.[]')
-  _tabs (tabs) {
+  @computed('subtabs.[]', 'selectedTab')
+  _subtabs (subtabs, selectedTab) {
     // Let PropTypes handle checking the format of objects passed in as tabs,
     // just assume they're in the right format here
-    if (isEmpty(tabs) || typeOf(tabs[0]) === 'object' || typeOf(tabs[0]) === 'instance') {
-      return tabs
+    if (isEmpty(selectedTab)) {
+      return []
+    }
+    const selectedTabSubtabs = A(subtabs).findBy('tab', selectedTab)
+    const subtabsContent = selectedTabSubtabs ? selectedTabSubtabs.content : []
+    if (isEmpty(subtabsContent) || typeOf(subtabsContent[0]) === 'object' || typeOf(subtabsContent[0]) === 'instance') {
+      // const isMissingProperties = subtabs.some(({id, label, icon, pack}) => {
+      //   return !id || !label
+      // })
+      // if (isMissingProperties) {
+      //   Logger.error(`frost-detail-subtabs:
+      //     Objects provided to the 'tabs' property must include an 'id', 'label', 'icon' and 'pack'`)
+      // }
+      return subtabsContent
     }
 
     // Map tab strings to an {id, label} hash
-    return tabs.map(label => {
+    return subtabsContent.map(label => {
       return {
         id: label,
         label,

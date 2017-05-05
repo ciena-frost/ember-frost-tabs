@@ -60,26 +60,40 @@ export default Controller.extend({
     // 'Woooooooooooooah'
   ]),
   selectedTab: null,
-  subTabs: [
-    {'View': [
-      'ViewSubTab1',
-      {icon: 'view-medium', pack: 'frost', label: 'ViewSubTab2'}
-    ]},
-    {'Footab': [
-      'Footab1',
-      {icon: 'view-medium', pack: 'frost', label: 'Footab2'}
-    ]}
+  selectedSubTab: null,
+  subtabs: [
+    {
+      'tab': 'View',
+      'content': [
+        'ViewSubTab1',
+        'ViewSubTab2'
+        // {icon: 'view-medium', pack: 'frost', label: 'ViewSubTab2'}
+      ]
+    },
+    {
+      'tab': 'Footab',
+      'content': [
+        'Footab1',
+        'Footab2'
+      ]
+    }
   ],
-  queryParams: ['selectedTab'],
+  queryParams: ['selectedTab', 'selectedSubTab'],
 
   _selectTab (tab) {
     this.get('tabs').addObject(tab)
     this.set('selectedTab', tab)
   },
+  _selectSubTab (tab) {
+    this.set('selectedSubtab', tab)
+  },
 
   actions: {
     onSelect (tab) {
       Ember.run.schedule('sync', this, this._selectTab.bind(this, tab))
+    },
+    onSubtabSelect (subtab) {
+      Ember.run.schedule('sync', this, this._selectSubtab.bind(this, subtab))
     }
   }
 })

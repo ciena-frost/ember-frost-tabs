@@ -1,8 +1,13 @@
-<div class='{{css}}-subtabs'>
-  {{#each _tabs key='id' as |tab|}}
-    {{frost-icon
-    icon=tab.icon
-    pack=tab.pack}}
-    {{tab.label}}
+{{!-- <div class='{{css}}-subtabs'> --}}
+  {{#each _subtabs key='id' as |tab|}}
+    <div class='{{css}}-selector'>
+      {{frost-icon
+      hook=(concat hookPrefix '-icon')
+      icon=tab.icon
+      pack=tab.pack}}
+      <div class='{{css}}-label'>
+        {{tab.label}}
+      </div>
+    </div>
   {{/each}}
-</div>
+{{!-- </div> --}}
