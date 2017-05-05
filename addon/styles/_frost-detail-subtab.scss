@@ -1,0 +1,41 @@
+$frost-detail-tab-active-border: $frost-color-grey-1;
+$frost-detail-tab-active-text: $frost-color-grey-1;
+$frost-detail-tab-inactive: $frost-color-grey-5;
+
+.frost-detail-subtab {
+  &-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80px;
+    width: 45px;
+    color: $frost-detail-tab-active-text;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &-selected {
+      svg {
+        border: 1px solid $frost-color-grey-1;
+      }
+    }
+
+    svg {
+      opacity: .60;
+      fill: $frost-detail-tab-inactive;
+
+      &:hover {
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+        opacity: 1;
+      }
+    }
+  }
+
+  &-label {
+    margin: 5px 0 15px 0;
+    color: $frost-color-grey-2;
+    font-size: $frost-font-s;
+  }
+
+}
