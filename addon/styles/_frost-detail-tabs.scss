@@ -111,5 +111,37 @@ $frost-detail-tab-active-text: $frost-color-grey-1;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: white;
+  padding: 15px 70px;
+  background-color: $frost-color-lgrey-3;
+}
+
+.frost-detail-tabs-more-tabs-filter {
+  width: 300px;
+  margin-bottom: 30px;
+}
+
+.frost-detail-tabs-more-tabs-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: calc(100% - 30px);
+}
+
+.frost-detail-tabs-more-tabs-column {
+  width: 350px;
+}
+
+.frost-detail-tabs-more-tabs-column + .frost-detail-tabs-more-tabs-column {
+  margin-left: 50px;
+}
+
+.frost-detail-tabs-more-tabs-element {
+  display: block;
+  font-size: $frost-font-m;
+  color: $frost-color-grey-5;
+  text-align: left;
+}
+
+.frost-detail-tabs-more-tabs-element + .frost-detail-tabs-more-tabs-element {
+  margin-top: 30px;
 }

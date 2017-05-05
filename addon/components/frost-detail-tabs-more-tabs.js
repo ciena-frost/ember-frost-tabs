@@ -5,10 +5,13 @@
 import Ember from 'ember'
 const {get, isEmpty, typeOf} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
+import {task, timeout} from 'ember-concurrency'
 import {Component} from 'ember-frost-core'
 import {PropTypes} from 'ember-prop-types'
 
 import layout from '../templates/components/frost-detail-tabs-more-tabs'
+
+const COLUMN_WIDTH = 350
 
 export default Component.extend({
 
@@ -41,6 +44,28 @@ export default Component.extend({
   },
 
   // == Computed Properties ===================================================
+
+  @readOnly
+  @computed('_containerWidth', '_filteredTabs')
+  _columns(containerWidth, filteredTabs) {
+    if (!containerWidth || isEmpty(filteredTabs)) {
+      return []
+    }
+
+    const numberOfColumns = Math.max(Math.floor(containerWidth / COLUMN_WIDTH), 1)
+    const numberOfTabs = filteredTabs.length
+    const tabsPerColumn = Math.floor(numberOfTabs / numberOfColumns)
+    const leftoverTabs = numberOfTabs % numberOfColumns
+
+    return Array.from(Array(numberOfColumns), (entry, index) => {
+      const hasLeftoverTab = index < leftoverTabs
+      const previousLeftoverTabs = index > 0 && index - 1 < leftoverTabs ? index : 0
+
+      const sliceFromIndex = index * tabsPerColumn + previousLeftoverTabs
+      const sliceToIndexInclusive = sliceFromIndex + tabsPerColumn + (hasLeftoverTab ? 1 : 0)
+      return filteredTabs.slice(sliceFromIndex, sliceToIndexInclusive)
+    })
+  },
 
   @readOnly
   @computed('_filter', '_tabs')
@@ -81,6 +106,12 @@ export default Component.extend({
 
   // == Tasks =================================================================
 
+  // Basic task to debounce/throttle resize events
+  _resizeTask: task(function * () {
+    this.set('_containerWidth', this.$(`.${this.get('css')}-container`).width())
+    yield timeout(1000 / 60)
+  }).keepLatest(),
+
   // == DOM Events ============================================================
 
   // == Lifecycle Hooks =======================================================
@@ -90,6 +121,10 @@ export default Component.extend({
   actions: {
     _filterTabs (event) {
       this.set('_filter', event.target.value)
+    },
+
+    _resize () {
+      this.get('_resizeTask').perform()
     }
   }
 
