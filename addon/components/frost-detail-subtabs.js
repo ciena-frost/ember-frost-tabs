@@ -35,11 +35,6 @@ export default Component.extend({
       PropTypes.object,
       PropTypes.EmberObject
     ]),
-    selectedTab: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object,
-      PropTypes.EmberObject
-    ]),
     onSelect: PropTypes.func.isRequired
     // state
   },
@@ -56,16 +51,9 @@ export default Component.extend({
   // == Computed Properties ===================================================
 
   @readOnly
-  @computed('subtabs.[]', 'selectedTab')
-  _subtabs (subtabs, selectedTab) {
-    // Let PropTypes handle checking the format of objects passed in as tabs,
-    // just assume they're in the right format here
-    if (isEmpty(selectedTab)) {
-      return []
-    }
-    const selectedTabSubtabs = A(subtabs).findBy('tab', selectedTab)
-    const subtabsContent = selectedTabSubtabs ? selectedTabSubtabs.content : []
-    if (isEmpty(subtabsContent) || typeOf(subtabsContent[0]) === 'object' || typeOf(subtabsContent[0]) === 'instance') {
+  @computed('subtabs.[]')
+  _subtabs (subtabs) {
+    if (isEmpty(subtabs) || typeOf(subtabs[0]) === 'object' || typeOf(subtabs[0]) === 'instance') {
       // const isMissingProperties = subtabs.some(({id, label, icon, pack}) => {
       //   return !id || !label
       // })
@@ -73,11 +61,11 @@ export default Component.extend({
       //   Logger.error(`frost-detail-subtabs:
       //     Objects provided to the 'tabs' property must include an 'id', 'label', 'icon' and 'pack'`)
       // }
-      return subtabsContent
+      return subtabs
     }
 
     // Map tab strings to an {id, label} hash
-    return subtabsContent.map(label => {
+    return subtabs.map(label => {
       return {
         id: label,
         label,

@@ -1,5 +1,5 @@
 import Ember from 'ember'
-const {A, Controller, get} = Ember
+const {A, Controller, get, isEmpty} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
 
 export default Controller.extend({
@@ -69,16 +69,18 @@ export default Controller.extend({
         'ViewSubTab2'
         // {icon: 'view-medium', pack: 'frost', label: 'ViewSubTab2'}
       ]
-    },
-    {
-      'tab': 'Footab',
-      'content': [
-        'Footab1',
-        'Footab2'
-      ]
     }
   ],
   queryParams: ['selectedTab', 'selectedSubTab'],
+
+  @readOnly
+  @computed('subtabs', 'selectedTab')
+  viewSubtabs: function (subtabs, selectedTab) {
+    if (isEmpty(A(subtabs).findBy('tab', selectedTab))) {
+      return []
+    }
+    return A(subtabs).findBy('tab', selectedTab).content
+  },
 
   _selectTab (tab) {
     this.get('tabs').addObject(tab)
