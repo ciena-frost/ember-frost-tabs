@@ -1,0 +1,15 @@
+{{! Template for the frost-detail-tab-actions component }}
+
+{{#each tabActions as |tabAction|}}
+  <button
+    class={{concat css '-button'}}
+    data-test={{hook (concat hookPrefix '-button')}}
+    {{action (action onDispatch tabAction.action) on='click'}}
+  >
+    {{frost-icon
+      hook=(concat hookPrefix '-buttonIcon')
+      icon=tabAction.icon.name
+      pack=tabAction.icon.pack
+    }}
+  </button>
+{{/each}}

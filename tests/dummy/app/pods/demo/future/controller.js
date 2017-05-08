@@ -1,5 +1,5 @@
 import Ember from 'ember'
-const {A, Controller, get, isEmpty} = Ember
+const {A, Controller, Logger, get, isEmpty} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
 
 export default Controller.extend({
@@ -7,7 +7,35 @@ export default Controller.extend({
   // API driven
 
   apiTabs: [
-    { id: 1, label: 'AIS profile', value: 'A aardvark' },
+    {
+      id: 1,
+      label: 'AIS profile',
+      value: 'A aardvark',
+      actions: [
+        {
+          action: {
+            type: 'form',
+            endpoint: 'foo/api/v1/bar'
+          },
+          icon: {
+            name: 'add',
+            pack: 'frost'
+          },
+          label: 'Add'
+        },
+        {
+          action: {
+            type: 'export',
+            endpoint: 'biz/api/v1/baz'
+          },
+          icon: {
+            name: 'export',
+            pack: 'frost'
+          },
+          label: 'Export'
+        }
+      ]
+    },
     { id: 2, label: 'BFD profile', value: 'B bear' },
     { id: 3, label: 'Channels', value: 'C chipmunk' },
     { id: 4, label: 'Differential provisioning', value: 'D draft' },
@@ -43,6 +71,13 @@ export default Controller.extend({
   tabContent (selectedTab) {
     const tab = A(this.get('apiTabs')).findBy('label', selectedTab)
     return tab ? get(tab, 'value') : selectedTab
+  },
+
+  @readOnly
+  @computed('selectedTab')
+  tabActions (selectedTab) {
+    const tab = A(this.get('apiTabs')).findBy('label', selectedTab)
+    return tab ? get(tab, 'actions') : []
   },
 
   // State management
@@ -91,6 +126,14 @@ export default Controller.extend({
   },
 
   actions: {
+    dispatch (action) {
+      const {type} = action
+      switch (type) {
+        default:
+          Logger.warn(`Unknown action type dispatched: ${type}`)
+      }
+    },
+
     onSelect (tab) {
       Ember.run.schedule('sync', this, this._selectTab.bind(this, tab))
     },
