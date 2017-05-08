@@ -18,7 +18,7 @@
       {{#each column key='id' as |tab|}}
         <button
           class='{{css}}-element'
-          {{action onSelect tab.label}}
+          {{action onSelect tab.id}}
         >
           {{tab.label}}
         </button>

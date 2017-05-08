@@ -111,7 +111,10 @@ export default Component.extend({
         Logger.error(`frost-detail-tabs: Objects provided to the 'tabs' property must include an 'id' and 'label'`)
       }
 
-      return tabs
+      return tabs.filter(({id}) => {
+        // Strip the 'More' tab out of the set of scrollable tabs
+        return id !== 'more'
+      }
     }
 
     // Map tab strings to an {id, label} hash
