@@ -114,7 +114,7 @@ export default Component.extend({
       return tabs.filter(({id}) => {
         // Strip the 'More' tab out of the set of scrollable tabs
         return id !== 'more'
-      }
+      })
     }
 
     // Map tab strings to an {id, label} hash
