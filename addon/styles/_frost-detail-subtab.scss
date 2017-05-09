@@ -43,6 +43,7 @@ $frost-detail-tab-inactive: $frost-color-grey-5;
     margin: 5px 0 15px 0;
     color: $frost-detail-tab-inactive; // unselected
     font-size: $frost-font-s;
+    text-align: center;
 
     &.selected {
       color: $frost-detail-tab-active-text;
