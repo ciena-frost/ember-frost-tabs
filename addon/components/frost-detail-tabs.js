@@ -228,8 +228,9 @@ export default Component.extend({
     // calculations can be performed when scrolling
     _register ({tabLeft, tabId, tabWidth}) {
       this.get('_registeredTabs')[tabId] = {tabLeft, tabWidth}
-      
-      if (tabId === this.get('_selectedTab.id')) {
+
+      const selectedTabId = this.get('_selectedTab.id')
+      if (tabId === selectedTabId) {
         this._maybeScrollViewport(selectedTabId)
       }
     },
