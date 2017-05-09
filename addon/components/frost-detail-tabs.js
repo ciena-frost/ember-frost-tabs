@@ -213,7 +213,7 @@ export default Component.extend({
     // Scroll to the selected tab if it's already rendered and outside the viewport
     const selectedTabId = this.get('_selectedTab.id')
     if (this.get('_registeredTabs')[selectedTabId]) {
-      this.get('_maybeScrollViewportTask').perform(selectedTabId)
+      this._maybeScrollViewport(selectedTabId)
     }
   },
 
