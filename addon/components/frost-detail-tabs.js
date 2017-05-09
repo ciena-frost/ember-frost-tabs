@@ -212,16 +212,13 @@ export default Component.extend({
       // If the selected tab hasn't rendered yet wait until after the render queue and
       // then scroll to the selected tab if it's outside the viewport
       Ember.run.schedule('afterRender', this, () => {
-        // Update the width of the content area so that we can determine if the
-        // "scroll right" button should be enabled
-        this.set('_tabsWidth', this.$(`.${this.get('css')}-tabs`).width())
         this._maybeScrollViewport(selectedTabId)
       })
     }
   },
 
   didRender () {
-    debugger
+    this.set('_tabsWidth', this.$(`.${this.get('css')}-tabs`).width())
   },
 
   // == Actions ===============================================================
