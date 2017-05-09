@@ -220,6 +220,10 @@ export default Component.extend({
     }
   },
 
+  didRender () {
+    debugger
+  },
+
   // == Actions ===============================================================
 
   actions: {
