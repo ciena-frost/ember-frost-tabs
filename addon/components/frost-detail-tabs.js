@@ -61,19 +61,15 @@ export default Component.extend({
 
   // == Computed Properties ===================================================
 
-  // A change in the number of tabs or the size of the viewport can have an
-  // impact on the overflow state so we need to recalculate when those change;
-  // however, they aren't directly part of the calculation, which is why those
-  // values are present in the observation but not in the function.
   @readOnly
-  @computed('_isInserted', '_tabs.[]', '_viewport.width')
-  _isInOverflow (isInserted) {
+  @computed('_isInserted', '_tabsWidth', '_viewport.width')
+  _isInOverflow (isInserted, tabsWidth, viewportWidth) {
     // If the tabs container isn't in the DOM, we can't measure it
     if (!isInserted) {
       return false
     }
 
-    return this.$(this._scrollClass).width() < this.$(`.${this.get('css')}-tabs`).width()
+    return viewportWidth < tabsWidth
   },
 
   // Wrap selectedTab for the same reasons outlined in the comments for _tabs
