@@ -12,9 +12,7 @@ $frost-detail-tab-inactive: $frost-color-grey-5;
 
   &.selected {
     svg {
-      border: 1px solid $frost-detail-tab-active-border;
-      border-radius: 25px;
-      opacity: 1;
+      border-color: $frost-detail-tab-active-border
     }
   }
 
@@ -31,12 +29,13 @@ $frost-detail-tab-inactive: $frost-color-grey-5;
       width: 45px;
       height: 45px;
       opacity: .60;
-      fill: $frost-detail-tab-inactive;
+      border: 1px solid $frost-color-grey-6;
+      border-radius: 25px;
+      opacity: 1;
 
       &:hover {
-        border-radius: 25px;
+        border: 1px solid $frost-color-grey-5;
         box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
-        opacity: 1;
       }
     }
   }
