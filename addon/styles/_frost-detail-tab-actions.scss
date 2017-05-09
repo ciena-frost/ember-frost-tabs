@@ -8,7 +8,7 @@ $frost-detail-tab-actions-button-icon-active: $frost-color-blue-1;
   height: 100%;
   width: 60px;
   margin-left: auto;
-  padding: 15px;
+  padding: 20px 15px;
   background-color: $frost-color-white;
   border-left: 1px solid $frost-color-green-1;
 }
@@ -22,5 +22,5 @@ $frost-detail-tab-actions-button-icon-active: $frost-color-blue-1;
 }
 
 .frost-detail-tab-actions-button + .frost-detail-tab-actions-button {
-  margin-top: 30px;
+  margin-top: 20px;
 }
