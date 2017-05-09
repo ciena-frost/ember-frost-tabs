@@ -181,15 +181,20 @@ export default Component.extend({
 
   // == Tasks =================================================================
 
-  // Basic task to debounce/throttle viewport updates
-  _updateViewportTask: task(function * () {
-    this._updateViewport()
-    yield timeout(1000 / 60)
+  _maybeScrollViewportTask: task(function * (selectedTabId) {
+    yield this.get('_setTabsWidthTask').perform()
+    this._maybeScrollViewport(selectedTabId)
   }).keepLatest(),
 
   // Basic throttle
   _setTabsWidthTask: task(function * () {
     this.set('_tabsWidth', this.$(`.${this.get('css')}-tabs`).width())
+    yield timeout(1000 / 60)
+  }).keepLatest(),
+
+  // Basic task to debounce/throttle viewport updates
+  _updateViewportTask: task(function * () {
+    this._updateViewport()
     yield timeout(1000 / 60)
   }).keepLatest(),
 
@@ -213,7 +218,7 @@ export default Component.extend({
     // Scroll to the selected tab if it's already rendered and outside the viewport
     const selectedTabId = this.get('_selectedTab.id')
     if (this.get('_registeredTabs')[selectedTabId]) {
-      this._maybeScrollViewport(selectedTabId)
+      this.get('_maybeScrollViewportTask').perform(selectedTabId)
     }
   },
 
@@ -231,7 +236,7 @@ export default Component.extend({
 
       const selectedTabId = this.get('_selectedTab.id')
       if (tabId === selectedTabId) {
-        this._maybeScrollViewport(selectedTabId)
+        this.get('_maybeScrollViewportTask').perform(selectedTabId)
       }
     },
 
