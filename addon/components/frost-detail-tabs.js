@@ -3,7 +3,7 @@
  */
 
 import Ember from 'ember'
-const {A, Logger, Object: EmberObject, get, isEmpty, typeOf} = Ember
+const {A, Logger, Object: EmberObject, get, isEmpty, typeOf, run} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
 import {task, timeout} from 'ember-concurrency'
 import {Component} from 'ember-frost-core'
@@ -181,10 +181,6 @@ export default Component.extend({
 
   // == Tasks =================================================================
 
-  _maybeScrollViewportTask: task(function * (selectedTabId) {
-    this._maybeScrollViewport(selectedTabId)
-  }).keepLatest(),
-
   // Basic throttle
   _setTabsWidthTask: task(function * () {
     this.set('_tabsWidth', this.$(`.${this.get('css')}-tabs`).width())
@@ -235,7 +231,9 @@ export default Component.extend({
 
       const selectedTabId = this.get('_selectedTab.id')
       if (tabId === selectedTabId) {
-        this.get('_maybeScrollViewportTask').perform(selectedTabId)
+        run.schedule('afterRender', this, () => {
+          this._maybeScrollViewport(selectedTabId)
+        })
       }
     },
 
