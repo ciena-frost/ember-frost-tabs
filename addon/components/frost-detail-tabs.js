@@ -214,12 +214,6 @@ export default Component.extend({
     const selectedTabId = this.get('_selectedTab.id')
     if (this.get('_registeredTabs')[selectedTabId]) {
       this._maybeScrollViewport(selectedTabId)
-    } else {
-      // If the selected tab hasn't rendered yet wait until after the render queue and
-      // then scroll to the selected tab if it's outside the viewport
-      Ember.run.schedule('afterRender', this, () => {
-        this._maybeScrollViewport(selectedTabId)
-      })
     }
   },
 
@@ -234,6 +228,10 @@ export default Component.extend({
     // calculations can be performed when scrolling
     _register ({tabLeft, tabId, tabWidth}) {
       this.get('_registeredTabs')[tabId] = {tabLeft, tabWidth}
+      
+      if (tabId === this.get('_selectedTab.id')) {
+        this._maybeScrollViewport(selectedTabId)
+      }
     },
 
     _resize () {
