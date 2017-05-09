@@ -182,7 +182,6 @@ export default Component.extend({
   // == Tasks =================================================================
 
   _maybeScrollViewportTask: task(function * (selectedTabId) {
-    yield this.get('_setTabsWidthTask').perform()
     this._maybeScrollViewport(selectedTabId)
   }).keepLatest(),
 
