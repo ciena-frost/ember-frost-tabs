@@ -187,6 +187,12 @@ export default Component.extend({
     yield timeout(1000 / 60)
   }).keepLatest(),
 
+  // Basic throttle
+  _setTabsWidthTask: task(function * () {
+    this.set('_tabsWidth', this.$(`.${this.get('css')}-tabs`).width())
+    yield timeout(1000 / 60)
+  }).keepLatest(),
+
   // == DOM Events ============================================================
 
   // == Lifecycle Hooks =======================================================
@@ -218,7 +224,7 @@ export default Component.extend({
   },
 
   didRender () {
-    this.set('_tabsWidth', this.$(`.${this.get('css')}-tabs`).width())
+    this.get('_setTabsWidthTask').perform()
   },
 
   // == Actions ===============================================================
