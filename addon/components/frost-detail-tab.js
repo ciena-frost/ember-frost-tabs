@@ -29,6 +29,7 @@ export default Component.extend({
       label: PropTypes.string.isRequired
     }),
     tab: PropTypes.shape({
+      description: PropTypes.string,
       id: PropTypes.any.isRequired,
       label: PropTypes.string.isRequired
     }),
