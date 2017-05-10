@@ -59,7 +59,7 @@ export default Component.extend({
 
     return Array.from(Array(numberOfColumns), (entry, index) => {
       const hasLeftoverTab = index < leftoverTabs
-      const previousLeftoverTabs = index > 0 && index - 1 < leftoverTabs ? index : 0
+      const previousLeftoverTabs = index > 0 ? Math.min(index, leftoverTabs) : 0
 
       const sliceFromIndex = index * tabsPerColumn + previousLeftoverTabs
       const sliceToIndexInclusive = sliceFromIndex + tabsPerColumn + (hasLeftoverTab ? 1 : 0)
