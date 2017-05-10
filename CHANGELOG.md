@@ -1,3 +1,7 @@
+# 5.2.7 (2017-05-10)
+* **Updated** secure auth token
+
+
 # 5.2.6 (2017-04-27)
 fix styling of tabs.
 
