@@ -74,8 +74,10 @@ export default Component.extend({
       return tabs
     }
 
-    return tabs.filter(({label}) => {
-      return label.toLowerCase().includes(filter.toLowerCase())
+    return tabs.filter(({description, label}) => {
+      const isLabelMatch = label.toLowerCase().includes(filter.toLowerCase())
+      const isDescriptionMatch = description ? description.toLowerCase().includes(filter.toLowerCase()) : false
+      return isLabelMatch || isDescriptionMatch
     })
   },
 
