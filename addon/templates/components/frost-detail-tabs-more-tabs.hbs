@@ -20,7 +20,8 @@
           class='{{css}}-element'
           {{action onSelect tab.id}}
         >
-          {{tab.label}}
+          <div class='{{css}}-elementLabel'>{{tab.label}}</div>
+          <div class='{{css}}-elementDescription'>{{tab.description}}</div>
         </button>
       {{/each}}
     </div>

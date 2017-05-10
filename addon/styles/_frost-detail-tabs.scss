@@ -138,9 +138,18 @@ $frost-detail-tab-active-text: $frost-color-grey-1;
 
 .frost-detail-tabs-more-tabs-element {
   display: block;
+}
+
+.frost-detail-tabs-more-tabs-elementLabel {
+  text-align: left;
   font-size: $frost-font-m;
   color: $frost-color-grey-5;
+}
+
+.frost-detail-tabs-more-tabs-elementDescription {
   text-align: left;
+  font-size: $frost-font-s;
+  color: $frost-color-grey-6;
 }
 
 .frost-detail-tabs-more-tabs-element + .frost-detail-tabs-more-tabs-element {

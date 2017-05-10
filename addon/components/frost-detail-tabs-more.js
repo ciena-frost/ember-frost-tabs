@@ -51,7 +51,7 @@ export default Component.extend({
   getDefaultProps () {
     return {
       // Option defaults
-      label: 'More',
+      label: 'More details',
       targetOutlet: 'frost-detail-tabs-more',
 
       // State defaults
