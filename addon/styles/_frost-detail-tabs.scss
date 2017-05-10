@@ -39,11 +39,6 @@ $frost-detail-tab-active-text: $frost-color-grey-1;
   border-left: 1px solid $frost-color-grey-6;
 }
 
-.frost-detail-tabs-more-tab-icon {
-  width: 20px;
-  height: 20px;
-}
-
 .frost-detail-tabs-tabs {
   display: inline-block;
 }
@@ -96,6 +91,12 @@ $frost-detail-tab-active-text: $frost-color-grey-1;
   .frost-icon {
     margin-right: 5px;
     color: $frost-color-grey-5;
+
+    &.frost-detail-tabs-more-tab-icon {
+      width: 36px;
+      height: 27px;
+      margin: 0 10px 5px 0;
+    }
   }
 }
 
