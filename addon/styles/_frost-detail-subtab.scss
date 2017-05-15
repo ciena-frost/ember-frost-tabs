@@ -53,13 +53,14 @@ $frost-detail-tab-inactive: $frost-color-grey-5;
 
   &.selected:before,
   &.selected:after {
+    content: " ";
+    position: absolute;
     right: -27px;
   	top: 22px;
-  	border: solid transparent;
-  	content: " ";
-  	height: 0;
+  	z-index: 1;
+    height: 0;
   	width: 0;
-  	position: absolute;
+    border: solid transparent;
   	pointer-events: none;
   }
 
