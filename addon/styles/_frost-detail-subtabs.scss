@@ -6,9 +6,12 @@ $frost-detail-tab-inactive: $frost-color-grey-5;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 120px;
-  margin: 10px 0 ;
-  padding: 0 10px 0 20px;
-  overflow-y: scroll;
-  direction: rtl;
+  width: 110px;
+  margin: 10px 0 10px 20px;
+
+  .frost-scroll {
+    .ps-scrollbar-y-rail {
+      left: -8px;
+    }
+  }
 }
