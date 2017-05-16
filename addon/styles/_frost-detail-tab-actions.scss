@@ -5,12 +5,12 @@ $frost-detail-tab-actions-button-icon-selected: $frost-color-blue-1;
 $frost-detail-tab-actions-button-icon-active: $frost-color-blue-1;
 
 .frost-detail-tab-actions {
-  height: 100%;
   width: 60px;
+  height: 100%;
   margin-left: auto;
   padding: 20px 15px;
-  background-color: $frost-color-white;
   border-left: 1px solid $frost-color-blue-1;
+  background-color: $frost-color-white;
 }
 
 .frost-detail-tab-actions-button {
