@@ -4,7 +4,7 @@
   <button
     class={{concat css '-button'}}
     data-test={{hook (concat hookPrefix '-button')}}
-    {{action (action onDispatch tabAction.action) on='click'}}
+    {{action (action onDispatch tabAction.dispatch) on='click'}}
   >
     {{frost-icon
       hook=(concat hookPrefix '-buttonIcon')
