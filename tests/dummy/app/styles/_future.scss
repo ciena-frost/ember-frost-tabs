@@ -1,0 +1,29 @@
+.future {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.future-content {
+  display: flex;
+  position: relative;
+  flex: 1;
+  flex-direction: row;
+  height: 100%;
+  background-color: $frost-color-lgrey-3;
+}
+
+.frost-detail-tab-content {
+  flex: 1;
+}
+
+.future-tabs {
+  display: flex;
+  flex-direction: row;
+
+  .frost-detail-tabs {
+    flex: 1;
+    min-width: 0;
+  }
+}

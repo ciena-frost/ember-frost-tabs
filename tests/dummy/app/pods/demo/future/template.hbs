@@ -1,0 +1,42 @@
+<div class='future'>
+
+  {{frost-info-bar hook='info-bar'}}
+
+  <div class='future-tabs'>
+    {{#frost-detail-tabs
+      hook='detail-tabs'
+      tabs=tabs
+      selectedTab=selectedTab
+      onSelect=(action 'onSelect')
+      as |controls|
+     }}
+      {{controls.more
+        tabs=apiTabs
+      }}
+     {{/frost-detail-tabs}}
+  </div>
+
+  <div class='future-content'>
+    {{frost-detail-tabs-more-outlet
+      hook='detail-tabs-more-outlet'
+    }}
+
+    {{frost-detail-subtabs
+      hook='frost-detail-subtabs'
+      subtabs=viewSubtabs
+      selectedSubtab=selectedSubtab
+      onSelect=(action 'onSubtabSelect')
+    }}
+
+    <div class='frost-detail-tab-content'>
+      {{content}}
+    </div>
+
+    {{frost-detail-tab-actions
+      hook='detail-tab-actions'
+      tabActions=tabActions
+      onDispatch=(action 'dispatch')
+    }}
+  </div>
+
+</div>

@@ -1,0 +1,18 @@
+$frost-detail-tab-active-border: $frost-color-grey-1;
+$frost-detail-tab-active-text: $frost-color-grey-1;
+$frost-detail-tab-inactive: $frost-color-grey-5;
+
+.frost-detail-subtabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 110px;
+  min-width: 110px;
+  margin: 10px 0 10px 20px;
+
+  .frost-scroll {
+    .ps-scrollbar-y-rail {
+      left: -8px;
+    }
+  }
+}

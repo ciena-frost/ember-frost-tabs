@@ -1,0 +1,26 @@
+$frost-detail-tab-actions-button-bg: $frost-color-white;
+$frost-detail-tab-actions-button-shadow: $frost-color-grey-6;
+$frost-detail-tab-actions-button-icon: $frost-color-grey-4;
+$frost-detail-tab-actions-button-icon-selected: $frost-color-blue-1;
+$frost-detail-tab-actions-button-icon-active: $frost-color-blue-1;
+
+.frost-detail-tab-actions {
+  width: 60px;
+  height: 100%;
+  margin-left: auto;
+  padding: 20px 15px;
+  border-left: 1px solid $frost-color-blue-1;
+  background-color: $frost-color-white;
+}
+
+.frost-detail-tab-actions-button {
+  .frost-icon {
+    width: 30px;
+    height: 30px;
+    color: $frost-color-blue-1;
+  }
+}
+
+.frost-detail-tab-actions-button + .frost-detail-tab-actions-button {
+  margin-top: 20px;
+}

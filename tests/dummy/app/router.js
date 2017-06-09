@@ -20,6 +20,8 @@ Router.map(function () {
     // Tests
     this.route('hook')
     this.route('block-format')
+
+    this.route('future')
   })
 })
 

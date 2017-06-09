@@ -1,0 +1,18 @@
+{{!-- <div class='{{css}}-subtabs'> --}}
+{{#frost-scroll
+  class='full'
+  hook=(concat hookPrefix '-scroll')
+  psOptions=(hash
+    suppressScrollX=true
+  )
+}}
+  {{#each _subtabs key='id' as |tab|}}
+    {{~ frost-detail-subtab
+      hook=(concat hookPrefix '-subtab-' tab.id)
+      subtab=tab
+      selectedSubtab=_selectedSubtab
+      onSelect=onSelect
+    ~}}
+  {{/each}}
+{{/frost-scroll}}
+{{!-- </div> --}}

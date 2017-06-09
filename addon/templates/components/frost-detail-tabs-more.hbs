@@ -1,0 +1,30 @@
+{{! Template for the frost-detail-tabs-more component }}
+
+{{#frost-detail-tab
+  class=(concat css '-tab')
+  hook=(concat hookPrefix '-tab')
+  register=(action '_register')
+  selectedTab=selectedTab
+  tab=_tab
+  viewport=_viewport
+  onSelect=onSelect
+}}
+  {{frost-icon
+    class=(concat css '-tab-icon')
+    hook=(concat hookPrefix '-tabIcon')
+    icon='more-tabs'
+    pack='frost-tabs'
+  }}
+  {{_tab.label}}
+{{/frost-detail-tab}}
+
+{{#if (eq selectedTab.id _tab.id)}}
+  {{to-elsewhere
+    named=targetOutlet
+    send=(component 'frost-detail-tabs-more-tabs'
+      hook=(concat hookPrefix '-tabs')
+      tabs=_tabs
+      onSelect=onSelect
+    )
+  }}
+{{/if}}
