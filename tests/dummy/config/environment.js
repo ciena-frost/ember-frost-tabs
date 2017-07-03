@@ -1,12 +1,18 @@
+/* eslint-env node */
+
 module.exports = function (environment) {
   var ENV = {
     modulePrefix: 'dummy',
     podModulePrefix: 'dummy/pods',
     environment: environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
-      FEATURES: {}
+      FEATURES: {},
+      EXTEND_PROTOTYPES: {
+        // Prevent Ember Data from overriding Date.parse.
+        Date: false
+      }
     },
 
     APP: {},
@@ -19,7 +25,6 @@ module.exports = function (environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.rootURL = '/'
     ENV.locationType = 'none'
 
     // keep test console output quieter
