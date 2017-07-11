@@ -1,8 +1,11 @@
 import {expect} from 'chai'
+import Ember from 'ember'
 import {$hook, initialize} from 'ember-hook'
 import wait from 'ember-test-helpers/wait'
 import hbs from 'htmlbars-inline-precompile'
 import {beforeEach, describe, it} from 'mocha'
+
+const {$} = Ember
 
 const frostTabsTabHook = '-tab'
 const hookName = 'my-hook'
