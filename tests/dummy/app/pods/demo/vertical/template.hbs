@@ -1,0 +1,26 @@
+{{frost-tabs
+  hook='myTabs'
+  selectedTab=selectedTab
+  onChange=(action 'onChange')
+  design='vertical'
+  tabs=(array
+    (component 'frost-tab'
+      id='Application name 1'
+      text='Application name 1'
+      content=(component 'tab-content' text='Application name 1')
+      contentClass='foo'
+    )
+    (component 'frost-tab'
+      id='Application name 2'
+      text='Application name 2'
+      content=(component 'tab-content' text='Application name 2'))
+    (component 'frost-tab'
+      id='Application name 3'
+      text='Application name 3'
+      content=(component 'tab-content' text='Application name 3'))
+    (component 'frost-tab'
+      id='Application name 4'
+      text='Application name 4'
+      content=(component 'tab-content' text='Application name 4'))
+  )
+}}

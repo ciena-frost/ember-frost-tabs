@@ -1,33 +1,86 @@
+$frost-color-button-tertiary-hover-bg: rgba($frost-color-blue-1, .05) !global;
+
 $frost-tab-active-border: $frost-color-grey-2;
 $frost-tab-active-text: $frost-color-grey-2;
 
-.frost-tab {
-  border-bottom: 1px solid $frost-color-lgrey-1;
+.frost-tabs {
+  &.horizontal {
+    .frost-tab {
+      border-bottom: 1px solid $frost-color-lgrey-1;
 
-  .frost-button {
-    &.tab {
-      height: 35px;
-      padding: 0;
-      cursor: pointer;
+      .frost-button {
+        &.tab {
+          height: 35px;
+          padding: 0;
+          cursor: pointer;
 
-      .text {
-        padding: 2px 20px;
-        border-right: 1px solid $frost-color-lgrey-1;
-        color: $frost-color-grey-5;
-        font-size: $frost-font-s;
-      }
+          .text {
+            padding: 2px 20px;
+            border-right: 1px solid $frost-color-lgrey-1;
+            color: $frost-color-grey-5;
+            font-size: $frost-font-s;
+          }
 
-      &.active {
-        border-bottom: 2px solid $frost-tab-active-border;
+          &.active {
+            border-bottom: 2px solid $frost-tab-active-border;
 
-        .text {
-          margin-bottom: -2px;
-          color: $frost-tab-active-text;
+            .text {
+              margin-bottom: -2px;
+              color: $frost-tab-active-text;
+            }
+          }
+
+          &.disabled {
+            cursor: default;
+          }
         }
       }
+    }
+  }
 
-      &.disabled {
-        cursor: default;
+  &.vertical {
+    display: flex;
+    flex-direction: row;
+
+    .tab-wrapper {
+      &:last-child {
+        .frost-tab {
+          border-bottom: 1px solid $frost-color-lgrey-1;
+        }
+      }
+    }
+
+    .frost-tab {
+      border-top: 1px solid $frost-color-lgrey-1;
+      border-right: 1px solid $frost-color-lgrey-1;
+      border-left: 1px solid $frost-color-lgrey-1;
+
+      .tab {
+        display: flex;
+
+        .frost-button {
+          flex: 1;
+          height: 50px;
+          padding-right: 0;
+          cursor: pointer;
+
+          &.active {
+            .text {
+              color: $frost-tab-active-text;
+            }
+          }
+
+          &.disabled {
+            cursor: default;
+          }
+        }
+
+        &.active {
+          border-top: 0;
+          border-right: 0;
+          border-left: 3px solid $frost-color-blue-1;
+          background-color: $frost-color-white;
+        }
       }
     }
   }
