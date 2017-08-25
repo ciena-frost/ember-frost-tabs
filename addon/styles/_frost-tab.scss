@@ -55,6 +55,11 @@ $frost-tab-active-text: $frost-color-grey-2;
       border-right: 1px solid $frost-color-lgrey-1;
       border-left: 1px solid $frost-color-lgrey-1;
 
+      &.active {
+        border-top: 0;
+        border-right: 0;
+      }
+
       .tab {
         display: flex;
 
@@ -76,8 +81,6 @@ $frost-tab-active-text: $frost-color-grey-2;
         }
 
         &.active {
-          border-top: 0;
-          border-right: 0;
           border-left: 3px solid $frost-color-blue-1;
           background-color: $frost-color-white;
         }
