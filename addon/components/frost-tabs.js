@@ -9,10 +9,12 @@ export default Component.extend(PropTypesMixin, {
 
   layout: layout,
   classNames: ['frost-tabs'],
+  classNameBindings: ['design'],
 
   // == State properties ======================================================
 
   propTypes: {
+    design: PropTypes.string,
     tabs: PropTypes.array,
     selectedTab: PropTypes.string,
     onChange: PropTypes.func.isRequired,
@@ -22,6 +24,7 @@ export default Component.extend(PropTypesMixin, {
 
   getDefaultProps () {
     return {
+      design: 'horizontal',
       targetOutlet: `frost-tab-content-${uuid()}`
     }
   }

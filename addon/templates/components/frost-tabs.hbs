@@ -10,7 +10,7 @@
     )}}
   {{else}}
     {{#each tabs as |tab index|}}
-      <div data-test={{hook (concat hook '-tab') index=index}}>
+      <div class='tab-wrapper' data-test={{hook (concat hook '-tab') index=index}}>
         {{component tab
           parentHook=hook
           selectedTab=selectedTab

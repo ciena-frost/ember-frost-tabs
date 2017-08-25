@@ -1,7 +1,23 @@
+
 .frost-tabs {
-  .tab-nav {
+  &.horizontal {
+    .tab-nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+  }
+
+  &.vertical {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+
+    .tab-nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 250px;
+      background-color: $frost-color-lgrey-3;
+    }
   }
 }
