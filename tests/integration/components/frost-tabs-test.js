@@ -62,7 +62,7 @@ describe(test.label, function () {
     })
   })
 
-  it('Renders ', function (done) {
+  it('Renders', function (done) {
     this.setProperties({
       selectedTab: templateTabId
     })

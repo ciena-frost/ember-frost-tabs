@@ -65,7 +65,8 @@ $frost-tab-active-text: $frost-color-grey-2;
 
         .frost-button {
           flex: 1;
-          height: 50px;
+          height: 100%;
+          min-height: 50px;
           padding-right: 0;
           cursor: pointer;
 
@@ -77,6 +78,10 @@ $frost-tab-active-text: $frost-color-grey-2;
 
           &.disabled {
             cursor: default;
+          }
+
+          .text {
+            text-align: start;
           }
         }
 
