@@ -1,3 +1,7 @@
+# 5.3.0 (2017-08-25)
+- Added option to use a vertical tab.
+
+
 # 5.2.9 (2017-08-10)
 * Ember-CLI 2.12.3 inter-dependencies
 

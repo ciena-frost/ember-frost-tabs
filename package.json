@@ -1,6 +1,6 @@
 {
   "name": "ember-frost-tabs",
-  "version": "5.2.9",
+  "version": "5.3.0",
   "description": "A tabs addon.",
   "frostGuideDirectory": "ui-components/content-views/tabs",
   "directories": {
