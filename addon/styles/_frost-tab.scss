@@ -4,7 +4,7 @@ $frost-tab-active-border: $frost-color-grey-2;
 $frost-tab-active-text: $frost-color-grey-2;
 
 .frost-tabs {
-  &.horizontal
+  &.horizontal {
     >.tab-nav {
       >.tab-wrapper {
         >.frost-tab {
@@ -40,6 +40,7 @@ $frost-tab-active-text: $frost-color-grey-2;
         }
       }
     }
+  }
 
   &.vertical {
     display: flex;
