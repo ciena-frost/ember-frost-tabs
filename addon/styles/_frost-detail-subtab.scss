@@ -35,6 +35,7 @@ $frost-detail-tab-inactive: $frost-color-grey-5;
       opacity: 1;
 
       &:hover {
+        background: rgba(0,158,239, 0.5);
         border: 1px solid $frost-color-grey-5;
         box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
       }
