@@ -8,7 +8,7 @@ export default Controller.extend({
 
   apiTabs: [
     {
-      id: 1,
+      id: 'AIS profile',
       label: 'AIS profile',
       value: 'A aardvark',
       actions: [
@@ -36,13 +36,13 @@ export default Controller.extend({
         }
       ]
     },
-    {id: 2, label: 'BFD profile', value: 'B bear'},
-    {id: 3, label: 'Channels', value: 'C chipmunk'},
-    {id: 4, label: 'Differential provisioning', value: 'D draft'},
-    {id: 5, label: 'External alarms provisioning', value: 'E ears'},
-    {id: 6, label: 'External controls', value: 'F funky'},
-    {id: 7, label: 'GMPLS TP tunnel', value: 'F funky'},
-    {id: 8, label: 'Media channels', value: 'F funky'}
+    {id: 'BFD profile', label: 'BFD profile', value: 'B bear'},
+    {id: 'Channels', label: 'Channels', value: 'C chipmunk'},
+    {id: 'Differential provisioning', label: 'Differential provisioning', value: 'D draft'},
+    {id: 'External alarms', label: 'External alarms provisioning', value: 'E ears'},
+    {id: 'External controls', label: 'External controls', value: 'F funky'},
+    {id: 'GMPLS TP tunnel', label: 'GMPLS TP tunnel', value: 'F funky'},
+    {id: 'Media channels', label: 'Media channels', value: 'F funky'}
   ],
 
   @readOnly
