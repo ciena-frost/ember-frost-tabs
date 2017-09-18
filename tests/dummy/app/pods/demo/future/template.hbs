@@ -8,12 +8,12 @@
       tabs=tabs
       selectedTab=selectedTab
       onSelect=(action 'onSelect')
-      as |controls|
-     }}
+    as |controls|
+    }}
       {{controls.more
         tabs=apiTabs
       }}
-     {{/frost-detail-tabs}}
+    {{/frost-detail-tabs}}
   </div>
 
   <div class='future-content'>
@@ -21,12 +21,14 @@
       hook='detail-tabs-more-outlet'
     }}
 
-    {{frost-detail-subtabs
-      hook='frost-detail-subtabs'
-      subtabs=viewSubtabs
-      selectedSubtab=selectedSubtab
-      onSelect=(action 'onSubtabSelect')
-    }}
+    {{#if (gt viewSubtabs.length 0)}}
+      {{frost-detail-subtabs
+        hook='frost-detail-subtabs'
+        subtabs=viewSubtabs
+        selectedSubtab=selectedSubtab
+        onSelect=(action 'onSubtabSelect')
+      }}
+    {{/if}}
 
     <div class='frost-detail-tab-content'>
       {{content}}
