@@ -2,7 +2,6 @@
  * Component definition for the frost-detail-tab-actions component
  */
 
-import computed, {readOnly} from 'ember-computed-decorators'
 import {Component} from 'ember-frost-core'
 import {PropTypes} from 'ember-prop-types'
 
@@ -19,6 +18,11 @@ export default Component.extend({
   // == PropTypes =============================================================
 
   propTypes: {
+    tabActions: PropTypes.arrayOf(PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.EmberObject
+    ])).isRequired,
+    onDispatch: PropTypes.func.isRequired
   },
 
   getDefaultProps () {
