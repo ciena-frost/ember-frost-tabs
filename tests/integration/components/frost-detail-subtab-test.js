@@ -1,24 +1,68 @@
-import { expect } from 'chai';
-import { describe, it } from 'mocha';
-import { setupComponentTest } from 'ember-mocha';
-import hbs from 'htmlbars-inline-precompile';
+import {expect} from 'chai'
+import {$hook, initialize} from 'ember-hook'
+import wait from 'ember-test-helpers/wait'
+import hbs from 'htmlbars-inline-precompile'
+import {beforeEach, describe, it} from 'mocha'
 
-describe('Integration | Component | frost detail subtab', function() {
-  setupComponentTest('frost-detail-subtab', {
-    integration: true
-  });
+const hookPrefix = 'frost-detail-subtabs'
+const tab = {
+  id: 'My-Tab',
+  label: 'My-Tab',
+  icon: 'view-medium',
+  pack: 'frost'
+}
+const selectedTab = tab
 
-  it('renders', function() {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.on('myAction', function(val) { ... });
-    // Template block usage:
-    // this.render(hbs`
-    //   {{#frost-detail-subtab}}
-    //     template content
-    //   {{/frost-detail-subtab}}
-    // `);
+const template = hbs`
+{{frost-detail-subtab
+  hook=(concat hookPrefix '-subtab-' tab.id)
+  subtab=tab
+  onSelect=(action 'onSelect')
+  selectedSubtab=selectedTab
+}}
+`
 
-    this.render(hbs`{{frost-detail-subtab}}`);
-    expect(this.$()).to.have.length(1);
-  });
-});
+import {integration} from 'dummy/tests/helpers/ember-test-utils/setup-component-test'
+
+const test = integration('frost-details-subtab')
+describe(test.label, function () {
+  test.setup()
+
+  beforeEach(function () {
+    initialize()
+    this.setProperties({
+      hookPrefix,
+      tab,
+      selectedTab
+    })
+    this.on('onSelect', function (tab) {
+      this.set('selectedTab', tab)
+    })
+  })
+
+  it('Renders', function () {
+    this.render(template)
+
+    return wait()
+      .then(() => {
+        expect($hook(`${hookPrefix}-subtab-${tab.id}`)).to.have.length(1)
+      })
+  })
+
+  it('if sub-tab is selected', function () {
+    this.render(template)
+    return wait()
+      .then(() => {
+        expect(this.$('.frost-detail-subtab-label.selected')).to.have.length(1)
+      })
+  })
+
+  it('if sub-tab lable is My-Tab', function () {
+    this.render(template)
+    return wait()
+      .then(() => {
+        expect(this.$('.frost-detail-subtab-label.selected').text().trim()).to.eql(`${tab.label}`)
+      })
+  })
+})
+
