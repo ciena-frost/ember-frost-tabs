@@ -1,53 +1,39 @@
 {{!-- BEGIN-SNIPPET  frost-detail-tabs-api}}
-<div class='future'>
-
-  {{frost-info-bar hook='info-bar'}}
-
   <div class='future-tabs'>
     {{#frost-detail-tabs
       hook='detail-tabs'
-      tabs=tabs
+      tabs= <array of common tabs>
       selectedTab=selectedTab
       onSelect=(action 'onSelect')
     as |controls|
     }}
       {{controls.more
-        tabs=apiTabs
+        tabs= <array of specific tabs>
       }}
     {{/frost-detail-tabs}}
   </div>
-
   <div class='future-content'>
     {{frost-detail-tabs-more-outlet
       hook='detail-tabs-more-outlet'
     }}
-
     {{#if (gt viewSubtabs.length 0)}}
       {{frost-detail-subtabs
         hook='frost-detail-subtabs'
-        subtabs=viewSubtabs
+        subtabs= <Array of vertical subtabs of parent tab>
         selectedSubtab=selectedSubtab
         onSelect=(action 'onSubtabSelect')
       }}
     {{/if}}
-
     <div class='frost-detail-tab-content'>
       {{content}}
     </div>
-
     {{frost-detail-tab-actions
       hook='detail-tab-actions'
-      tabActions=tabActions
+      tabActions= <Array of actions related to tab content>
       onDispatch=(action 'dispatch')
     }}
   </div>
-
-</div>
-
 {{ END-SNIPPET --}}
-
-
-
 
 <div class='addon-demo-api'>
   <div class='addon-demo-title'>
@@ -78,9 +64,7 @@
   <div class='addon-demo-component'>
     {{! BEGIN-SNIPPET frost-detail-tabs-content }}
     <div class='future'>
-
       {{frost-info-bar hook='info-bar'}}
-
       <div class='future-tabs'>
         {{#frost-detail-tabs
           hook='detail-tabs'
@@ -94,12 +78,10 @@
           }}
         {{/frost-detail-tabs}}
       </div>
-
       <div class='future-content'>
         {{frost-detail-tabs-more-outlet
           hook='detail-tabs-more-outlet'
         }}
-
         {{#if (gt viewSubtabs.length 0)}}
           {{frost-detail-subtabs
             hook='frost-detail-subtabs'
@@ -108,18 +90,15 @@
             onSelect=(action 'onSubtabSelect')
           }}
         {{/if}}
-
         <div class='frost-detail-tab-content'>
           {{content}}
         </div>
-
         {{frost-detail-tab-actions
           hook='detail-tab-actions'
           tabActions=tabActions
           onDispatch=(action 'dispatch')
         }}
       </div>
-
     </div>
     {{! END-SNIPPET }}
   </div>
