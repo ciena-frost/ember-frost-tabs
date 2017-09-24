@@ -61,7 +61,15 @@ describe(test.label, function () {
     return wait()
       .then(() => {
         expect($hook(`${myHook}`)).to.have.length(1)
-        // expect(this.$('.frost-detail-subtab.selected')).to.have.length(1)
+      })
+  })
+  it('verify action label', function () {
+    this.render(template)
+
+    return wait()
+      .then(() => {
+        expect($hook(`${myHook}-button-${tabActions[0].label}`)).to.have.length(1)
+        expect($hook(`${myHook}-button-${tabActions[1].label}`)).to.have.length(1)
       })
   })
 })

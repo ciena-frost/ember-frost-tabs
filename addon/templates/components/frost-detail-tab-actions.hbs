@@ -3,7 +3,7 @@
 {{#each tabActions as |tabAction|}}
   <button
     class={{concat css '-button'}}
-    data-test={{hook (concat hookPrefix '-button')}}
+    data-test={{hook (concat hookPrefix '-button-' tabAction.label)}}
     {{action (action onDispatch tabAction.action) on='click'}}
   >
     {{frost-icon
