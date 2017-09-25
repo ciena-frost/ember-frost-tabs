@@ -1,0 +1,64 @@
+{{!-- BEGIN-SNIPPET vertical-api }}
+{{frost-tabs
+  ...
+  design='vertical'
+  tabs=(array
+    (component 'frost-tab'
+      id='<tab id>'
+      text='<tab text>'
+      disable='<true/false>'
+      content=(component '<name of the content component>' ...))
+  )
+}}
+{{ END-SNIPPET --}}
+
+<div class='addon-demo-api'>
+  <div class='addon-demo-title'>
+    Notes
+  </div>
+  <div class='addon-demo-notes'>
+    <p>
+      It's possible to use an alternative vertical tab by passing design='vertical'
+    </p>
+  </div>
+  <div class='addon-demo-title'>
+    API
+  </div>
+  <div class='addon-demo-snippet'>
+    {{code-snippet name='vertical-api.hbs'}}
+  </div>
+</div>
+<div class='addon-demo-live'>
+  <div class='addon-demo-title'>
+    Live demo
+  </div>
+  <div class='addon-demo-snippet'>
+    {{code-snippet name='content-frost-tabs.hbs'}}
+  </div>
+  <div class='addon-demo-component'>
+    {{! BEGIN-SNIPPET content-frost-tabs }}
+    {{frost-tabs
+      hook='myTabs'
+      design='vertical'
+      selectedTab=selectedTab
+      onChange=(action 'onChange')
+      tabs=(array
+        (component 'frost-tab'
+          id='template'
+          text='Template'
+          content=(component 'tab-content' text='template')
+          contentClass='foo'
+        )
+        (component 'frost-tab'
+          id='controller'
+          text='Controller'
+          content=(component 'tab-content' text='controller'))
+        (component 'frost-tab'
+          id='route'
+          text='Route'
+          content=(component 'tab-content' text='route'))
+      )
+    }}
+    {{! END-SNIPPET }}
+  </div>
+</div>

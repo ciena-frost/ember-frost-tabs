@@ -12,6 +12,7 @@ export default Component.extend(PropTypesMixin, {
 
   layout: layout,
   classNames: ['frost-tab'],
+  classNameBindings: ['isSelected:active'],
 
   // == State properties ======================================================
 

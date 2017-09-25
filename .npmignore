@@ -1,5 +1,5 @@
 bower_components/
-config/
+config/ember-try.js
 tests/
 tmp/
 dist/
@@ -7,7 +7,7 @@ dist/
 .editorconfig
 .ember-cli
 .eslintignore
-.eslintrc
+.eslintrc.js
 .github
 .pullapprove.yml
 .sass-lint.yml
@@ -22,6 +22,6 @@ ember-cli-build.js
 Brocfile.js
 dependency-snapshot.json
 jsconfig.js
-testem.json
+testem.js
 .idea
 /visual-acceptance
