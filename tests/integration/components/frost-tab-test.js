@@ -51,6 +51,7 @@ describe(test.label, function () {
   })
 
   it('Renders', function (done) {
+    this.timeout(5000)
     this.setProperties({
       selectedTab: tabId
     })
