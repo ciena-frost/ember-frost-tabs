@@ -59,16 +59,12 @@ describe(test.label, function () {
       return wait()
     })
 
-    it('renders', function (done) {
+    it('renders', function () {
       return wait()
         .then(() => {
           expect($hook(`${frostTabHook}`, {selected: true})).to.have.length(1)
           expect($hook(`${frostTabHook}`, {selected: true}).find('button.active')).to.have.length(1)
           expect($hook('content').text().trim()).to.be.equal(tabText)
-
-          return capture('frost-tab', done, {
-            experimentalSvgs: true
-          })
         })
     })
   })
