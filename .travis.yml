@@ -16,6 +16,10 @@ addons:
     - g++-4.8
   firefox: 'latest'
 
+cache:
+  directories:
+  - node_modules
+
 env:
   matrix:
   - EMBER_TRY_SCENARIO=ember-lts-2.8
