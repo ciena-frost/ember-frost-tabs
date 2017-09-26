@@ -104,7 +104,7 @@ export default Component.extend({
       })
 
       if (isMissingProperties) {
-        Logger.error(`frost-detail-tabs: Objects provided to the 'tabs' property must include an 'id' and 'label'`)
+        Logger.error('frost-detail-tabs: Objects provided to the tabs property must include an id and label')
       }
 
       return tabs.filter(({id}) => {

@@ -71,6 +71,5 @@ describe(test.label, function () {
         expect(this.$('.frost-detail-subtab.selected')).to.have.length(1)
       })
   })
-
 })
 

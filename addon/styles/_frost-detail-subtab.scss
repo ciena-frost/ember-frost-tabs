@@ -12,7 +12,7 @@ $frost-detail-tab-inactive: $frost-color-grey-5;
 
   &.selected {
     svg {
-      border-color: $frost-detail-tab-active-border
+      border-color: $frost-detail-tab-active-border;
     }
   }
 
@@ -29,10 +29,9 @@ $frost-detail-tab-inactive: $frost-color-grey-5;
     svg {
       width: 45px;
       height: 45px;
-      opacity: .60;
+      opacity: 1;
       border: 1px solid $frost-color-grey-6;
       border-radius: 25px;
-      opacity: 1;
 
       &:hover {
         background: rgba(0,158,239, 0.5);

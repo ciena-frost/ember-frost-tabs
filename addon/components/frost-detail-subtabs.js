@@ -2,7 +2,7 @@
  * Component definition for the frost-detail-subtabs component
  */
 import Ember from 'ember'
-const {A, Logger, isEmpty, typeOf} = Ember
+const {isEmpty, typeOf} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
 import {Component} from 'ember-frost-core'
 import {PropTypes} from 'ember-prop-types'

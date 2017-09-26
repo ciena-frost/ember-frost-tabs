@@ -3,7 +3,7 @@
  */
 
 import Ember from 'ember'
-const {get, isEmpty, typeOf} = Ember
+const {isEmpty, typeOf} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
 import {task, timeout} from 'ember-concurrency'
 import {Component} from 'ember-frost-core'
@@ -47,7 +47,7 @@ export default Component.extend({
 
   @readOnly
   @computed('_containerWidth', '_filteredTabs')
-  _columns(containerWidth, filteredTabs) {
+  _columns (containerWidth, filteredTabs) {
     if (!containerWidth || isEmpty(filteredTabs)) {
       return []
     }

@@ -3,15 +3,12 @@
  */
 
 import Ember from 'ember'
-const {A, Object: EmberObject, get, isEmpty, typeOf} = Ember
+const {Object: EmberObject, isEmpty, typeOf} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
-import {task, timeout} from 'ember-concurrency'
 import {Component} from 'ember-frost-core'
 import {PropTypes} from 'ember-prop-types'
 
 import layout from '../templates/components/frost-detail-tabs-more'
-
-const SCROLL_ANIMATION_DURATION = 100
 
 export default Component.extend({
 
