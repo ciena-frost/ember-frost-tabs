@@ -1,10 +1,6 @@
-# 5.3.1 (2017-09-26)
-- Added detail tabs ( user can choose and add more tabs from a list of tabs).
-- A detail tab can have vertical sub tabs with sub tab's content area and related actions in vertical action bar.
-
-
 # 5.3.0 (2017-08-25)
 - Added option to use a vertical tab.
+
 
 # 5.2.9 (2017-08-10)
 * Ember-CLI 2.12.3 inter-dependencies
