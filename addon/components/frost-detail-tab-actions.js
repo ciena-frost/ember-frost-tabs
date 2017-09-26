@@ -21,7 +21,7 @@ export default Component.extend({
     tabActions: PropTypes.arrayOf(PropTypes.oneOfType([
       PropTypes.object,
       PropTypes.EmberObject
-    ])).isRequired,
+    ])),
     onDispatch: PropTypes.func.isRequired
   },
 
