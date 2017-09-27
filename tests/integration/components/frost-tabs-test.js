@@ -62,7 +62,7 @@ describe(test.label, function () {
     })
   })
 
-  it('Renders', function (done) {
+  it('Renders', function () {
     this.setProperties({
       selectedTab: templateTabId
     })
@@ -75,7 +75,7 @@ describe(test.label, function () {
       })
   })
 
-  it('Renders vertical', function (done) {
+  it('Renders vertical', function () {
     const template = hbs`
       {{frost-tabs
         hook=hookName
