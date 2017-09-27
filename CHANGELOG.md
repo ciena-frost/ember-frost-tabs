@@ -1,3 +1,8 @@
+# 5.3.1 (2017-09-27)
+- Fix a css issue when rendering horizontal tabs inside vertical tabs.
+
+
+
 # 5.3.0 (2017-08-25)
 - Added option to use a vertical tab.
 
