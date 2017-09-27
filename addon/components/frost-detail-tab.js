@@ -60,10 +60,6 @@ export default Component.extend({
     const tabLeft = this.$().position().left
     const tabWidth = this.$().outerWidth()
     const value = 0
-    // This is annoying, but the math appears to be slightly off, maybe because of the border
-    // between the tabs - so we're dropping one off the tabLeft for the border.
-    // Why the viewport needs another pixel for this to calculate correctly, I don't know...
-    // TODO Find out why...
     return value <= tabLeft && Math.floor(tabLeft - 1 + tabWidth) <= viewportWidth + 1
   },
 

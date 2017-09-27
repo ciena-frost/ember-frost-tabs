@@ -67,11 +67,6 @@ export default Controller.extend({
     'Footab',
     'Bartab',
     'Biztab'
-    // 'Baztab',
-    // 'Looooooongtab',
-    // 'Looooooongertab',
-    // 'Looooooongesttab',
-    // 'Woooooooooooooah'
   ]),
   selectedTab: null,
   selectedSubTab: null,
@@ -81,7 +76,6 @@ export default Controller.extend({
       'content': [
         'ViewSubTab1',
         'ViewSubTab2'
-        // {icon: 'view-medium', pack: 'frost', label: 'ViewSubTab2'}
       ]
     }
   ],

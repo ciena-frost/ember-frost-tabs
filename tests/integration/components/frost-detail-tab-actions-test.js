@@ -1,5 +1,5 @@
 import {expect} from 'chai'
-import {$hook, initialize} from 'ember-hook'
+import {$hook, initialize as initializeHook} from 'ember-hook'
 import wait from 'ember-test-helpers/wait'
 import hbs from 'htmlbars-inline-precompile'
 import {beforeEach, describe, it} from 'mocha'
@@ -45,7 +45,7 @@ describe(test.label, function () {
   test.setup()
 
   beforeEach(function () {
-    initialize()
+    initializeHook()
     this.setProperties({
       myHook,
       tabActions

@@ -1,5 +1,5 @@
 import {expect} from 'chai'
-import {$hook, initialize} from 'ember-hook'
+import {$hook, initialize as initializeHook} from 'ember-hook'
 import wait from 'ember-test-helpers/wait'
 import hbs from 'htmlbars-inline-precompile'
 import {beforeEach, describe, it} from 'mocha'
@@ -24,7 +24,7 @@ describe(test.label, function () {
   test.setup()
 
   beforeEach(function () {
-    initialize()
+    initializeHook()
     this.setProperties({
       myHook,
       subtabs,
@@ -41,7 +41,6 @@ describe(test.label, function () {
     return wait()
       .then(() => {
         expect($hook(`${myHook}`)).to.have.length(1)
-        expect(this.$('.frost-detail-subtab.selected')).to.have.length(1)
       })
   })
 
@@ -50,7 +49,8 @@ describe(test.label, function () {
 
     return wait()
       .then(() => {
-        expect(this.$('.frost-detail-subtab')).to.have.length(2)
+        expect($hook(`${myHook}-subtab-${subtabs[0]}`)).to.have.length(1)
+        expect($hook(`${myHook}-subtab-${subtabs[1]}`)).to.have.length(1)
       })
   })
 
@@ -63,12 +63,12 @@ describe(test.label, function () {
       })
   })
 
-  it('should have slected a subtab by default', function () {
+  it('should have selected a sub-tab by default', function () {
     this.render(template)
 
     return wait()
       .then(() => {
-        expect(this.$('.frost-detail-subtab.selected')).to.have.length(1)
+        expect($hook(`${myHook}-subtab-${selectedSubtabId}`).find('.selected')).to.have.length(1)
       })
   })
 })

@@ -14,7 +14,6 @@ export default Component.extend({
   // == Keyword Properties ====================================================
 
   layout,
-  tagName: '',
 
   // == PropTypes =============================================================
 

@@ -2,7 +2,7 @@
  * Component definition for the frost-detail-subtabs component
  */
 import Ember from 'ember'
-const {isEmpty, typeOf} = Ember
+const {Logger, isEmpty, typeOf} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
 import {Component} from 'ember-frost-core'
 import {PropTypes} from 'ember-prop-types'
@@ -50,7 +50,11 @@ export default Component.extend({
 
   // == Computed Properties ===================================================
 
-  // Wrap selectedTab for the same reasons outlined in the comments for _tabs
+  // If the sub-tab only provide the label string, map them into objects
+  // with an id for consistency across the rest of the component.
+  // The option to supply an id with a tab supports the use case where
+  // a consumer wants a shorter id for the tabs than the label
+  // (e.g. for binding to query params)
   @readOnly
   @computed('selectedSubtab')
   _selectedSubtab (selectedSubtab) {
@@ -74,13 +78,13 @@ export default Component.extend({
   @computed('subtabs.[]')
   _subtabs (subtabs) {
     if (isEmpty(subtabs) || typeOf(subtabs[0]) === 'object' || typeOf(subtabs[0]) === 'instance') {
-      // const isMissingProperties = subtabs.some(({id, label, icon, pack}) => {
-      //   return !id || !label
-      // })
-      // if (isMissingProperties) {
-      //   Logger.error(`frost-detail-subtabs:
-      //     Objects provided to the 'tabs' property must include an 'id', 'label', 'icon' and 'pack'`)
-      // }
+      const isMissingProperties = subtabs.some(({id, label, icon, pack}) => {
+        return !id || !label
+      })
+      if (isMissingProperties) {
+        Logger.error(`frost-detail-subtabs:
+          Objects provided to the 'tabs' property must include an 'id', 'label', 'icon' and 'pack'`)
+      }
       return subtabs
     }
 

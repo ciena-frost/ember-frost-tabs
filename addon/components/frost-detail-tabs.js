@@ -3,7 +3,7 @@
  */
 
 import Ember from 'ember'
-const {Logger, Object: EmberObject, isEmpty, typeOf, run} = Ember
+const {Logger, Object: EmberObject, isEmpty, run, typeOf} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
 import {task, timeout} from 'ember-concurrency'
 import {Component} from 'ember-frost-core'

@@ -1,5 +1,5 @@
 import {expect} from 'chai'
-import {$hook, initialize} from 'ember-hook'
+import {$hook, initialize as initializeHook} from 'ember-hook'
 import wait from 'ember-test-helpers/wait'
 import hbs from 'htmlbars-inline-precompile'
 import {beforeEach, describe, it} from 'mocha'
@@ -62,7 +62,7 @@ describe(test.label, function () {
   test.setup()
 
   beforeEach(function () {
-    initialize()
+    initializeHook()
     this.setProperties({
       myHook,
       tabs,
@@ -99,7 +99,7 @@ describe(test.label, function () {
       })
   })
 
-  it('should have slected tab  by default', function () {
+  it('should have selected tab  by default', function () {
     this.render(template)
 
     return wait()
