@@ -21,7 +21,9 @@ export default Controller.extend({
             name: 'add',
             pack: 'frost'
           },
-          label: 'Add'
+          label: 'Add',
+          isVisible: true,
+          disabled: true
         },
         {
           action: {
@@ -32,7 +34,9 @@ export default Controller.extend({
             name: 'export',
             pack: 'frost'
           },
-          label: 'Export'
+          label: 'Export',
+          isVisible: true,
+          disabled: false
         }
       ]
     },
