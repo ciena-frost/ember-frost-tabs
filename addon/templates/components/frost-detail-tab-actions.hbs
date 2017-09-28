@@ -1,16 +1,23 @@
 {{! Template for the frost-detail-tab-actions component }}
 
 {{#each tabActions as |tabAction|}}
-  <button
-    class={{concat css '-button'}}
-    data-test={{hook (concat hookPrefix '-button-' tabAction.label)}}
-    {{action (action onDispatch tabAction.action) on='click'}}
-  >
-    {{frost-icon
-      hook=(concat hookPrefix '-buttonIcon')
-      icon=tabAction.icon.name
-      pack=tabAction.icon.pack
-    }}
-    {{tabAction.label}}
-  </button>
+  {{#frost-button
+    class=(concat css '-button')
+    hook= (concat hookPrefix '-button-' tabAction.label)
+    priority="tertiary"
+    size="small"
+    vertical=true
+    onClick=(action onDispatch tabAction.action)
+    disabled=disabled
+    isVisible=isVisible
+  }}
+    <div class="icon-text text">
+      {{frost-icon
+        hook=(concat hookPrefix '-buttonIcon')
+        icon=tabAction.icon.name
+        pack=tabAction.icon.pack
+      }}
+      <div class="text">{{tabAction.label}}</div>
+    </div>
+  {{/frost-button}}
 {{/each}}

@@ -22,11 +22,16 @@ export default Component.extend({
       PropTypes.object,
       PropTypes.EmberObject
     ])),
-    onDispatch: PropTypes.func.isRequired
+    onDispatch: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
+    isVisible: PropTypes.bool
   },
 
   getDefaultProps () {
-    return {}
+    return {
+      disabled: false,
+      isVisible: true
+    }
   }
 
   // == Computed Properties ===================================================
