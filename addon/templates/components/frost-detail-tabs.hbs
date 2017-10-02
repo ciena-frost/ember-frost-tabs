@@ -1,0 +1,70 @@
+{{! Template for the frost-detail-tabs component }}
+
+{{resize-detector (concat '.' css '-scroll') on-resize=(action '_resize')}}
+
+{{#if _isInOverflow}}
+  <button
+    class={{concat css '-left'}}
+    data-test={{hook (concat hookPrefix '-left')}}
+    disabled={{eq _viewport.scrollLeft 0}}
+    {{action '_scrollLeft'}}
+  >
+    {{frost-icon
+      hook=(concat hookPrefix '-leftIcon')
+      icon='chevron'
+      pack='frost'
+    }}
+  </button>
+{{/if}}
+
+{{!--
+  All of the scrolling will be done programatically, so clear out the event handlers.
+  We're also going to suppress vertical scrolling, because cut off tab labels is :(
+--}}
+{{#frost-scroll
+  class=(concat css '-scroll')
+  hook=(concat hookPrefix '-scroll')
+  psOptions=(hash
+    handlers=(array)
+    suppressScrollY=true
+    suppressScrollX=true
+  )
+}}
+  <div class='{{css}}-tabs'>
+    {{#each _tabs key='id' as |tab|}}
+      {{~ frost-detail-tab
+        hook=(concat hookPrefix '-' tab.id)
+        register=(action '_register')
+        selectedTab=_selectedTab
+        tab=tab
+        viewport=_viewport
+        onSelect=onSelect
+      ~}}
+    {{/each}}
+  </div>
+{{/frost-scroll}}
+
+{{#if _isInOverflow}}
+  <button
+    class={{concat css '-right'}}
+    data-test={{hook (concat hookPrefix '-right')}}
+    disabled={{gte (add _viewport.scrollLeft _viewport.width) _tabsWidth}}
+    {{action '_scrollRight'}}
+  >
+    {{frost-icon
+      hook=(concat hookPrefix '-rightIcon')
+      icon='chevron'
+      pack='frost'
+    }}
+  </button>
+{{/if}}
+
+{{yield
+  (hash
+    more=(component 'frost-detail-tabs-more'
+      hook=(concat hookPrefix '-more')
+      selectedTab=_selectedTab
+      onSelect=onSelect
+    )
+  )
+}}
