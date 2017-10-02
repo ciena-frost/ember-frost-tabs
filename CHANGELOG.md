@@ -1,3 +1,8 @@
+# 5.4.0 (2017-10-02)
+- Added detail tabs ( user can choose and add more tabs from a list of tabs).
+- A detail tab can have vertical sub tabs with sub tab's content area and related actions in vertical action bar.
+
+
 # 5.3.1 (2017-09-27)
 - Fix a css issue when rendering horizontal tabs inside vertical tabs.
 
