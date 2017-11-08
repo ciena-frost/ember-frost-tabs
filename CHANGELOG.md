@@ -1,3 +1,7 @@
+# 6.0.0 (2017-11-08)
+* Use the latest `ember-frost-core`, with a flexible minor version (`^3.0.1`)
+
+
 # 5.4.1 (2017-11-02)
 * removed two lines of CSS to reduce specificity of style rule targeting the `.tab` class.  Because non-block-format mode has an additional div around each tab, and the CSS was targeting it specifically, block-format tabs were not the same style (larger font, no border, etc) as non-block tabs.
 
