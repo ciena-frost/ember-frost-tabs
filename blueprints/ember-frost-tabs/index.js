@@ -6,7 +6,7 @@ module.exports = {
 
   afterInstall: function (options) {
     const addonsToAdd = [
-      {name: 'ember-frost-core', target: '1.23.10'},
+      {name: 'ember-frost-core', target: '^3.0.1'},
       {name: 'ember-simple-uuid', target: '0.1.4'}
     ]
 
