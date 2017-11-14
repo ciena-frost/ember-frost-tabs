@@ -1,3 +1,6 @@
+# 6.0.1 (2017-11-14)
+* Refactor to remove need for `ember-simple-uuid` dependency
+
 # 6.0.0 (2017-11-08)
 * Use the latest `ember-frost-core`, with a flexible minor version (`^3.0.1`)
 
