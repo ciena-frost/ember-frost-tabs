@@ -1,8 +1,7 @@
 import Ember from 'ember'
-const {Component} = Ember
+const {Component, guidFor} = Ember
 import layout from '../templates/components/frost-tabs'
 import PropTypesMixin, {PropTypes} from 'ember-prop-types'
-import uuid from 'ember-simple-uuid'
 
 export default Component.extend(PropTypesMixin, {
   // == Component properties ==================================================
@@ -25,7 +24,7 @@ export default Component.extend(PropTypesMixin, {
   getDefaultProps () {
     return {
       design: 'horizontal',
-      targetOutlet: `frost-tab-content-${uuid()}`
+      targetOutlet: `frost-tab-content-${guidFor({})}`
     }
   }
 })
