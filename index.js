@@ -5,10 +5,6 @@
 module.exports = {
   name: 'ember-frost-tabs',
 
-  included: function (app) {
-    this._super.included(app)
-  },
-
   init: function (app) {
     // eslint-disable-next-line no-unused-expressions
     this._super.init && this._super.init.apply(this, arguments)
