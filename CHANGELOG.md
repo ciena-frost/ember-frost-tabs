@@ -1,3 +1,6 @@
+# 6.0.3 (2017-12-13)
+* Change semver range of `ember-load-initializers` to align with other repos
+
 # 6.0.2 (2017-11-14)
 * #71 - Bind context to call of this._super.included() in index.js
 
