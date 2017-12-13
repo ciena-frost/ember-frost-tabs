@@ -1,3 +1,6 @@
+# 6.0.4 (2017-12-13)
+* Change semver range of `ember-resolver` to align with other repos
+
 # 6.0.3 (2017-12-13)
 * Change semver range of `ember-load-initializers` to align with other repos
 
