@@ -201,7 +201,7 @@ export default Component.extend({
     this._super(...arguments)
 
     // Set the initial viewport and unblock CP chains reliant on DOM sizing
-    Ember.run.schedule('sync', this, () => {
+    run.schedule('sync', this, () => {
       this.get('_updateViewportTask').perform()
       this.set('_isInserted', true)
     })
