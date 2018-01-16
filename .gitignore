@@ -14,8 +14,8 @@
 /coverage/*
 /libpeerconnection.log
 npm-debug.log*
+package-lock.json
 testem.log
 .idea
 coverage.json
-/visual-acceptance
 /typings
