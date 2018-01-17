@@ -5,6 +5,7 @@
 module.exports = {
   name: 'ember-frost-tabs',
 
+  /* eslint-disable complexity */
   init: function (app) {
     // eslint-disable-next-line no-unused-expressions
     this._super.init && this._super.init.apply(this, arguments)
@@ -17,4 +18,5 @@ module.exports = {
       this.options.babel.optional.push('es7.decorators')
     }
   }
+  /* eslint-enable complexity */
 }

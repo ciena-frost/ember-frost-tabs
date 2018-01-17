@@ -136,6 +136,7 @@ export default Component.extend({
     this.set('_viewport.width', $scrollElement.width())
   },
 
+  /* eslint-disable complexity */
   // Scroll to the selected tab if it's not already in the viewport
   _maybeScrollViewport (selectedTabId) {
     // If the tab isn't visible yet or is currently in the viewport do nothing
@@ -169,6 +170,7 @@ export default Component.extend({
 
     this._scrollViewport(scrollLeft)
   },
+  /* eslint-enable complexity */
 
   // Animate scrolling to a particular horizontal position
   _scrollViewport (scrollLeft) {
