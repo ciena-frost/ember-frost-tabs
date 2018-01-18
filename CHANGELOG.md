@@ -1,3 +1,40 @@
+# 7.0.0 (2018-01-18)
+* **Added** ignoring of `package-lock` until we are ready to move to node 8
+* **Added** ignore the linting of the `CHANGELOG.md`
+* **Removed** useLintTree ember-cli-mocha configuration from `ember-cli-build.js`
+* **Removed** `.remarkrc` file since it is now provided by `ember-test-utils`
+* **Removed** `.template-liintrc.js` since it is now provided by `ember-test-utils`
+* **Updated** code coverage to run during `npm run test`
+* **Updated** refactored ember-hook usage in `frost-tab.js` to not be a computed property since it needs to be readOnly.
+* **Updated** the `isSelected()` computed property to be readOnly to comply with our org's patterns
+* **Removed** the blueprint file since packages are now included via dependencies
+* **Updated** `bower.json` to no longer have unneeded packages and moved the testing only packages into devDependencies
+* **Added** `ember-browserify` @ `^1.2.0`
+* **Updated** `ember-frost-test` to `^4.0.0`
+* **Updated** `ember-cli-chai` to `0.4.3`
+* **Updated** `ember-cli-mocha` to `0.14.4`
+* **Updated** `ember-sinon` to `^0.7.0`
+* **Updated** `ember-test-utils` to `^8.1.0`
+* **Added** `sinon-chai` @ `^2.14.0`
+* **Updated** `ember-cli-code-coverage` to `0.3.12`
+* **Updated** `ember-cli-frost-blueprints` to `^5.0.1`
+* **Updated** `ember-cli-htmlbars-inline-precompile` to `0.3.12`
+* **Updated** pin `ember-code-snippet` to `1.7.0`
+* **Updated** `ember-cli-sass` to `7.1.1`
+* **Updated** `ember-computed-decorators` to `0.3.0` and moved to a dependency instead of a devDependency
+* **Updated** `ember-concurrency` to be a dependency instead of a devDependency
+* **Updated** `ember-frost-core` to `^5.1.1`
+* **Updated** `ember-element-resize-detector` to be a dependency instead of a devDependency
+* **Updated** `ember-elsewhere` to be a dependency instead of a devDependency
+* **Updated** `ember-hook` to `1.4.2` and moved to a dependency instead of a devDependency
+* **Updated** `ember-math-helpers to `2.0.6` and moved to a dependency instead of a devDependency
+* **Updated** `ember-prop-types` to `^6.0.1` and moved to a dependency instead of a devDependency
+* **Updated** `ember-truth-helpers` to be a dependency instead of a devDependency
+* **Removed** unused `ember-spread` package
+* **Removed** unused `ember-frost-info-bar` package
+* **Removed** `ember-cli-template-lint` package since it is now provided via `ember-test-utils`
+* **Updated** code coverage config file to tests/dummy/config/ and add json-summary reporter
+
 # 6.0.4 (2017-12-13)
 * Change semver range of `ember-resolver` to align with other repos
 
