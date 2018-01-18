@@ -3,7 +3,7 @@ const {Controller} = Ember
 
 // BEGIN-SNIPPET frost-tabs-controller
 export default Controller.extend({
-  selectedTab: undefined,
+  selectedTab: 'template',
   actions: {
     onChange (tabId) {
       this.set('selectedTab', tabId)
