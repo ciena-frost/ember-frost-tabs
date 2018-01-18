@@ -1,6 +1,7 @@
 import {expect} from 'chai'
 import {$hook, initialize as initializeHook} from 'ember-hook'
 import wait from 'ember-test-helpers/wait'
+import {integration} from 'ember-test-utils/test-support/setup-component-test'
 import hbs from 'htmlbars-inline-precompile'
 import {beforeEach, describe, it} from 'mocha'
 
@@ -38,8 +39,6 @@ const template = hbs`
   }}
 `
 
-import {integration} from 'dummy/tests/helpers/ember-test-utils/setup-component-test'
-
 const test = integration('frost-detail-tab-actions')
 describe(test.label, function () {
   test.setup()
@@ -55,7 +54,7 @@ describe(test.label, function () {
     })
   })
 
-  it('Renders', function () {
+  it('should render', function () {
     this.render(template)
 
     return wait()
@@ -63,7 +62,7 @@ describe(test.label, function () {
         expect($hook(`${myHook}`)).to.have.length(1)
       })
   })
-  it('verify action label', function () {
+  it('should verify action label', function () {
     this.render(template)
 
     return wait()
@@ -73,4 +72,3 @@ describe(test.label, function () {
       })
   })
 })
-

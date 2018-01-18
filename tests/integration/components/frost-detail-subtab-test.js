@@ -1,6 +1,7 @@
 import {expect} from 'chai'
 import {$hook, initialize as initializeHook} from 'ember-hook'
 import wait from 'ember-test-helpers/wait'
+import {integration} from 'ember-test-utils/test-support/setup-component-test'
 import hbs from 'htmlbars-inline-precompile'
 import {beforeEach, describe, it} from 'mocha'
 
@@ -22,8 +23,6 @@ const template = hbs`
 }}
 `
 
-import {integration} from 'dummy/tests/helpers/ember-test-utils/setup-component-test'
-
 const test = integration('frost-details-subtab')
 describe(test.label, function () {
   test.setup()
@@ -40,7 +39,7 @@ describe(test.label, function () {
     })
   })
 
-  it('Renders', function () {
+  it('should render', function () {
     this.render(template)
 
     return wait()
@@ -49,7 +48,7 @@ describe(test.label, function () {
       })
   })
 
-  it('if sub-tab is selected', function () {
+  it('should have sub-tab as selected', function () {
     this.render(template)
     return wait()
       .then(() => {
@@ -57,7 +56,7 @@ describe(test.label, function () {
       })
   })
 
-  it('if sub-tab lable is My-Tab', function () {
+  it('should have sub-tab label of My-Tab', function () {
     this.render(template)
     return wait()
       .then(() => {
@@ -65,4 +64,3 @@ describe(test.label, function () {
       })
   })
 })
-

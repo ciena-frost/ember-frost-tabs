@@ -1,10 +1,10 @@
 import Ember from 'ember'
 import layout from '../templates/components/frost-tab'
+import computed, {readOnly} from 'ember-computed-decorators'
 import PropTypesMixin, {PropTypes} from 'ember-prop-types'
 
 const {
-  Component,
-  computed
+  Component
 } = Ember
 
 export default Component.extend(PropTypesMixin, {
@@ -26,7 +26,6 @@ export default Component.extend(PropTypesMixin, {
     contentClass: PropTypes.string,
     disabled: PropTypes.bool,
     // Set by the parent component
-    hook: PropTypes.string,
     parentHook: PropTypes.string,
     targetOutlet: PropTypes.string.isRequired,
     selectedTab: PropTypes.string,
@@ -39,15 +38,20 @@ export default Component.extend(PropTypesMixin, {
     }
   },
 
+  init () {
+    // This needs to be setup outside of ember-prop-types getDefaultProps() because it does not work
+    // within the timing of tests
+    this.set('hook', `${this.parentHook}-${this.id}`)
+    this._super(...arguments)
+  },
+
   // == Computed properties ===================================================
 
-  isSelected: computed('id', 'selectedTab', function () {
+  @readOnly
+  @computed('id', 'selectedTab')
+  isSelected (id, selectedTab) {
     return this.id === this.selectedTab && !this.disabled
-  }),
-
-  hook: computed('parentHook', 'id', function () {
-    return `${this.parentHook}-${this.id}`
-  }),
+  },
 
   // == Actions ===============================================================
 

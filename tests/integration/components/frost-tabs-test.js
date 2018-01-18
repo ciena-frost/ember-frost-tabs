@@ -2,6 +2,7 @@ import {expect} from 'chai'
 import Ember from 'ember'
 import {$hook, initialize} from 'ember-hook'
 import wait from 'ember-test-helpers/wait'
+import {integration} from 'ember-test-utils/test-support/setup-component-test'
 import hbs from 'htmlbars-inline-precompile'
 import {beforeEach, describe, it} from 'mocha'
 
@@ -42,8 +43,6 @@ const template = hbs`
   }}
 `
 
-import {integration} from 'dummy/tests/helpers/ember-test-utils/setup-component-test'
-
 const test = integration('frost-tabs')
 describe(test.label, function () {
   test.setup()
@@ -62,7 +61,7 @@ describe(test.label, function () {
     })
   })
 
-  it('Renders', function () {
+  it('should render', function () {
     this.setProperties({
       selectedTab: templateTabId
     })
@@ -75,7 +74,7 @@ describe(test.label, function () {
       })
   })
 
-  it('Renders vertical', function () {
+  it('should render vertical', function () {
     const template = hbs`
       {{frost-tabs
         hook=hookName
@@ -117,7 +116,7 @@ describe(test.label, function () {
       })
   })
 
-  it('Default selected tab', function () {
+  it('should default selected tab', function () {
     this.render(template)
 
     return wait()
@@ -129,7 +128,7 @@ describe(test.label, function () {
       })
   })
 
-  it('Selected tab', function () {
+  it('should selected tab', function () {
     this.setProperties({
       selectedTab: controllerTabId
     })
@@ -141,7 +140,7 @@ describe(test.label, function () {
       })
   })
 
-  it('Set hook', function () {
+  it('should set hook', function () {
     this.setProperties({
       selectedTab: templateTabId,
       hookName: hookName
@@ -157,7 +156,7 @@ describe(test.label, function () {
       })
   })
 
-  it('Set classes', function () {
+  it('should set classes', function () {
     this.setProperties({
       selectedTab: templateTabId,
       classNames: 'my-class'

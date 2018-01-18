@@ -1,8 +1,4 @@
 {
   "name": "ember-frost-tabs",
-  "dependencies": {
-    "Faker": "^3.0.1",
-    "pretender": "^0.10.1",
-    "ember-mocha-adapter": "~0.3.1"
-  }
+  "dependencies": {}
 }

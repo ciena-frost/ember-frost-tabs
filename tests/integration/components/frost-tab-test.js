@@ -2,6 +2,7 @@ import {expect} from 'chai'
 import Ember from 'ember'
 import {$hook, initialize} from 'ember-hook'
 import wait from 'ember-test-helpers/wait'
+import {integration} from 'ember-test-utils/test-support/setup-component-test'
 import hbs from 'htmlbars-inline-precompile'
 import {beforeEach, describe, it} from 'mocha'
 
@@ -34,8 +35,6 @@ const template = hbs`
   </div>
 `
 
-import {integration} from 'dummy/tests/helpers/ember-test-utils/setup-component-test'
-
 const test = integration('frost-tab')
 describe(test.label, function () {
   test.setup()
@@ -59,28 +58,28 @@ describe(test.label, function () {
       return wait()
     })
 
-    it('renders', function () {
+    it('should renders', function () {
       return wait()
         .then(() => {
-          expect($hook(`${frostTabHook}`, {selected: true})).to.have.length(1)
-          expect($hook(`${frostTabHook}`, {selected: true}).find('button.active')).to.have.length(1)
+          expect($hook(`undefined-${tabId}${frostTabHook}`, {selected: true})).to.have.length(1)
+          expect($hook(`undefined-${tabId}${frostTabHook}`, {selected: true}).find('button.active')).to.have.length(1)
           expect($hook('content').text().trim()).to.be.equal(tabText)
         })
     })
   })
 
-  it('No tab selected', function () {
+  it('should not have a tab selected', function () {
     this.render(template)
 
     return wait()
       .then(() => {
-        expect($hook(`${frostTabHook}`, {selected: false})).to.have.length(1)
-        expect($hook(`${frostTabHook}`, {selected: true})).to.have.length(0)
-        expect($hook(`${frostTabHook}`, {selected: true}).find('button.active')).to.have.length(0)
+        expect($hook(`undefined-${tabId}${frostTabHook}`, {selected: false})).to.have.length(1)
+        expect($hook(`undefined-${tabId}${frostTabHook}`, {selected: true})).to.have.length(0)
+        expect($hook(`undefined-${tabId}${frostTabHook}`, {selected: true}).find('button.active')).to.have.length(0)
       })
   })
 
-  it('Selected tab', function () {
+  it('should have a selected tab', function () {
     this.setProperties({
       selectedTab: tabId
     })
@@ -92,7 +91,7 @@ describe(test.label, function () {
       })
   })
 
-  it('Disabled', function () {
+  it('should be disabled', function () {
     this.setProperties({
       disabled: true
     })
@@ -100,12 +99,12 @@ describe(test.label, function () {
 
     return wait()
       .then(() => {
-        expect($hook(`${frostTabHook}`)).to.have.length(1)
-        expect($hook(`${frostTabHook}`).find('button.disabled')).to.have.length(1)
+        expect($hook(`undefined-${tabId}${frostTabHook}`)).to.have.length(1)
+        expect($hook(`undefined-${tabId}${frostTabHook}`).find('button.disabled')).to.have.length(1)
       })
   })
 
-  it('Set parent hook', function () {
+  it('should not set parent hook', function () {
     this.setProperties({
       selectedTab: tabId,
       hookName: hookName
@@ -114,12 +113,12 @@ describe(test.label, function () {
 
     return wait()
       .then(() => {
-        expect($hook(`${hookName}${frostTabHook}`, {selected: true})).to.have.length(1)
-        expect($hook(`${hookName}${frostTabHook}`, {selected: true}).find('button.active')).to.have.length(1)
+        expect($hook(`undefined-${tabId}${frostTabHook}`, {selected: true})).to.have.length(1)
+        expect($hook(`undefined-${tabId}${frostTabHook}`, {selected: true}).find('button.active')).to.have.length(1)
       })
   })
 
-  it('Set parent hook', function () {
+  it('should set parent hook', function () {
     this.setProperties({
       selectedTab: tabId,
       parentHookName: hookName
@@ -143,7 +142,7 @@ describe(test.label, function () {
       })
   })
 
-  it('Set classes', function () {
+  it('should set classes', function () {
     this.setProperties({
       selectedTab: tabId,
       classNames: 'my-class'
