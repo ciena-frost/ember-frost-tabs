@@ -50,7 +50,7 @@ export default Component.extend(PropTypesMixin, {
   @readOnly
   @computed('id', 'selectedTab')
   isSelected (id, selectedTab) {
-    return this.id === this.selectedTab && !this.disabled
+    return id === selectedTab && !this.disabled
   },
 
   // == Actions ===============================================================
