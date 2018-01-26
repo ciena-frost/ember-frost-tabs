@@ -1,3 +1,6 @@
+# 7.0.1 (2018-01-26)
+* **Updated** computed property `isSelected` to use passed parameters
+
 # 7.0.0 (2018-01-18)
 * **Added** ignoring of `package-lock` until we are ready to move to node 8
 * **Added** ignore the linting of the `CHANGELOG.md`
