@@ -51,6 +51,16 @@ See the demo application for usage information.
 ## API
 Detailed API and example usage can be found in the sample application in `tests/dummy`, which is also running at http://ciena-frost.github.io/ember-frost-tabs
 
+| Attribute            | Type             | Required | Value        | Description                                                      |
+| -------------------- | ---------------- | -------- | ------------ | ---------------------------------------------------------------- |
+| design               | `string`         |          | 'horizontal' | **default** The orientation of the tabs                          |
+|                      |                  |          | 'vertical'   |                                                                  |
+| tabs                 | `array`          |          |              | A list of tabs                                                   |
+| selectedTab          | `string`         |          |              | The tab that will be selected by default                         |
+| onChange             | `function`       | &#10004; |              | A callback that runs each time a tab is selected                 |
+| hook                 | `string`         | &#10004; |              | The [ember-hook](https://www.npmjs.com/package/ember-hook) value |
+| targetOutlet         | `string`         |          |              | The location that the content will be inserted                   |
+
 ### Ember-elsewhere
 
 This addon uses the [ember-elsewhere](https://github.com/ef4/ember-elsewhere) to manage the tabs, to put the tab
