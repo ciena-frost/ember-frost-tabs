@@ -1,3 +1,16 @@
+# 8.0.0 (2018-03-21)
+* **Updated** pull request template
+* **Added** issue template
+* **Updated** to `pr-bumper` version `3`
+* **Updated** to node 8
+* **Added** slack integration
+* **Updated** `ember-frost-test` to `^4.0.1`
+* **Updated** `ember-test-utils` to `^8.1.1`
+* **Updated** `ember-cli-frost-blueprints` to `^5.0.2`
+* **Updated** `ember-prop-types` to `^7.0.1`
+* **Updated** `ember-frost-core` to `^7.0.0`
+* **Removed** ignoring of `package-lock.json` file
+
 # 7.0.1 (2018-01-26)
 * **Updated** computed property `isSelected` to use passed parameters
 
