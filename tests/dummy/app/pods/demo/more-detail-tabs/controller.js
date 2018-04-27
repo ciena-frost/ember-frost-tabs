@@ -60,7 +60,34 @@ export default Controller.extend({
   @computed('selectedTab')
   tabActions (selectedTab) {
     const tab = A(this.get('apiTabs')).findBy('label', selectedTab)
-    return tab ? get(tab, 'actions') : []
+    return tab ? get(tab, 'actions') : [{
+      'disabled': false,
+      'isConditional': false,
+      'permission': 'create-inventory',
+      'label': 'Edit',
+      'priority': 'primary',
+      'request_type': 'GET',
+      'isMultiSelect': false,
+      'id': 'updates',
+      'icon': {
+        'name': 'error',
+        'pack': 'frost'
+      }
+    },
+      {
+        'disabled': false,
+        'isConditional': false,
+        'permission': 'create-inventory',
+        'label': 'Reoptimize',
+        'priority': 'secondary',
+        'request_type': 'POST',
+        'isMultiSelect': false,
+        'id': 'reopts',
+        'icon': {
+          'name': 'add',
+          'pack': 'frost'
+        }
+      }]
   },
 
   // State management

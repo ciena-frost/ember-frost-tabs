@@ -17,7 +17,19 @@
         icon=tabAction.icon.name
         pack=tabAction.icon.pack
       }}
-      <div class="text">{{tabAction.label}}</div>
+      {{#frost-popover
+        class='tooltip-frost-action'
+        hook=(concat hook '-action')
+        closest=true
+        offset=10
+        target='.frost-detail-tab-actions-button'
+        position='top'
+        handlerIn='mouseover'
+        handlerOut='mouseout'
+      }}
+        <div class="text">{{tabAction.label}}</div>
+      {{/frost-popover}}
     </div>
+
   {{/frost-button}}
 {{/each}}

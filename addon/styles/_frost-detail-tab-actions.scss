@@ -27,6 +27,29 @@ $tab-action-box-shadow-2: rgba(0, 0, 0, .19);
   }
   color: $frost-color-blue-1;
   font-size: 13px;
+  .frost-icon:hover{
+    background: $frost-color-white !important;
+    width: 35px !important;
+    height: 35px !important;
+    margin-left: -10px;
+  }
+
+  .tooltip-frost-action{
+    background-color: #F5F5F5;
+    bottom: 30px !important;
+    left: -180px !important;
+    min-width: 100px !important;
+    min-height: 30px !important;
+    margin-left: 50px !important;
+    position: relative;
+    display: flex;
+    z-index: 99;
+    .tooltip-arrow {
+      transform: rotate(315deg);
+      margin-left: 45px !important;
+      margin-bottom: 13px !important;
+    }
+  }
 }
 
 .frost-detail-tab-actions-button + .frost-detail-tab-actions-button {
