@@ -9,7 +9,7 @@ $tab-action-box-shadow-2: rgba(0, 0, 0, .19);
 .frost-detail-tab-actions {
   display: flex;
   flex-direction: column;
-  width: 60px;
+  width: 50px;
   height: calc(100% - 20px);
   margin: 10px 0 10px auto;
   padding: 10px;
@@ -17,23 +17,32 @@ $tab-action-box-shadow-2: rgba(0, 0, 0, .19);
   border-radius: 15px 0 0 15px;
   background-color: $frost-color-white;
   box-shadow: 0 4px 8px 0 $tab-action-box-shadow-1, 0 6px 20px 0 $tab-action-box-shadow-2;
+  .frost-detail-tab-actions-msg {
+    position: relative;
+  }
 }
 
 .frost-detail-tab-actions-button {
+  height: 35px !important;
+  margin-top: 20px;
+  padding-top: 0px !important;
+  padding-right: 9px !important;
+  padding-bottom: 0px !important;
+  padding-left: 9px !important;
   .frost-icon {
-    width: 30px;
-    height: 30px;
     color: $frost-color-blue-1;
+    width: 30px !important;
+    height: 30px !important;
+    margin-left: -10px;
   }
-  color: $frost-color-blue-1;
-  font-size: 13px;
   .frost-icon:hover{
     background: $frost-color-white !important;
     width: 35px !important;
     height: 35px !important;
     margin-left: -10px;
   }
-
+  color: $frost-color-blue-1;
+  font-size: 0px;
   .tooltip-frost-action{
     background-color: #F5F5F5;
     bottom: 30px !important;
@@ -50,8 +59,4 @@ $tab-action-box-shadow-2: rgba(0, 0, 0, .19);
       margin-bottom: 13px !important;
     }
   }
-}
-
-.frost-detail-tab-actions-button + .frost-detail-tab-actions-button {
-  margin-top: 20px;
 }
