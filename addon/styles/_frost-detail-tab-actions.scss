@@ -3,9 +3,11 @@ $frost-detail-tab-actions-button-shadow: $frost-color-grey-6;
 $frost-detail-tab-actions-button-icon: $frost-color-grey-4;
 $frost-detail-tab-actions-button-icon-selected: $frost-color-blue-1;
 $frost-detail-tab-actions-button-icon-active: $frost-color-blue-1;
+$frost-detail-tab-actions-tooltip-bg: #f5f5f5;;
 $tab-action-box-shadow-1: rgba(0, 0, 0, .2);
 $tab-action-box-shadow-2: rgba(0, 0, 0, .19);
 
+// sass-lint:disable no-important
 .frost-detail-tab-actions {
   display: flex;
   flex-direction: column;
@@ -17,46 +19,45 @@ $tab-action-box-shadow-2: rgba(0, 0, 0, .19);
   border-radius: 15px 0 0 15px;
   background-color: $frost-color-white;
   box-shadow: 0 4px 8px 0 $tab-action-box-shadow-1, 0 6px 20px 0 $tab-action-box-shadow-2;
-  .frost-detail-tab-actions-msg {
-    position: relative;
-  }
 }
 
 .frost-detail-tab-actions-button {
   height: 35px !important;
   margin-top: 20px;
-  padding-top: 0px !important;
   padding-right: 9px !important;
-  padding-bottom: 0px !important;
   padding-left: 9px !important;
+
   .frost-icon {
-    color: $frost-color-blue-1;
     width: 30px !important;
     height: 30px !important;
     margin-left: -10px;
+    color: $frost-color-blue-1;
   }
-  .frost-icon:hover{
-    background: $frost-color-white !important;
-    width: 35px !important;
-    height: 35px !important;
-    margin-left: -10px;
+
+  &:hover {
+    .frost-icon {
+      width: 35px !important;
+      height: 35px !important;
+      margin-left: -10px;
+      background: $frost-color-white !important;
+    }
   }
-  color: $frost-color-blue-1;
-  font-size: 0px;
-  .tooltip-frost-action{
-    background-color: #F5F5F5;
+
+  .tooltip-frost-action {
+    display: flex;
+    position: relative;
     bottom: 30px !important;
     left: -180px !important;
     min-width: 100px !important;
     min-height: 30px !important;
     margin-left: 50px !important;
-    position: relative;
-    display: flex;
+    background-color: $frost-detail-tab-actions-tooltip-bg;
     z-index: 99;
+
     .tooltip-arrow {
-      transform: rotate(315deg);
-      margin-left: 45px !important;
       margin-bottom: 13px !important;
+      margin-left: 45px !important;
+      transform: rotate(315deg);
     }
   }
 }
