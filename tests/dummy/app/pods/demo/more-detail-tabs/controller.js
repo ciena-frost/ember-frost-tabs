@@ -50,44 +50,17 @@ export default Controller.extend({
   ],
 
   @readOnly
-  @computed('selectedTab')
+    @computed('selectedTab')
   tabContent (selectedTab) {
     const tab = A(this.get('apiTabs')).findBy('label', selectedTab)
     return tab ? get(tab, 'value') : selectedTab
   },
 
   @readOnly
-  @computed('selectedTab')
+    @computed('selectedTab')
   tabActions (selectedTab) {
     const tab = A(this.get('apiTabs')).findBy('label', selectedTab)
-    return tab ? get(tab, 'actions') : [{
-      'disabled': false,
-      'isConditional': false,
-      'permission': 'create-inventory',
-      'label': 'Edit',
-      'priority': 'primary',
-      'request_type': 'GET',
-      'isMultiSelect': false,
-      'id': 'updates',
-      'icon': {
-        'name': 'error',
-        'pack': 'frost'
-      }
-    },
-      {
-        'disabled': false,
-        'isConditional': false,
-        'permission': 'create-inventory',
-        'label': 'Reoptimize',
-        'priority': 'secondary',
-        'request_type': 'POST',
-        'isMultiSelect': false,
-        'id': 'reopts',
-        'icon': {
-          'name': 'add',
-          'pack': 'frost'
-        }
-      }]
+    return tab ? get(tab, 'actions') : []
   },
 
   // State management
@@ -113,7 +86,7 @@ export default Controller.extend({
   queryParams: ['selectedTab', 'selectedSubTab'],
 
   @readOnly
-  @computed('subtabs', 'selectedTab')
+    @computed('subtabs', 'selectedTab')
   viewSubtabs: function (subtabs, selectedTab) {
     if (isEmpty(A(subtabs).findBy('tab', selectedTab))) {
       return []
