@@ -27,19 +27,20 @@ $tooltip-background-shadow: rgba(35, 31, 32, .8);
   margin-top: 20px;
   padding-right: 9px !important;
   padding-left: 9px !important;
+  background: none !important;
 
   .frost-icon {
-    width: 30px !important;
-    height: 30px !important;
-    margin-left: -10px;
-    color: $frost-color-blue-1;
+    width: 25px !important;
+    height: 25px !important;
+    margin-left: -2px;
+    background: $frost-color-white !important;
   }
 
   &:hover {
     .frost-icon {
-      width: 35px !important;
-      height: 35px !important;
-      margin-left: -10px;
+      width: 30px !important;
+      height: 30px !important;
+      margin-left: -3px;
       background: $frost-color-white !important;
     }
   }
