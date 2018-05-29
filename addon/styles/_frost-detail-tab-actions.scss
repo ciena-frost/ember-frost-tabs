@@ -3,9 +3,10 @@ $frost-detail-tab-actions-button-shadow: $frost-color-grey-6;
 $frost-detail-tab-actions-button-icon: $frost-color-grey-4;
 $frost-detail-tab-actions-button-icon-selected: $frost-color-blue-1;
 $frost-detail-tab-actions-button-icon-active: $frost-color-blue-1;
-$frost-detail-tab-actions-tooltip-bg: #f5f5f5;;
+$frost-detail-tab-actions-tooltip-bg: #f5f5f5;
 $tab-action-box-shadow-1: rgba(0, 0, 0, .2);
 $tab-action-box-shadow-2: rgba(0, 0, 0, .19);
+$tooltip-background-shadow: rgba(35, 31, 32, .8);
 
 // sass-lint:disable no-important
 .frost-detail-tab-actions {
@@ -46,18 +47,28 @@ $tab-action-box-shadow-2: rgba(0, 0, 0, .19);
   .tooltip-frost-action {
     display: flex;
     position: relative;
-    bottom: 30px !important;
+    bottom: 35px !important;
     left: -180px !important;
     min-width: 100px !important;
     min-height: 30px !important;
-    margin-left: 50px !important;
-    background-color: $frost-detail-tab-actions-tooltip-bg;
+    margin-left: 65px !important;
+    background-color: $tooltip-background-shadow;
     z-index: 99;
 
     .tooltip-arrow {
-      margin-bottom: 13px !important;
-      margin-left: 45px !important;
-      transform: rotate(315deg);
+      position: absolute;
+      margin-bottom: 7px !important;
+      margin-left: 50px !important;
+      transform: rotate(180deg);
+      border-top: 8px solid transparent;
+      border-right: 8px solid $frost-color-grey-2;
+      border-bottom: 8px solid transparent;
+      border-right-color: $tooltip-background-shadow;
+      background-color: $frost-color-white;
+    }
+
+    .tooltip-text {
+      color: $frost-color-white;
     }
   }
 }
