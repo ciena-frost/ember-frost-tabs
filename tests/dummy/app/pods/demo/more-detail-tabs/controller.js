@@ -50,14 +50,14 @@ export default Controller.extend({
   ],
 
   @readOnly
-    @computed('selectedTab')
+  @computed('selectedTab')
   tabContent (selectedTab) {
     const tab = A(this.get('apiTabs')).findBy('label', selectedTab)
     return tab ? get(tab, 'value') : selectedTab
   },
 
   @readOnly
-    @computed('selectedTab')
+  @computed('selectedTab')
   tabActions (selectedTab) {
     const tab = A(this.get('apiTabs')).findBy('label', selectedTab)
     return tab ? get(tab, 'actions') : []
@@ -86,7 +86,7 @@ export default Controller.extend({
   queryParams: ['selectedTab', 'selectedSubTab'],
 
   @readOnly
-    @computed('subtabs', 'selectedTab')
+  @computed('subtabs', 'selectedTab')
   viewSubtabs: function (subtabs, selectedTab) {
     if (isEmpty(A(subtabs).findBy('tab', selectedTab))) {
       return []
