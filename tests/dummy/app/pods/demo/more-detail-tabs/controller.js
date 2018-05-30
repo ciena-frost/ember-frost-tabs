@@ -23,7 +23,7 @@ export default Controller.extend({
           },
           label: 'Add',
           isVisible: true,
-          disabled: true
+          disabled: false
         },
         {
           action: {
