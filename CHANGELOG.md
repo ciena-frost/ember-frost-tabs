@@ -1,3 +1,6 @@
+# 9.0.1 (2018-05-30)
+* **Updated** Pin `ember-cli-notifications` to version `4.2.1` to fix broken demo app
+
 # 9.0.0 (2018-04-13)
 * **Upgraded** `ember-frost-core` to `^8.0.0`
 * **Installed** `ember-cli-svgstore`
