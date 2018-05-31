@@ -23,14 +23,15 @@ $tooltip-background-shadow: rgba(35, 31, 32, .8);
 }
 
 .frost-detail-tab-actions-button {
-  height: 35px !important;
-  margin-bottom: 10px;
+  height: 0 !important;
+  margin-bottom: 40px;
+  padding: 0 !important;
   background: none !important;
 
   .frost-icon {
     width: 25px !important;
     height: 25px !important;
-    margin-left: -5px;
+    margin-left:  5px !important;
     background: $frost-color-white !important;
   }
 
@@ -38,7 +39,7 @@ $tooltip-background-shadow: rgba(35, 31, 32, .8);
     .frost-icon {
       width: 30px !important;
       height: 30px !important;
-      margin-left: -5px;
+      margin-left: 5px !important;
       background: $frost-color-white !important;
     }
   }
@@ -50,7 +51,7 @@ $tooltip-background-shadow: rgba(35, 31, 32, .8);
     left: -180px !important;
     min-width: 100px !important;
     min-height: 30px !important;
-    margin-left: 65px !important;
+    margin-left: 75px !important;
     background-color: $tooltip-background-shadow;
     z-index: 99;
 
