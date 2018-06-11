@@ -7,6 +7,7 @@ $frost-detail-tab-actions-tooltip-bg: #f5f5f5;
 $tab-action-box-shadow-1: rgba(0, 0, 0, .2);
 $tab-action-box-shadow-2: rgba(0, 0, 0, .19);
 $tooltip-background-shadow: rgba(35, 31, 32, .8);
+$action-icon-background-hover: rgba(0, 158, 239, .07);
 
 // sass-lint:disable no-important
 .frost-detail-tab-actions {
@@ -37,10 +38,7 @@ $tooltip-background-shadow: rgba(35, 31, 32, .8);
 
   &:hover {
     .frost-icon {
-      width: 30px !important;
-      height: 30px !important;
-      margin-left: 5px !important;
-      background: $frost-color-white !important;
+      background: $action-icon-background-hover !important;
     }
   }
 
