@@ -1,3 +1,7 @@
+# 10.0.0 (2018-06-11)
+* Enhance frost-detail-tab-actions to display actions labels in popover
+
+
 # 9.0.1 (2018-05-30)
 * **Updated** Pin `ember-cli-notifications` to version `4.2.1` to fix broken demo app
 
