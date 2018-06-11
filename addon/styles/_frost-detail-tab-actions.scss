@@ -3,13 +3,17 @@ $frost-detail-tab-actions-button-shadow: $frost-color-grey-6;
 $frost-detail-tab-actions-button-icon: $frost-color-grey-4;
 $frost-detail-tab-actions-button-icon-selected: $frost-color-blue-1;
 $frost-detail-tab-actions-button-icon-active: $frost-color-blue-1;
+$frost-detail-tab-actions-tooltip-bg: #f5f5f5;
 $tab-action-box-shadow-1: rgba(0, 0, 0, .2);
 $tab-action-box-shadow-2: rgba(0, 0, 0, .19);
+$tooltip-background-shadow: rgba(35, 31, 32, .8);
+$action-icon-background-hover: rgba(0, 158, 239, .07);
 
+// sass-lint:disable no-important
 .frost-detail-tab-actions {
   display: flex;
   flex-direction: column;
-  width: 60px;
+  width: 50px;
   height: calc(100% - 20px);
   margin: 10px 0 10px auto;
   padding: 10px;
@@ -20,15 +24,49 @@ $tab-action-box-shadow-2: rgba(0, 0, 0, .19);
 }
 
 .frost-detail-tab-actions-button {
-  .frost-icon {
-    width: 30px;
-    height: 30px;
-    color: $frost-color-blue-1;
-  }
-  color: $frost-color-blue-1;
-  font-size: 13px;
-}
+  height: 0 !important;
+  margin-bottom: 40px;
+  padding: 0 !important;
+  background: none !important;
 
-.frost-detail-tab-actions-button + .frost-detail-tab-actions-button {
-  margin-top: 20px;
+  .frost-icon {
+    width: 25px !important;
+    height: 25px !important;
+    margin-left:  5px !important;
+    background: $frost-color-white !important;
+  }
+
+  &:hover {
+    .frost-icon {
+      background: $action-icon-background-hover !important;
+    }
+  }
+
+  .tooltip-frost-action {
+    display: flex;
+    position: relative;
+    bottom: 35px !important;
+    left: -180px !important;
+    min-width: 100px !important;
+    min-height: 30px !important;
+    margin-left: 75px !important;
+    background-color: $tooltip-background-shadow;
+    z-index: 99;
+
+    .tooltip-arrow {
+      position: absolute;
+      margin-bottom: 7px !important;
+      margin-left: 50px !important;
+      transform: rotate(180deg);
+      border-top: 8px solid transparent;
+      border-right: 8px solid $frost-color-grey-2;
+      border-bottom: 8px solid transparent;
+      border-right-color: $tooltip-background-shadow;
+      background-color: $frost-color-white;
+    }
+
+    .tooltip-text {
+      color: $frost-color-white;
+    }
+  }
 }

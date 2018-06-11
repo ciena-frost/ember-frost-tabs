@@ -11,13 +11,22 @@
     disabled=tabAction.disabled
     isVisible=tabAction.isVisible
   }}
-    <div class="icon-text text">
-      {{frost-icon
-        hook=(concat hookPrefix '-buttonIcon')
-        icon=tabAction.icon.name
-        pack=tabAction.icon.pack
-      }}
-      <div class="text">{{tabAction.label}}</div>
-    </div>
+    {{frost-icon
+      hook=(concat hookPrefix '-buttonIcon')
+      icon=tabAction.icon.name
+      pack=tabAction.icon.pack
+    }}
+    {{#frost-popover
+      class='tooltip-frost-action'
+      hook=(concat hook '-action')
+      closest=true
+      offset=10
+      target='.frost-detail-tab-actions-button'
+      position='top'
+      handlerIn='mouseover'
+      handlerOut='mouseout'
+    }}
+      <div class="tooltip-text">{{tabAction.label}}</div>
+    {{/frost-popover}}
   {{/frost-button}}
 {{/each}}
