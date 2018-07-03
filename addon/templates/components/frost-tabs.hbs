@@ -1,7 +1,7 @@
 <div class="tab-nav" data-test={{hook (concat hook '-tabs') }}>
   {{#if hasBlock}}
     {{yield (hash
-      tab=(component 'frost-tab'
+      tab=(component tabComponent
         parentHook=hook
         targetOutlet=targetOutlet
         selectedTab=selectedTab

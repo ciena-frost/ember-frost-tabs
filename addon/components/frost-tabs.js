@@ -9,6 +9,7 @@ export default Component.extend(PropTypesMixin, {
   layout: layout,
   classNames: ['frost-tabs'],
   classNameBindings: ['design'],
+  tabComponent: '../components/frost-tab',
 
   // == State properties ======================================================
 
