@@ -1,3 +1,8 @@
+# 10.0.1 (2018-07-20)
+
+* **Fixed** Travis API key.
+
+
 # 10.0.0 (2018-06-11)
 * Enhance frost-detail-tab-actions to display actions labels in popover
 
